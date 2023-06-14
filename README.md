@@ -1,0 +1,8 @@
+# Electric-Vehicle-Routing-Problem
+Electric vehicles (EVs) have gained significant attention in recent years as a sustainable solution to reduce greenhouse gas emissions and dependence on fossil fuels. Efficient utilization of EVs involves not only developing advanced battery technologies but also optimizing their routing to maximize their range and minimize energy consumption. The Electric Vehicle Routing Problem (EVRP) addresses the challenge of determining the most efficient routes for a fleet of EVs to serve a set of customer locations while considering their charging requirements.
+
+This project presents the use of genetic algorithms (GAs) to optimize the EVRP. Genetic algorithms are a class of heuristic search algorithms inspired by the process of natural selection and genetics. They offer an effective and flexible approach to solving optimization problems, making them particularly suitable for addressing complex and dynamic routing problems like EVRP.
+
+The primary objectives of this project are to describe the EVRP, establish benchmarking criteria, and evaluate the performance of genetic algorithms in comparison to other state-of-the-art methods. By applying GAs to the EVRP, we aim to achieve optimal routing solutions that consider both the customers’ demands and the limited range of EVs.
+
+The primary source of information I used for this project came from “The Electric Vehicle Routing Problem and its Variations: A Literature Review”, published in “Computers & Industrial Engineering” by Ilker Kucukoglu, Reginald Dewil, and Dirk Cattrysse. This source compiles 136 published papers that consider the routing of battery electric vehicles. We will also be using the same dataset as the one discussed.
