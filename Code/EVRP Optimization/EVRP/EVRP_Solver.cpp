@@ -1,5 +1,5 @@
 #include "EVRP_Solver.h"
-#include "GA\GAOptimizer.h"
+#include "GA\GeneticAlgorithmOptimizer.h"
 
 
 EVRP_Solver::EVRP_Solver()
@@ -16,7 +16,7 @@ EVRP_Solver::EVRP_Solver()
 	float nLocations, temp;
 
 	std::ifstream file;
-	char filename[STR_LEN] = ".\\EVRP\\Data_Sets\\EVRP TW\\c101C5.txt";
+	char filename[STR_LEN] = ".\\EVRP\\Data_Sets\\EVRP TW\\c101c5.txt";
 
 	file.open(filename);
 	if (!file.is_open())
@@ -88,8 +88,8 @@ EVRP_Solver::EVRP_Solver()
 			}
 
 
-			data = EVRP_Data{ nodes, vehicleBatteryCapacity, vehicleLoadCapacity, vehicleFuelConsumptionRate, data.customerStartIndex };
 		}
+		data = EVRP_Data{ nodes, vehicleBatteryCapacity, vehicleLoadCapacity, vehicleFuelConsumptionRate, data.customerStartIndex };
 	}
 	file.close();
 #endif
@@ -99,7 +99,7 @@ EVRP_Solver::EVRP_Solver()
 	{
 		tot_demand += node.demand;
 	}
-	std::cout << "The minimum number of subtours is: " << std::ceil(double(tot_demand) / vehicleLoadCapacity) << std::endl;
+	std::cout << "The minimum number of subtours with only constraint of capacity is: " << std::ceil(double(tot_demand) / vehicleLoadCapacity) << std::endl;
 }
 
 EVRP_Solver::~EVRP_Solver()
@@ -108,11 +108,11 @@ EVRP_Solver::~EVRP_Solver()
 
 std::vector<int> EVRP_Solver::SolveEVRP()
 {
-	GAOptimizer* ga = new GAOptimizer();
+	GeneticAlgorithmOptimizer* ga = new GeneticAlgorithmOptimizer();
 	std::vector<int> optimalTour;
-	int bestFitness;
-	double bestDistance;
-	ga->Optimize(data, optimalTour, bestFitness, bestDistance);
-	std::cout << "There are " << bestFitness << " subtours in this route, with a total distance of this route is: " << bestDistance << std::endl;
+	float bestDistance;
+	ga->Optimize(data, optimalTour, bestDistance);
+	std::cout << "The best route has a distance of: " << bestDistance << std::endl;
 	return optimalTour;
+	
 }

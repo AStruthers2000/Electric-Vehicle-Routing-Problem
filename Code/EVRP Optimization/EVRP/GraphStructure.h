@@ -27,3 +27,10 @@ typedef struct
 	float fuelConsumptionRate;
 	int customerStartIndex;
 } EVRP_Data;
+
+typedef struct
+{
+	std::vector<Node> nodes;
+	int customerStartIndex;
+	class Truck* truck;
+} EVRP_Problem;

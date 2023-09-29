@@ -127,16 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EVRP\ACO\AntColonyOptimizer.h" />
     <ClInclude Include="EVRP\EVRP_Solver.h" />
-    <ClInclude Include="EVRP\GA\GAOptimizer.h" />
     <ClInclude Include="EVRP\GraphStructure.h" />
+    <ClInclude Include="EVRP\Vehicle.h" />
+    <ClInclude Include="EVRP\GA\GeneticAlgorithmOptimizer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EVRP\ACO\AntColonyOptimizer.cpp" />
     <ClCompile Include="EVRP\EVRP Optimization.cpp" />
     <ClCompile Include="EVRP\EVRP_Solver.cpp" />
-    <ClCompile Include="EVRP\GA\GAOptimizer.cpp" />
+    <ClCompile Include="EVRP\Vehicle.cpp" />
+    <ClCompile Include="EVRP\GA\GeneticAlgorithmOptimizer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

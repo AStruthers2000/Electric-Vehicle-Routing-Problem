@@ -15,30 +15,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EVRP\ACO\AntColonyOptimizer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EVRP\GA\GAOptimizer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EVRP\EVRP_Solver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EVRP\GraphStructure.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EVRP\Vehicle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EVRP\GA\GeneticAlgorithmOptimizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EVRP\ACO\AntColonyOptimizer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EVRP\GA\GAOptimizer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EVRP\EVRP Optimization.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EVRP\EVRP_Solver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EVRP\Vehicle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EVRP\GA\GeneticAlgorithmOptimizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
