@@ -1,0 +1,43 @@
+\doxysection{EVRP\+\_\+\+Solver.\+h}
+\hypertarget{_e_v_r_p___solver_8h_source}{}\label{_e_v_r_p___solver_8h_source}\index{EVRP/EVRP\_Solver.h@{EVRP/EVRP\_Solver.h}}
+\mbox{\hyperlink{_e_v_r_p___solver_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_graph_structure_8h}{GraphStructure.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ STR\_LEN\ 256}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ DEBUG\ false}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ VERBOSE\ false}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ OLD\_NOT\_OPTIMIZED\ false}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_e_v_r_p___solver}{EVRP\_Solver}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_e_v_r_p___solver_a442446246c42989318c3fe87ed8779cc}{EVRP\_Solver}}();}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_e_v_r_p___solver_a305d4a59b8d96f91de7579c947d3c702}{\string~EVRP\_Solver}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_e_v_r_p___solver_a3777b9317cda93b045ea3298c44f84bb}{CalculateTotalDistance}}(\textcolor{keyword}{const}\ std::vector<int>\&\ solution)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{class_e_v_r_p___solver_a0ee9e04046364183b3ba80e8d073a7cd}{SolveEVRP}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{double}\ Distance(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\&\ node1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\&\ node2)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ FindNearestServicableNode(std::vector<bool>\ visited,\ \textcolor{keywordtype}{int}\ current,\ \textcolor{keywordtype}{int}\ remaining\_capacity)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ AllNodesVisited(std::vector<bool>\ visited)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ vehicleLoadCapacity;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ vehicleBatteryCapacity;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{float}\ vehicleFuelConsumptionRate;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{struct_e_v_r_p___data}{EVRP\_Data}}\ data;}
+\DoxyCodeLine{00032\ \ \ \ \ std::vector<Node>\ nodes;}
+\DoxyCodeLine{00033\ \ \ \ \ std::vector<Node>\ customerNodes;}
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<Node>\ chargingStationNodes;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{float}\ provided\_solution;}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+
+\end{DoxyCode}

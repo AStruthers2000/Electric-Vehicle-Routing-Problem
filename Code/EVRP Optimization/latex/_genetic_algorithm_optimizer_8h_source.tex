@@ -1,0 +1,30 @@
+\doxysection{Genetic\+Algorithm\+Optimizer.\+h}
+\hypertarget{_genetic_algorithm_optimizer_8h_source}{}\label{_genetic_algorithm_optimizer_8h_source}\index{EVRP/GA/GeneticAlgorithmOptimizer.h@{EVRP/GA/GeneticAlgorithmOptimizer.h}}
+\mbox{\hyperlink{_genetic_algorithm_optimizer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../GraphStructure.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_genetic_algorithm_optimizer_8h_a7ff1b7b64b7f27a97bedfc47248eaa30}{POPULATION\_SIZE}}\ =\ 1000;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_genetic_algorithm_optimizer_8h_add0a7072644c96cf500bb480b711fd54}{MAX\_GENERATIONS}}\ =\ 10000;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_genetic_algorithm_optimizer_8h_ad57fbd0cd3b4d9728a375fbf8dbc1f22}{TOURNAMENT\_SIZE}}\ =\ 10;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_genetic_algorithm_optimizer_8h_acf8fa17c7d610b1e93a118359d065232}{MUTATION\_RATE}}\ =\ 0.2;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_genetic_algorithm_optimizer}{GeneticAlgorithmOptimizer}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_genetic_algorithm_optimizer_afcba32582673d72fe613750a1d4aa36a}{Optimize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_e_v_r_p___data}{EVRP\_Data}}\ data,\ std::vector<int>\&\ bestTour,\ \textcolor{keywordtype}{float}\&\ bestDistance);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ std::vector<int>\ GenerateRandomTour(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ customerStart,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<int>\ TournamentSelection(\textcolor{keyword}{const}\ std::vector<Node>\ nodes,\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ population,\ \textcolor{keyword}{const}\ std::vector<float>\ distances,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ capacity)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<int>\ Crossover(\textcolor{keyword}{const}\ std::vector<int>\ parentTour1,\ \textcolor{keyword}{const}\ std::vector<int>\ parentTour2)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ Mutate(std::vector<int>\&\ child);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ RandomNumberGenerator(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ max)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ ShuffleVector(std::vector<int>\&\ container);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ PrintTour(\textcolor{keyword}{const}\ std::vector<int>\ tour)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+
+\end{DoxyCode}

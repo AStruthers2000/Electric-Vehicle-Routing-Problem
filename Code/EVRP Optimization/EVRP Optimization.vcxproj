@@ -133,7 +133,7 @@
     <ClInclude Include="EVRP\GA\GeneticAlgorithmOptimizer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EVRP\EVRP Optimization.cpp" />
+    <ClCompile Include="EVRP\EVRPOptimization.cpp" />
     <ClCompile Include="EVRP\EVRP_Solver.cpp" />
     <ClCompile Include="EVRP\Vehicle.cpp" />
     <ClCompile Include="EVRP\GA\GeneticAlgorithmOptimizer.cpp" />

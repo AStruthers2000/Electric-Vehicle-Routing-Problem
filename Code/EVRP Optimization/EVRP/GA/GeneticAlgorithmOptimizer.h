@@ -1,7 +1,7 @@
 #pragma once
 #include "../GraphStructure.h"
-constexpr int POPULATION_SIZE = 100;
-constexpr int MAX_GENERATIONS = 1000;
+constexpr int POPULATION_SIZE = 1000;
+constexpr int MAX_GENERATIONS = 10000;
 constexpr int TOURNAMENT_SIZE = 10;
 constexpr float MUTATION_RATE = 0.2;
 

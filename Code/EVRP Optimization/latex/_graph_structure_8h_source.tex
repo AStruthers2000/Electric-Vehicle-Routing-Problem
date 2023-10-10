@@ -1,0 +1,42 @@
+\doxysection{Graph\+Structure.\+h}
+\hypertarget{_graph_structure_8h_source}{}\label{_graph_structure_8h_source}\index{EVRP/GraphStructure.h@{EVRP/GraphStructure.h}}
+\mbox{\hyperlink{_graph_structure_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <numeric>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_node_a1082fca4b71cc3cc02d78c35108f9059}{x}};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_node_a441d3c5ba86597f4c391408d9fe6d242}{y}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_node_a743d222e005f1160358a82d9329e5191}{demand}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_node_afecbae2c7205de41b07f6328bcc58704}{isCharger}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_node_ac8055cdbda20cacce417192557741ab8}{index}};}
+\DoxyCodeLine{00020\ \}\ \mbox{\hyperlink{struct_node}{Node}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<Node>\ \mbox{\hyperlink{struct_e_v_r_p___data_acc8c7505937e58df795136f100694388}{nodes}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_e_v_r_p___data_ae0477139e4f9183e510c1dcaed678d52}{fuelCapacity}};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_e_v_r_p___data_ab01f753d693662a727c4ee4883562ab5}{loadCapacity}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_e_v_r_p___data_a3247aec6a1df0649f885203e76ec9e9b}{fuelConsumptionRate}};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_e_v_r_p___data_a0d2cbe267f074354fec4678a7585c080}{customerStartIndex}};}
+\DoxyCodeLine{00029\ \}\ \mbox{\hyperlink{struct_e_v_r_p___data}{EVRP\_Data}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ std::vector<Node>\ \mbox{\hyperlink{struct_e_v_r_p___problem_aa2678520d617c5cb783c9e549c886021}{nodes}};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_e_v_r_p___problem_ace07355ff0a49725328c8bc393f20f3c}{customerStartIndex}};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{class\ }Truck*\ \mbox{\hyperlink{struct_e_v_r_p___problem_a41c6231c5224cfaf63336f7ffa6c1e67}{truck}};}
+\DoxyCodeLine{00036\ \}\ \mbox{\hyperlink{struct_e_v_r_p___problem}{EVRP\_Problem}};}
+
+\end{DoxyCode}

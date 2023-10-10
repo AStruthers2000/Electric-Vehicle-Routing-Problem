@@ -29,7 +29,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EVRP\EVRP Optimization.cpp">
+    <ClCompile Include="EVRP\EVRPOptimization.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EVRP\EVRP_Solver.cpp">
