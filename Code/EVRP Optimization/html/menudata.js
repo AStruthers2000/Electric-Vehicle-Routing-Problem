@@ -47,8 +47,7 @@ var menudata={children:[
 {text:"t",url:"functions.html#index_t"},
 {text:"v",url:"functions.html#index_v"},
 {text:"x",url:"functions.html#index_x"},
-{text:"y",url:"functions.html#index_y"},
-{text:"~",url:"functions.html#index__7E"}]},
+{text:"y",url:"functions.html#index_y"}]},
 {text:"Functions",url:"functions_func.html"},
 {text:"Variables",url:"functions_vars.html"}]}]},
 {text:"Files",url:"files.html",children:[

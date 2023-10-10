@@ -7,5 +7,5 @@ var class_genetic_algorithm_optimizer =
     [ "PrintTour", "class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690", null ],
     [ "RandomNumberGenerator", "class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266", null ],
     [ "ShuffleVector", "class_genetic_algorithm_optimizer.html#ad3816f18162ad940c6170c1035caed20", null ],
-    [ "TournamentSelection", "class_genetic_algorithm_optimizer.html#a5504edf839c64fcc014319e5ad677403", null ]
+    [ "TournamentSelection", "class_genetic_algorithm_optimizer.html#a62561f101458303dbe4115ba1a7f8a8e", null ]
 ];

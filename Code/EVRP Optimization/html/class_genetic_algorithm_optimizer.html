@@ -109,8 +109,8 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a7c52b9de9fe5cabcb7d114db320247a9" id="r_a7c52b9de9fe5cabcb7d114db320247a9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genetic_algorithm_optimizer.html#a7c52b9de9fe5cabcb7d114db320247a9">GenerateRandomTour</a> (const int customerStart, const int size)</td></tr>
 <tr class="separator:a7c52b9de9fe5cabcb7d114db320247a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5504edf839c64fcc014319e5ad677403" id="r_a5504edf839c64fcc014319e5ad677403"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genetic_algorithm_optimizer.html#a5504edf839c64fcc014319e5ad677403">TournamentSelection</a> (const std::vector&lt; <a class="el" href="_graph_structure_8h.html#struct_node">Node</a> &gt; nodes, const std::vector&lt; std::vector&lt; int &gt; &gt; population, const std::vector&lt; float &gt; distances, const int capacity) const</td></tr>
-<tr class="separator:a5504edf839c64fcc014319e5ad677403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62561f101458303dbe4115ba1a7f8a8e" id="r_a62561f101458303dbe4115ba1a7f8a8e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genetic_algorithm_optimizer.html#a62561f101458303dbe4115ba1a7f8a8e">TournamentSelection</a> (const std::vector&lt; std::vector&lt; int &gt; &gt; population, const std::vector&lt; float &gt; distances) const</td></tr>
+<tr class="separator:a62561f101458303dbe4115ba1a7f8a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a2e83dd5283663993e61c6acf4979de" id="r_a4a2e83dd5283663993e61c6acf4979de"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genetic_algorithm_optimizer.html#a4a2e83dd5283663993e61c6acf4979de">Crossover</a> (const std::vector&lt; int &gt; parentTour1, const std::vector&lt; int &gt; parentTour2) const</td></tr>
 <tr class="separator:a4a2e83dd5283663993e61c6acf4979de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5222051d64b827992aeae1d678f7596" id="r_af5222051d64b827992aeae1d678f7596"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genetic_algorithm_optimizer.html#af5222051d64b827992aeae1d678f7596">Mutate</a> (std::vector&lt; int &gt; &amp;child)</td></tr>
@@ -156,43 +156,53 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  111</span>{</div>
-<div class="line"><span class="lineno">  112</span>    <span class="comment">// Create a child vector with the same size as the parents</span></div>
-<div class="line"><span class="lineno">  113</span>    std::vector&lt;int&gt; child(parentTour1.size());</div>
-<div class="line"><span class="lineno">  114</span> </div>
-<div class="line"><span class="lineno">  115</span>    <span class="comment">// Copy a random subset of elements from parent1 to the child</span></div>
-<div class="line"><span class="lineno">  116</span>    <span class="keywordtype">int</span> crossoverPoint = rand() % parentTour1.size();</div>
-<div class="line"><span class="lineno">  117</span>    std::copy(parentTour1.begin(), parentTour1.begin() + crossoverPoint, child.begin());</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>    <span class="comment">// Fill the remaining elements in the child with unique elements from parent2</span></div>
-<div class="line"><span class="lineno">  120</span>    <span class="keywordtype">int</span> childIndex = crossoverPoint;</div>
-<div class="line"><span class="lineno">  121</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; parentTour2.size(); ++i)</div>
-<div class="line"><span class="lineno">  122</span>    {</div>
-<div class="line"><span class="lineno">  123</span>        <span class="keywordtype">int</span> element = parentTour2[i];</div>
-<div class="line"><span class="lineno">  124</span>        <span class="comment">// Check if the element is already present in the child</span></div>
-<div class="line"><span class="lineno">  125</span>        <span class="keywordflow">if</span> (std::find(child.begin(), child.end(), element) == child.end())</div>
-<div class="line"><span class="lineno">  126</span>        {</div>
-<div class="line"><span class="lineno">  127</span>            child[childIndex] = element;</div>
-<div class="line"><span class="lineno">  128</span>            ++childIndex;</div>
-<div class="line"><span class="lineno">  129</span>        }</div>
-<div class="line"><span class="lineno">  130</span>    }</div>
-<div class="line"><span class="lineno">  131</span>    <span class="comment">//this is to assert that the child doesn&#39;t contain any duplicates</span></div>
-<div class="line"><span class="lineno">  132</span>    std::set&lt;int&gt; unique_s(child.begin(), child.end());</div>
-<div class="line"><span class="lineno">  133</span>    std::vector&lt;int&gt; unique_v(unique_s.begin(), unique_s.end());</div>
-<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; unique_v.size() - 1; i++)</div>
-<div class="line"><span class="lineno">  135</span>    {</div>
-<div class="line"><span class="lineno">  136</span>        <span class="keywordflow">if</span> (unique_v[i] + 1 != unique_v[i + 1])</div>
-<div class="line"><span class="lineno">  137</span>        {</div>
-<div class="line"><span class="lineno">  138</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;\n\n\nERROR IN CROSSOVER!!!!\n\n\n&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  139</span>            <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">PrintTour</a>(child);</div>
-<div class="line"><span class="lineno">  140</span>            <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">PrintTour</a>(unique_v);</div>
-<div class="line"><span class="lineno">  141</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;\n\n\n======================\n\n\n&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  142</span>        }</div>
-<div class="line"><span class="lineno">  143</span>    }</div>
-<div class="line"><span class="lineno">  144</span> </div>
-<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">return</span> child;</div>
-<div class="line"><span class="lineno">  146</span>}</div>
-<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_ab458d6cdee0af3951257fc27a2614690"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">GeneticAlgorithmOptimizer::PrintTour</a></div><div class="ttdeci">void PrintTour(const std::vector&lt; int &gt; tour) const</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:186</div></div>
+<p>Critical element of the Genetic Algorithm.</p>
+<p>Crossover performs Single Point Crossover, where a random number of elements are selected from the first parent, then the rest of the elements are filled by unique elements of the second parent</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentTour1</td><td>The first parent solution we will perform crossover on </td></tr>
+    <tr><td class="paramname">parentTour2</td><td>The second parent solution for the crossover algorithm</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A unique element crossover of parent1 and parent2. This vector should contain an unmodified subset of parent1, with the remaining indices filled with unique elements from parent2 </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  147</span>{</div>
+<div class="line"><span class="lineno">  148</span>    <span class="comment">// Create a child vector with the same size as the parents</span></div>
+<div class="line"><span class="lineno">  149</span>    std::vector&lt;int&gt; child(parentTour1.size());</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>    <span class="comment">// Copy a random subset of elements from parent1 to the child</span></div>
+<div class="line"><span class="lineno">  152</span>    <span class="keywordtype">int</span> crossoverPoint = rand() % parentTour1.size();</div>
+<div class="line"><span class="lineno">  153</span>    std::copy(parentTour1.begin(), parentTour1.begin() + crossoverPoint, child.begin());</div>
+<div class="line"><span class="lineno">  154</span> </div>
+<div class="line"><span class="lineno">  155</span>    <span class="comment">// Fill the remaining elements in the child with unique elements from parent2</span></div>
+<div class="line"><span class="lineno">  156</span>    <span class="keywordtype">int</span> childIndex = crossoverPoint;</div>
+<div class="line"><span class="lineno">  157</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; parentTour2.size(); ++i)</div>
+<div class="line"><span class="lineno">  158</span>    {</div>
+<div class="line"><span class="lineno">  159</span>        <span class="keywordtype">int</span> element = parentTour2[i];</div>
+<div class="line"><span class="lineno">  160</span>        <span class="comment">// Check if the element is already present in the child</span></div>
+<div class="line"><span class="lineno">  161</span>        <span class="keywordflow">if</span> (std::find(child.begin(), child.end(), element) == child.end())</div>
+<div class="line"><span class="lineno">  162</span>        {</div>
+<div class="line"><span class="lineno">  163</span>            child[childIndex] = element;</div>
+<div class="line"><span class="lineno">  164</span>            ++childIndex;</div>
+<div class="line"><span class="lineno">  165</span>        }</div>
+<div class="line"><span class="lineno">  166</span>    }</div>
+<div class="line"><span class="lineno">  167</span>    <span class="comment">//this is to assert that the child doesn&#39;t contain any duplicates (i.e. the crossover algorithm didn&#39;t preserve uniqueness of the elements)</span></div>
+<div class="line"><span class="lineno">  168</span>    std::set&lt;int&gt; unique_s(child.begin(), child.end());</div>
+<div class="line"><span class="lineno">  169</span>    std::vector&lt;int&gt; unique_v(unique_s.begin(), unique_s.end());</div>
+<div class="line"><span class="lineno">  170</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; unique_v.size() - 1; i++)</div>
+<div class="line"><span class="lineno">  171</span>    {</div>
+<div class="line"><span class="lineno">  172</span>        <span class="keywordflow">if</span> (unique_v[i] + 1 != unique_v[i + 1])</div>
+<div class="line"><span class="lineno">  173</span>        {</div>
+<div class="line"><span class="lineno">  174</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;\n\n\nERROR IN CROSSOVER!!!!\n\n\n&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  175</span>            <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">PrintTour</a>(child);</div>
+<div class="line"><span class="lineno">  176</span>            <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">PrintTour</a>(unique_v);</div>
+<div class="line"><span class="lineno">  177</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;\n\n\n======================\n\n\n&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  178</span>        }</div>
+<div class="line"><span class="lineno">  179</span>    }</div>
+<div class="line"><span class="lineno">  180</span> </div>
+<div class="line"><span class="lineno">  181</span>    <span class="keywordflow">return</span> child;</div>
+<div class="line"><span class="lineno">  182</span>}</div>
+<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_ab458d6cdee0af3951257fc27a2614690"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">GeneticAlgorithmOptimizer::PrintTour</a></div><div class="ttdeci">void PrintTour(const std::vector&lt; int &gt; tour) const</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:260</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">PrintTour()</a>.</p>
 
@@ -231,16 +241,26 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  169</span>{</div>
-<div class="line"><span class="lineno">  170</span>    std::vector&lt;int&gt; tour(size);</div>
-<div class="line"><span class="lineno">  171</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = customerStart; i &lt; customerStart + size; i++)</div>
-<div class="line"><span class="lineno">  172</span>    {</div>
-<div class="line"><span class="lineno">  173</span>        tour[i - customerStart] = i;</div>
-<div class="line"><span class="lineno">  174</span>    }</div>
-<div class="line"><span class="lineno">  175</span>    <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ad3816f18162ad940c6170c1035caed20">ShuffleVector</a>(tour);</div>
-<div class="line"><span class="lineno">  176</span>    <span class="keywordflow">return</span> tour;</div>
-<div class="line"><span class="lineno">  177</span>}</div>
-<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_ad3816f18162ad940c6170c1035caed20"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#ad3816f18162ad940c6170c1035caed20">GeneticAlgorithmOptimizer::ShuffleVector</a></div><div class="ttdeci">void ShuffleVector(std::vector&lt; int &gt; &amp;container)</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:179</div></div>
+<p>Helper functions used in the Genetic Algorithm code.</p>
+<p>Generates a random tour through all customer nodes, represented by index number.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">customerStart</td><td>The index representing the first customer node. When we read all nodes from the file, index 0 = depot node, and then there are some amount of charging nodes. We only care about generating indices for customer nodes </td></tr>
+    <tr><td class="paramname">size</td><td>The number of total nodes in the list of all nodes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of node indices (ints) starting with customerStart and going to customerStart + size </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  227</span>{</div>
+<div class="line"><span class="lineno">  228</span>    std::vector&lt;int&gt; tour(size);</div>
+<div class="line"><span class="lineno">  229</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = customerStart; i &lt; customerStart + size; i++)</div>
+<div class="line"><span class="lineno">  230</span>    {</div>
+<div class="line"><span class="lineno">  231</span>        tour[i - customerStart] = i;</div>
+<div class="line"><span class="lineno">  232</span>    }</div>
+<div class="line"><span class="lineno">  233</span>    <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ad3816f18162ad940c6170c1035caed20">ShuffleVector</a>(tour);</div>
+<div class="line"><span class="lineno">  234</span>    <span class="keywordflow">return</span> tour;</div>
+<div class="line"><span class="lineno">  235</span>}</div>
+<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_ad3816f18162ad940c6170c1035caed20"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#ad3816f18162ad940c6170c1035caed20">GeneticAlgorithmOptimizer::ShuffleVector</a></div><div class="ttdeci">void ShuffleVector(std::vector&lt; int &gt; &amp;container)</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:246</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="class_genetic_algorithm_optimizer.html#ad3816f18162ad940c6170c1035caed20">ShuffleVector()</a>.</p>
 
@@ -269,12 +289,20 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  149</span>{</div>
-<div class="line"><span class="lineno">  150</span>    <span class="keywordtype">int</span> index1 = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266">RandomNumberGenerator</a>(0, child.size() - 1);</div>
-<div class="line"><span class="lineno">  151</span>    <span class="keywordtype">int</span> index2 = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266">RandomNumberGenerator</a>(0, child.size() - 1);</div>
-<div class="line"><span class="lineno">  152</span>    std::swap(child[index1], child[index2]);</div>
-<div class="line"><span class="lineno">  153</span>}</div>
-<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_ad96b8666e9cf93d0b3e537f816810266"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266">GeneticAlgorithmOptimizer::RandomNumberGenerator</a></div><div class="ttdeci">int RandomNumberGenerator(const int min, const int max) const</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:159</div></div>
+<p>Critical element of the Genetic Algorithm.</p>
+<p>Mutate performs a single node swap.This mutation only happens with a <a class="el" href="_genetic_algorithm_optimizer_8h.html#acf8fa17c7d610b1e93a118359d065232">MUTATION_RATE</a> percent chance per child</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">child</td><td>The solution that needs to be mutated </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">  192</span>{</div>
+<div class="line"><span class="lineno">  193</span>    <span class="keywordtype">int</span> index1 = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266">RandomNumberGenerator</a>(0, child.size() - 1);</div>
+<div class="line"><span class="lineno">  194</span>    <span class="keywordtype">int</span> index2 = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266">RandomNumberGenerator</a>(0, child.size() - 1);</div>
+<div class="line"><span class="lineno">  195</span>    std::swap(child[index1], child[index2]);</div>
+<div class="line"><span class="lineno">  196</span>}</div>
+<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_ad96b8666e9cf93d0b3e537f816810266"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266">GeneticAlgorithmOptimizer::RandomNumberGenerator</a></div><div class="ttdeci">int RandomNumberGenerator(const int min, const int max) const</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:208</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266">RandomNumberGenerator()</a>.</p>
 
@@ -311,72 +339,86 @@ Private Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   15</span>{</div>
-<div class="line"><span class="lineno">   16</span>    <a class="code hl_class" href="class_vehicle.html">Vehicle</a>* vehicle = <span class="keyword">new</span> <a class="code hl_class" href="class_vehicle.html">Vehicle</a>(data.<a class="code hl_variable" href="_graph_structure_8h.html#acc8c7505937e58df795136f100694388">nodes</a>, data.<a class="code hl_variable" href="_graph_structure_8h.html#ae0477139e4f9183e510c1dcaed678d52">fuelCapacity</a>, data.<a class="code hl_variable" href="_graph_structure_8h.html#ab01f753d693662a727c4ee4883562ab5">loadCapacity</a>, data.<a class="code hl_variable" href="_graph_structure_8h.html#a3247aec6a1df0649f885203e76ec9e9b">fuelConsumptionRate</a>);</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>    std::vector&lt;std::vector&lt;int&gt;&gt; population;</div>
-<div class="line"><span class="lineno">   19</span>    std::vector&lt;float&gt; tourDistances;</div>
-<div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>    <span class="comment">//generate initial population and fitnesses</span></div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a>; i++)</div>
-<div class="line"><span class="lineno">   23</span>    {</div>
-<div class="line"><span class="lineno">   24</span>        std::vector&lt;int&gt; initialTour = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#a7c52b9de9fe5cabcb7d114db320247a9">GenerateRandomTour</a>(data.<a class="code hl_variable" href="_graph_structure_8h.html#a0d2cbe267f074354fec4678a7585c080">customerStartIndex</a>, (data.<a class="code hl_variable" href="_graph_structure_8h.html#acc8c7505937e58df795136f100694388">nodes</a>.size() - data.<a class="code hl_variable" href="_graph_structure_8h.html#a0d2cbe267f074354fec4678a7585c080">customerStartIndex</a>));</div>
-<div class="line"><span class="lineno">   25</span>        <span class="keywordtype">float</span> tourDistance = vehicle-&gt;<a class="code hl_function" href="class_vehicle.html#a745391430123365c9ea17cbc8a2981d5">SimulateDrive</a>(initialTour);</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>        population.push_back(initialTour);</div>
-<div class="line"><span class="lineno">   28</span>        tourDistances.push_back(tourDistance);</div>
-<div class="line"><span class="lineno">   29</span>    }</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    <span class="comment">//iterate for MAX_GENERATIONS generations</span></div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> generation = 0; generation &lt; <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#add0a7072644c96cf500bb480b711fd54">MAX_GENERATIONS</a>; generation++)</div>
-<div class="line"><span class="lineno">   33</span>    {</div>
-<div class="line"><span class="lineno">   34</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Currently calculating generation: &quot;</span> &lt;&lt; generation &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>        std::vector&lt;std::vector&lt;int&gt;&gt; newPopulation;</div>
-<div class="line"><span class="lineno">   37</span>        std::vector&lt;float&gt; newDistances;</div>
-<div class="line"><span class="lineno">   38</span> </div>
-<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a>; i++)</div>
-<div class="line"><span class="lineno">   40</span>        {</div>
-<div class="line"><span class="lineno">   41</span>            <span class="comment">//select parents</span></div>
-<div class="line"><span class="lineno">   42</span>            <span class="comment">//perform crossover between parents</span></div>
-<div class="line"><span class="lineno">   43</span>            <span class="comment">//mutate child</span></div>
-<div class="line"><span class="lineno">   44</span>            std::vector&lt;int&gt; parentTour1 = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#a5504edf839c64fcc014319e5ad677403">TournamentSelection</a>(data.<a class="code hl_variable" href="_graph_structure_8h.html#acc8c7505937e58df795136f100694388">nodes</a>, population, tourDistances, data.<a class="code hl_variable" href="_graph_structure_8h.html#ab01f753d693662a727c4ee4883562ab5">loadCapacity</a>);</div>
-<div class="line"><span class="lineno">   45</span>            std::vector&lt;int&gt; parentTour2 = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#a5504edf839c64fcc014319e5ad677403">TournamentSelection</a>(data.<a class="code hl_variable" href="_graph_structure_8h.html#acc8c7505937e58df795136f100694388">nodes</a>, population, tourDistances, data.<a class="code hl_variable" href="_graph_structure_8h.html#ab01f753d693662a727c4ee4883562ab5">loadCapacity</a>);</div>
-<div class="line"><span class="lineno">   46</span>            std::vector&lt;int&gt; childTour = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#a4a2e83dd5283663993e61c6acf4979de">Crossover</a>(parentTour1, parentTour2);</div>
-<div class="line"><span class="lineno">   47</span>            <span class="keywordflow">if</span> (std::rand() &lt;= <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#acf8fa17c7d610b1e93a118359d065232">MUTATION_RATE</a>)</div>
-<div class="line"><span class="lineno">   48</span>            {</div>
-<div class="line"><span class="lineno">   49</span>                <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#af5222051d64b827992aeae1d678f7596">Mutate</a>(childTour);</div>
-<div class="line"><span class="lineno">   50</span>            }</div>
+<p>Core of the Genetic Algorithm. This function instanciates a <a class="el" href="class_vehicle.html">Vehicle</a>, that will simulate driving each of the routes, as well as vectors that will hold the current generation and their fitnesses. The function first creates a population of <a class="el" href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a> by randomly generating valid tours through each of the customer nodes and calculates the fitness of each. Then the code iterates for <a class="el" href="_genetic_algorithm_optimizer_8h.html#add0a7072644c96cf500bb480b711fd54">MAX_GENERATIONS</a> iterations, performing Tournament Selection, Single Point Crossover, and Mutation to generate a new population of <a class="el" href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a>. Fitnesses of each of the children are calculated via the <a class="el" href="class_vehicle.html">Vehicle</a> class. At the end of the generations, the child with the lowest fitness is returned. The tour with the lowest distance at the end of <a class="el" href="_genetic_algorithm_optimizer_8h.html#add0a7072644c96cf500bb480b711fd54">MAX_GENERATIONS</a> should be the most optimal route through each of the customer nodes.</p>
+<p>Each tour is represented by a vector of ints, where each int is the index of a customer node in the vector of all nodes. We only consider solutions that include 1 of each customer node as "valid" due to the restrictions of the EVRP. Since there is no requirement to visit each of the charging stations or the depot if we don't have to, solutions take the form of the order in which the <a class="el" href="class_vehicle.html">Vehicle</a> should visit each customer node. The <a class="el" href="class_vehicle.html">Vehicle</a> class will take the proposed tour and calculate the true distance of that route through simulation, stopping at a charging station or the depot whenever the proposed route demands it (ran out of inventory or needs to recharge battery before getting stranded).</p>
+<p>The fitness of each solution is represented by the true distance of the route as simulated by the <a class="el" href="class_vehicle.html">Vehicle</a> class. We seek to minimize the true distance through a Genetic Algorithm approach.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>This is a reference to the <a class="el" href="_graph_structure_8h.html#struct_e_v_r_p___data">EVRP_Data</a> struct that contains all information regarding the current EVRP </td></tr>
+    <tr><td class="paramname">bestTour</td><td>An out parameter that will represent the best tour upon completion of this function </td></tr>
+    <tr><td class="paramname">bestDistance</td><td>An out parameter for the true distance of the best tour </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>{</div>
+<div class="line"><span class="lineno">   34</span>    <span class="comment">//Vehicle class used to calculate the fitness of each route. Initialized with each Node, the vehicle&#39;s batter capacity, load capacity, and battery consumption rate</span></div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_class" href="class_vehicle.html">Vehicle</a>* vehicle = <span class="keyword">new</span> <a class="code hl_class" href="class_vehicle.html">Vehicle</a>(data.<a class="code hl_variable" href="_graph_structure_8h.html#acc8c7505937e58df795136f100694388">nodes</a>, data.<a class="code hl_variable" href="_graph_structure_8h.html#ae0477139e4f9183e510c1dcaed678d52">fuelCapacity</a>, data.<a class="code hl_variable" href="_graph_structure_8h.html#ab01f753d693662a727c4ee4883562ab5">loadCapacity</a>, data.<a class="code hl_variable" href="_graph_structure_8h.html#a3247aec6a1df0649f885203e76ec9e9b">fuelConsumptionRate</a>);</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>    std::vector&lt;std::vector&lt;int&gt;&gt; population;</div>
+<div class="line"><span class="lineno">   38</span>    std::vector&lt;float&gt; tourDistances;</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>    <span class="comment">//generate initial population and fitnesses</span></div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a>; i++)</div>
+<div class="line"><span class="lineno">   42</span>    {</div>
+<div class="line"><span class="lineno">   43</span>        <span class="comment">//Generate initial solutions, then calculate the fitnesses using the Vehicle.SimulateDrive()</span></div>
+<div class="line"><span class="lineno">   44</span>        std::vector&lt;int&gt; initialTour = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#a7c52b9de9fe5cabcb7d114db320247a9">GenerateRandomTour</a>(data.<a class="code hl_variable" href="_graph_structure_8h.html#a0d2cbe267f074354fec4678a7585c080">customerStartIndex</a>, (data.<a class="code hl_variable" href="_graph_structure_8h.html#acc8c7505937e58df795136f100694388">nodes</a>.size() - data.<a class="code hl_variable" href="_graph_structure_8h.html#a0d2cbe267f074354fec4678a7585c080">customerStartIndex</a>));</div>
+<div class="line"><span class="lineno">   45</span>        <span class="keywordtype">float</span> tourDistance = vehicle-&gt;<a class="code hl_function" href="class_vehicle.html#a745391430123365c9ea17cbc8a2981d5">SimulateDrive</a>(initialTour);</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>        <span class="comment">//Add the initial solutions and initial distances (fitness of solution) to respective vectors</span></div>
+<div class="line"><span class="lineno">   48</span>        population.push_back(initialTour);</div>
+<div class="line"><span class="lineno">   49</span>        tourDistances.push_back(tourDistance);</div>
+<div class="line"><span class="lineno">   50</span>    }</div>
 <div class="line"><span class="lineno">   51</span> </div>
-<div class="line"><span class="lineno">   52</span>            <span class="comment">//add child to new population and calculate new fitness </span></div>
-<div class="line"><span class="lineno">   53</span>            <span class="keywordtype">float</span> tourDistance = vehicle-&gt;<a class="code hl_function" href="class_vehicle.html#a745391430123365c9ea17cbc8a2981d5">SimulateDrive</a>(childTour);</div>
-<div class="line"><span class="lineno">   54</span> </div>
-<div class="line"><span class="lineno">   55</span>            newPopulation.push_back(childTour);</div>
-<div class="line"><span class="lineno">   56</span>            newDistances.push_back(tourDistance);</div>
-<div class="line"><span class="lineno">   57</span> </div>
-<div class="line"><span class="lineno">   58</span>        }</div>
-<div class="line"><span class="lineno">   59</span>        population = newPopulation;</div>
-<div class="line"><span class="lineno">   60</span>        tourDistances = newDistances;</div>
-<div class="line"><span class="lineno">   61</span>    }</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>    <span class="comment">//select the best tour after MAX_GENERATIONS generations</span></div>
-<div class="line"><span class="lineno">   64</span>    bestDistance = std::numeric_limits&lt;double&gt;::max();</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a>; i++)</div>
-<div class="line"><span class="lineno">   66</span>    {</div>
-<div class="line"><span class="lineno">   67</span>        std::vector&lt;int&gt; tour = population[i];</div>
-<div class="line"><span class="lineno">   68</span> </div>
-<div class="line"><span class="lineno">   69</span>        <span class="keywordtype">float</span> distance = tourDistances[i];</div>
-<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">if</span> (distance &lt; bestDistance)</div>
-<div class="line"><span class="lineno">   71</span>        {</div>
-<div class="line"><span class="lineno">   72</span>            bestTour = tour;</div>
-<div class="line"><span class="lineno">   73</span>            bestDistance = distance;</div>
-<div class="line"><span class="lineno">   74</span>        }</div>
-<div class="line"><span class="lineno">   75</span>    }</div>
-<div class="line"><span class="lineno">   76</span> </div>
-<div class="line"><span class="lineno">   77</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Best tour: &quot;</span>;</div>
-<div class="line"><span class="lineno">   78</span>    <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">PrintTour</a>(bestTour);</div>
-<div class="line"><span class="lineno">   79</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;The best tour has distance breakdown: &quot;</span> &lt;&lt; vehicle-&gt;<a class="code hl_function" href="class_vehicle.html#a745391430123365c9ea17cbc8a2981d5">SimulateDrive</a>(bestTour, <span class="keyword">true</span>) &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   80</span>}</div>
+<div class="line"><span class="lineno">   52</span>    <span class="comment">//iterate for #MAX_GENERATIONS generations</span></div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> generation = 0; generation &lt; <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#add0a7072644c96cf500bb480b711fd54">MAX_GENERATIONS</a>; generation++)</div>
+<div class="line"><span class="lineno">   54</span>    {</div>
+<div class="line"><span class="lineno">   55</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Currently calculating generation: &quot;</span> &lt;&lt; generation &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   57</span>        std::vector&lt;std::vector&lt;int&gt;&gt; newPopulation;</div>
+<div class="line"><span class="lineno">   58</span>        std::vector&lt;float&gt; newDistances;</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a>; i++)</div>
+<div class="line"><span class="lineno">   61</span>        {</div>
+<div class="line"><span class="lineno">   62</span>            <span class="comment">//select parents</span></div>
+<div class="line"><span class="lineno">   63</span>            <span class="comment">//perform crossover between parents</span></div>
+<div class="line"><span class="lineno">   64</span>            <span class="comment">//mutate child</span></div>
+<div class="line"><span class="lineno">   65</span>            std::vector&lt;int&gt; parentTour1 = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#a62561f101458303dbe4115ba1a7f8a8e">TournamentSelection</a>(population, tourDistances);</div>
+<div class="line"><span class="lineno">   66</span>            std::vector&lt;int&gt; parentTour2 = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#a62561f101458303dbe4115ba1a7f8a8e">TournamentSelection</a>(population, tourDistances);</div>
+<div class="line"><span class="lineno">   67</span>            std::vector&lt;int&gt; childTour = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#a4a2e83dd5283663993e61c6acf4979de">Crossover</a>(parentTour1, parentTour2);</div>
+<div class="line"><span class="lineno">   68</span>            <span class="keywordflow">if</span> (std::rand() &lt;= <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#acf8fa17c7d610b1e93a118359d065232">MUTATION_RATE</a>)</div>
+<div class="line"><span class="lineno">   69</span>            {</div>
+<div class="line"><span class="lineno">   70</span>                <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#af5222051d64b827992aeae1d678f7596">Mutate</a>(childTour);</div>
+<div class="line"><span class="lineno">   71</span>            }</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>            <span class="comment">//add child to new population and calculate new fitness </span></div>
+<div class="line"><span class="lineno">   74</span>            <span class="keywordtype">float</span> tourDistance = vehicle-&gt;<a class="code hl_function" href="class_vehicle.html#a745391430123365c9ea17cbc8a2981d5">SimulateDrive</a>(childTour);</div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>            newPopulation.push_back(childTour);</div>
+<div class="line"><span class="lineno">   77</span>            newDistances.push_back(tourDistance);</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>        }</div>
+<div class="line"><span class="lineno">   80</span>        population = newPopulation;</div>
+<div class="line"><span class="lineno">   81</span>        tourDistances = newDistances;</div>
+<div class="line"><span class="lineno">   82</span>    }</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>    <span class="comment">//select the best tour after #MAX_GENERATIONS generations</span></div>
+<div class="line"><span class="lineno">   85</span>    bestDistance = std::numeric_limits&lt;double&gt;::max();</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a>; i++)</div>
+<div class="line"><span class="lineno">   87</span>    {</div>
+<div class="line"><span class="lineno">   88</span>        std::vector&lt;int&gt; tour = population[i];</div>
+<div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   90</span>        <span class="keywordtype">float</span> distance = tourDistances[i];</div>
+<div class="line"><span class="lineno">   91</span>        <span class="keywordflow">if</span> (distance &lt; bestDistance)</div>
+<div class="line"><span class="lineno">   92</span>        {</div>
+<div class="line"><span class="lineno">   93</span>            bestTour = tour;</div>
+<div class="line"><span class="lineno">   94</span>            bestDistance = distance;</div>
+<div class="line"><span class="lineno">   95</span>        }</div>
+<div class="line"><span class="lineno">   96</span>    }</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Best tour: &quot;</span>;</div>
+<div class="line"><span class="lineno">   99</span>    <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">PrintTour</a>(bestTour);</div>
+<div class="line"><span class="lineno">  100</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;The best tour has distance breakdown: &quot;</span> &lt;&lt; vehicle-&gt;<a class="code hl_function" href="class_vehicle.html#a745391430123365c9ea17cbc8a2981d5">SimulateDrive</a>(bestTour, <span class="keyword">true</span>) &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  101</span>}</div>
 <div class="ttc" id="a_genetic_algorithm_optimizer_8h_html_a7ff1b7b64b7f27a97bedfc47248eaa30"><div class="ttname"><a href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a></div><div class="ttdeci">constexpr int POPULATION_SIZE</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.h:3</div></div>
 <div class="ttc" id="a_genetic_algorithm_optimizer_8h_html_acf8fa17c7d610b1e93a118359d065232"><div class="ttname"><a href="_genetic_algorithm_optimizer_8h.html#acf8fa17c7d610b1e93a118359d065232">MUTATION_RATE</a></div><div class="ttdeci">constexpr float MUTATION_RATE</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.h:6</div></div>
 <div class="ttc" id="a_genetic_algorithm_optimizer_8h_html_add0a7072644c96cf500bb480b711fd54"><div class="ttname"><a href="_genetic_algorithm_optimizer_8h.html#add0a7072644c96cf500bb480b711fd54">MAX_GENERATIONS</a></div><div class="ttdeci">constexpr int MAX_GENERATIONS</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.h:4</div></div>
@@ -385,14 +427,14 @@ Private Member Functions</h2></td></tr>
 <div class="ttc" id="a_graph_structure_8h_html_ab01f753d693662a727c4ee4883562ab5"><div class="ttname"><a href="_graph_structure_8h.html#ab01f753d693662a727c4ee4883562ab5">EVRP_Data::loadCapacity</a></div><div class="ttdeci">int loadCapacity</div><div class="ttdef"><b>Definition</b> GraphStructure.h:40</div></div>
 <div class="ttc" id="a_graph_structure_8h_html_acc8c7505937e58df795136f100694388"><div class="ttname"><a href="_graph_structure_8h.html#acc8c7505937e58df795136f100694388">EVRP_Data::nodes</a></div><div class="ttdeci">std::vector&lt; Node &gt; nodes</div><div class="ttdef"><b>Definition</b> GraphStructure.h:38</div></div>
 <div class="ttc" id="a_graph_structure_8h_html_ae0477139e4f9183e510c1dcaed678d52"><div class="ttname"><a href="_graph_structure_8h.html#ae0477139e4f9183e510c1dcaed678d52">EVRP_Data::fuelCapacity</a></div><div class="ttdeci">float fuelCapacity</div><div class="ttdef"><b>Definition</b> GraphStructure.h:39</div></div>
-<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_a4a2e83dd5283663993e61c6acf4979de"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#a4a2e83dd5283663993e61c6acf4979de">GeneticAlgorithmOptimizer::Crossover</a></div><div class="ttdeci">std::vector&lt; int &gt; Crossover(const std::vector&lt; int &gt; parentTour1, const std::vector&lt; int &gt; parentTour2) const</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:110</div></div>
-<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_a5504edf839c64fcc014319e5ad677403"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#a5504edf839c64fcc014319e5ad677403">GeneticAlgorithmOptimizer::TournamentSelection</a></div><div class="ttdeci">std::vector&lt; int &gt; TournamentSelection(const std::vector&lt; Node &gt; nodes, const std::vector&lt; std::vector&lt; int &gt; &gt; population, const std::vector&lt; float &gt; distances, const int capacity) const</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:89</div></div>
-<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_a7c52b9de9fe5cabcb7d114db320247a9"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#a7c52b9de9fe5cabcb7d114db320247a9">GeneticAlgorithmOptimizer::GenerateRandomTour</a></div><div class="ttdeci">std::vector&lt; int &gt; GenerateRandomTour(const int customerStart, const int size)</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:168</div></div>
-<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_af5222051d64b827992aeae1d678f7596"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#af5222051d64b827992aeae1d678f7596">GeneticAlgorithmOptimizer::Mutate</a></div><div class="ttdeci">void Mutate(std::vector&lt; int &gt; &amp;child)</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:148</div></div>
+<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_a4a2e83dd5283663993e61c6acf4979de"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#a4a2e83dd5283663993e61c6acf4979de">GeneticAlgorithmOptimizer::Crossover</a></div><div class="ttdeci">std::vector&lt; int &gt; Crossover(const std::vector&lt; int &gt; parentTour1, const std::vector&lt; int &gt; parentTour2) const</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:146</div></div>
+<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_a62561f101458303dbe4115ba1a7f8a8e"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#a62561f101458303dbe4115ba1a7f8a8e">GeneticAlgorithmOptimizer::TournamentSelection</a></div><div class="ttdeci">std::vector&lt; int &gt; TournamentSelection(const std::vector&lt; std::vector&lt; int &gt; &gt; population, const std::vector&lt; float &gt; distances) const</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:113</div></div>
+<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_a7c52b9de9fe5cabcb7d114db320247a9"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#a7c52b9de9fe5cabcb7d114db320247a9">GeneticAlgorithmOptimizer::GenerateRandomTour</a></div><div class="ttdeci">std::vector&lt; int &gt; GenerateRandomTour(const int customerStart, const int size)</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:226</div></div>
+<div class="ttc" id="aclass_genetic_algorithm_optimizer_html_af5222051d64b827992aeae1d678f7596"><div class="ttname"><a href="class_genetic_algorithm_optimizer.html#af5222051d64b827992aeae1d678f7596">GeneticAlgorithmOptimizer::Mutate</a></div><div class="ttdeci">void Mutate(std::vector&lt; int &gt; &amp;child)</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.cpp:191</div></div>
 <div class="ttc" id="aclass_vehicle_html"><div class="ttname"><a href="class_vehicle.html">Vehicle</a></div><div class="ttdef"><b>Definition</b> Vehicle.h:4</div></div>
-<div class="ttc" id="aclass_vehicle_html_a745391430123365c9ea17cbc8a2981d5"><div class="ttname"><a href="class_vehicle.html#a745391430123365c9ea17cbc8a2981d5">Vehicle::SimulateDrive</a></div><div class="ttdeci">float SimulateDrive(const std::vector&lt; int &gt; desiredRoute, bool verbose=false)</div><div class="ttdef"><b>Definition</b> Vehicle.cpp:3</div></div>
+<div class="ttc" id="aclass_vehicle_html_a745391430123365c9ea17cbc8a2981d5"><div class="ttname"><a href="class_vehicle.html#a745391430123365c9ea17cbc8a2981d5">Vehicle::SimulateDrive</a></div><div class="ttdeci">float SimulateDrive(const std::vector&lt; int &gt; desiredRoute, bool verbose=false)</div><div class="ttdef"><b>Definition</b> Vehicle.cpp:22</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="class_genetic_algorithm_optimizer.html#a4a2e83dd5283663993e61c6acf4979de">Crossover()</a>, <a class="el" href="_graph_structure_8h.html#a0d2cbe267f074354fec4678a7585c080">EVRP_Data::customerStartIndex</a>, <a class="el" href="_graph_structure_8h.html#ae0477139e4f9183e510c1dcaed678d52">EVRP_Data::fuelCapacity</a>, <a class="el" href="_graph_structure_8h.html#a3247aec6a1df0649f885203e76ec9e9b">EVRP_Data::fuelConsumptionRate</a>, <a class="el" href="class_genetic_algorithm_optimizer.html#a7c52b9de9fe5cabcb7d114db320247a9">GenerateRandomTour()</a>, <a class="el" href="_graph_structure_8h.html#ab01f753d693662a727c4ee4883562ab5">EVRP_Data::loadCapacity</a>, <a class="el" href="_genetic_algorithm_optimizer_8h.html#add0a7072644c96cf500bb480b711fd54">MAX_GENERATIONS</a>, <a class="el" href="class_genetic_algorithm_optimizer.html#af5222051d64b827992aeae1d678f7596">Mutate()</a>, <a class="el" href="_genetic_algorithm_optimizer_8h.html#acf8fa17c7d610b1e93a118359d065232">MUTATION_RATE</a>, <a class="el" href="_graph_structure_8h.html#acc8c7505937e58df795136f100694388">EVRP_Data::nodes</a>, <a class="el" href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a>, <a class="el" href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">PrintTour()</a>, <a class="el" href="class_vehicle.html#a745391430123365c9ea17cbc8a2981d5">Vehicle::SimulateDrive()</a>, and <a class="el" href="class_genetic_algorithm_optimizer.html#a5504edf839c64fcc014319e5ad677403">TournamentSelection()</a>.</p>
+<p class="reference">References <a class="el" href="class_genetic_algorithm_optimizer.html#a4a2e83dd5283663993e61c6acf4979de">Crossover()</a>, <a class="el" href="_graph_structure_8h.html#a0d2cbe267f074354fec4678a7585c080">EVRP_Data::customerStartIndex</a>, <a class="el" href="_graph_structure_8h.html#ae0477139e4f9183e510c1dcaed678d52">EVRP_Data::fuelCapacity</a>, <a class="el" href="_graph_structure_8h.html#a3247aec6a1df0649f885203e76ec9e9b">EVRP_Data::fuelConsumptionRate</a>, <a class="el" href="class_genetic_algorithm_optimizer.html#a7c52b9de9fe5cabcb7d114db320247a9">GenerateRandomTour()</a>, <a class="el" href="_graph_structure_8h.html#ab01f753d693662a727c4ee4883562ab5">EVRP_Data::loadCapacity</a>, <a class="el" href="_genetic_algorithm_optimizer_8h.html#add0a7072644c96cf500bb480b711fd54">MAX_GENERATIONS</a>, <a class="el" href="class_genetic_algorithm_optimizer.html#af5222051d64b827992aeae1d678f7596">Mutate()</a>, <a class="el" href="_genetic_algorithm_optimizer_8h.html#acf8fa17c7d610b1e93a118359d065232">MUTATION_RATE</a>, <a class="el" href="_graph_structure_8h.html#acc8c7505937e58df795136f100694388">EVRP_Data::nodes</a>, <a class="el" href="_genetic_algorithm_optimizer_8h.html#a7ff1b7b64b7f27a97bedfc47248eaa30">POPULATION_SIZE</a>, <a class="el" href="class_genetic_algorithm_optimizer.html#ab458d6cdee0af3951257fc27a2614690">PrintTour()</a>, <a class="el" href="class_vehicle.html#a745391430123365c9ea17cbc8a2981d5">Vehicle::SimulateDrive()</a>, and <a class="el" href="class_genetic_algorithm_optimizer.html#a62561f101458303dbe4115ba1a7f8a8e">TournamentSelection()</a>.</p>
 
 </div>
 </div>
@@ -419,14 +461,22 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  187</span>{</div>
-<div class="line"><span class="lineno">  188</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Tour: &quot;</span>;</div>
-<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; tour.size(); i++)</div>
-<div class="line"><span class="lineno">  190</span>    {</div>
-<div class="line"><span class="lineno">  191</span>        std::cout &lt;&lt; tour[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><span class="lineno">  192</span>    }</div>
-<div class="line"><span class="lineno">  193</span>    std::cout &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  194</span>}</div>
+<p>Helper functions used in the Genetic Algorithm code.</p>
+<p>Prints the tour in a human readable form, useful for debugging initial tours and final solution tour.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tour</td><td>The tour to be printed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">  261</span>{</div>
+<div class="line"><span class="lineno">  262</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Tour: &quot;</span>;</div>
+<div class="line"><span class="lineno">  263</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; tour.size(); i++)</div>
+<div class="line"><span class="lineno">  264</span>    {</div>
+<div class="line"><span class="lineno">  265</span>        std::cout &lt;&lt; tour[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><span class="lineno">  266</span>    }</div>
+<div class="line"><span class="lineno">  267</span>    std::cout &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  268</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -463,13 +513,22 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  160</span>{</div>
-<div class="line"><span class="lineno">  161</span>    <span class="comment">//Mersenne Twister prng </span></div>
-<div class="line"><span class="lineno">  162</span>    std::random_device rd;</div>
-<div class="line"><span class="lineno">  163</span>    std::mt19937 generator(rd());</div>
-<div class="line"><span class="lineno">  164</span>    std::uniform_int_distribution&lt;int&gt; distr(min, max);</div>
-<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">return</span> distr(generator);</div>
-<div class="line"><span class="lineno">  166</span>}</div>
+<p>Helper functions used in the Genetic Algorithm code</p>
+<p>Pseudo-random number generator that implements the standard C++ Mersenne Twister algorithm</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>The lower end of the range of values in the uniform distribution (inclusive) </td></tr>
+    <tr><td class="paramname">max</td><td>The upper end of the range of values in the uniform distribution (inclusive)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A uniformly distributed integer between min (inclusive) and max (inclusive) </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  209</span>{</div>
+<div class="line"><span class="lineno">  210</span>    std::random_device rd;</div>
+<div class="line"><span class="lineno">  211</span>    std::mt19937 generator(rd());</div>
+<div class="line"><span class="lineno">  212</span>    std::uniform_int_distribution&lt;int&gt; distr(min, max);</div>
+<div class="line"><span class="lineno">  213</span>    <span class="keywordflow">return</span> distr(generator);</div>
+<div class="line"><span class="lineno">  214</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -496,16 +555,25 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  180</span>{</div>
-<div class="line"><span class="lineno">  181</span>    std::random_device rd;</div>
-<div class="line"><span class="lineno">  182</span>    std::mt19937 generator(rd());</div>
-<div class="line"><span class="lineno">  183</span>    std::shuffle(container.begin(), container.end(), generator);</div>
-<div class="line"><span class="lineno">  184</span>}</div>
+<p>Helper functions used in the Genetic Algorithm code.</p>
+<p>Suffles a generic vector in place using the Mersenne Twister algorithm for the random number generator</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>The vector that needs to be shuffled</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A shuffled vector relative to the input container </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  247</span>{</div>
+<div class="line"><span class="lineno">  248</span>    std::random_device rd;</div>
+<div class="line"><span class="lineno">  249</span>    std::mt19937 generator(rd());</div>
+<div class="line"><span class="lineno">  250</span>    std::shuffle(container.begin(), container.end(), generator);</div>
+<div class="line"><span class="lineno">  251</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a5504edf839c64fcc014319e5ad677403" name="a5504edf839c64fcc014319e5ad677403"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5504edf839c64fcc014319e5ad677403">&#9670;&#160;</a></span>TournamentSelection()</h2>
+<a id="a62561f101458303dbe4115ba1a7f8a8e" name="a62561f101458303dbe4115ba1a7f8a8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62561f101458303dbe4115ba1a7f8a8e">&#9670;&#160;</a></span>TournamentSelection()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -516,12 +584,6 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">std::vector&lt; int &gt; GeneticAlgorithmOptimizer::TournamentSelection </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="_graph_structure_8h.html#struct_node">Node</a> &gt;&#160;</td>
-          <td class="paramname"><em>nodes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td>
           <td class="paramname"><em>population</em>, </td>
         </tr>
@@ -529,13 +591,7 @@ Private Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::vector&lt; float &gt;&#160;</td>
-          <td class="paramname"><em>distances</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>capacity</em>&#160;</td>
+          <td class="paramname"><em>distances</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -549,25 +605,35 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   90</span>{</div>
-<div class="line"><span class="lineno">   91</span>    std::vector&lt;int&gt; bestTour;</div>
-<div class="line"><span class="lineno">   92</span>    <span class="keywordtype">double</span> bestDistance = std::numeric_limits&lt;double&gt;::max();</div>
-<div class="line"><span class="lineno">   93</span> </div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; std::max(2, <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#ad57fbd0cd3b4d9728a375fbf8dbc1f22">TOURNAMENT_SIZE</a>); i++)</div>
-<div class="line"><span class="lineno">   95</span>    {</div>
-<div class="line"><span class="lineno">   96</span>        <span class="keywordtype">int</span> index = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266">RandomNumberGenerator</a>(0, population.size() - 1);</div>
-<div class="line"><span class="lineno">   97</span> </div>
-<div class="line"><span class="lineno">   98</span>        std::vector&lt;int&gt; tour = population[index];</div>
-<div class="line"><span class="lineno">   99</span>        <span class="keywordtype">float</span> distance = distances[index];</div>
-<div class="line"><span class="lineno">  100</span> </div>
-<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">if</span> (distance &lt; bestDistance)</div>
-<div class="line"><span class="lineno">  102</span>        {</div>
-<div class="line"><span class="lineno">  103</span>            bestTour = tour;</div>
-<div class="line"><span class="lineno">  104</span>            bestDistance = distance;</div>
-<div class="line"><span class="lineno">  105</span>        }</div>
-<div class="line"><span class="lineno">  106</span>    }</div>
-<div class="line"><span class="lineno">  107</span>    <span class="keywordflow">return</span> bestTour;</div>
-<div class="line"><span class="lineno">  108</span>}</div>
+<p>Critical element of the Genetic Algorithm.</p>
+<p>Tournament selection selects the best parent out of <a class="el" href="_genetic_algorithm_optimizer_8h.html#ad57fbd0cd3b4d9728a375fbf8dbc1f22">TOURNAMENT_SIZE</a> possible parents</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">population</td><td>The entire population, which consists of a vector of vectors of ints. We are selecting our candidate solution from the list of all solutions </td></tr>
+    <tr><td class="paramname">distances</td><td>The distances associated with each solution in the population. We want to pass this so that we don't have to recalculate the fitness of each solution on the fly</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the best solution (lowest true distance) out of max(2, <a class="el" href="_genetic_algorithm_optimizer_8h.html#ad57fbd0cd3b4d9728a375fbf8dbc1f22">TOURNAMENT_SIZE</a>) solutions </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  114</span>{</div>
+<div class="line"><span class="lineno">  115</span>    std::vector&lt;int&gt; bestTour;</div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordtype">double</span> bestDistance = std::numeric_limits&lt;double&gt;::max();</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; std::max(2, <a class="code hl_variable" href="_genetic_algorithm_optimizer_8h.html#ad57fbd0cd3b4d9728a375fbf8dbc1f22">TOURNAMENT_SIZE</a>); i++)</div>
+<div class="line"><span class="lineno">  119</span>    {</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordtype">int</span> index = <a class="code hl_function" href="class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266">RandomNumberGenerator</a>(0, population.size() - 1);</div>
+<div class="line"><span class="lineno">  121</span> </div>
+<div class="line"><span class="lineno">  122</span>        std::vector&lt;int&gt; tour = population[index];</div>
+<div class="line"><span class="lineno">  123</span>        <span class="keywordtype">float</span> distance = distances[index];</div>
+<div class="line"><span class="lineno">  124</span> </div>
+<div class="line"><span class="lineno">  125</span>        <span class="keywordflow">if</span> (distance &lt; bestDistance)</div>
+<div class="line"><span class="lineno">  126</span>        {</div>
+<div class="line"><span class="lineno">  127</span>            bestTour = tour;</div>
+<div class="line"><span class="lineno">  128</span>            bestDistance = distance;</div>
+<div class="line"><span class="lineno">  129</span>        }</div>
+<div class="line"><span class="lineno">  130</span>    }</div>
+<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">return</span> bestTour;</div>
+<div class="line"><span class="lineno">  132</span>}</div>
 <div class="ttc" id="a_genetic_algorithm_optimizer_8h_html_ad57fbd0cd3b4d9728a375fbf8dbc1f22"><div class="ttname"><a href="_genetic_algorithm_optimizer_8h.html#ad57fbd0cd3b4d9728a375fbf8dbc1f22">TOURNAMENT_SIZE</a></div><div class="ttdeci">constexpr int TOURNAMENT_SIZE</div><div class="ttdef"><b>Definition</b> GeneticAlgorithmOptimizer.h:5</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="class_genetic_algorithm_optimizer.html#ad96b8666e9cf93d0b3e537f816810266">RandomNumberGenerator()</a>, and <a class="el" href="_genetic_algorithm_optimizer_8h.html#ad57fbd0cd3b4d9728a375fbf8dbc1f22">TOURNAMENT_SIZE</a>.</p>

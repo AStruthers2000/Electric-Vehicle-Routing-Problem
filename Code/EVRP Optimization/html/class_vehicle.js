@@ -1,7 +1,6 @@
 var class_vehicle =
 [
     [ "Vehicle", "class_vehicle.html#a4d8cde3af3de66c1429298cd6fc56049", null ],
-    [ "~Vehicle", "class_vehicle.html#a61ab140c755b8e0e824d54117cf4546f", null ],
     [ "BatteryCost", "class_vehicle.html#a14b9bebe6568fa6278256acd0cf9e45f", null ],
     [ "CalculateFullRouteDistance", "class_vehicle.html#a67f194a1a654e817e341bb520d13440b", null ],
     [ "CalculateInterNodeDistance", "class_vehicle.html#a755c670d9bb9df9b16060068f646bf75", null ],
@@ -16,8 +15,6 @@ var class_vehicle =
     [ "batteryConsumptionRate", "class_vehicle.html#a906b309f5878a0291fba44c4400507a5", null ],
     [ "currentBatteryCapacity", "class_vehicle.html#a143b8639c95b9ce5883c4b5679591025", null ],
     [ "currentInventoryCapacity", "class_vehicle.html#a8a3aea9e147d7b4fcac4acc93a14d193", null ],
-    [ "desiredRoute", "class_vehicle.html#ada4c7bed5b246a6cb293eb5db70dce77", null ],
-    [ "distanceTravelled", "class_vehicle.html#aa4b7abab3b26ec9df767fdca66ead95e", null ],
     [ "maxBatteryCapacity", "class_vehicle.html#ae8ad9fbb164f5beb4ef78e2c8676c7f7", null ],
     [ "maxInventoryCapacity", "class_vehicle.html#a47217c8bd98a16bf7aec3328d8f5a2d5", null ]
 ];
