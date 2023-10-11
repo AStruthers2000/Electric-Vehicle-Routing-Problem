@@ -10,8 +10,18 @@
 #include <random>
 #include <sstream>
 #include <chrono>
+#include <map>
 
+/***************************************************************************//**
+ * Data structure definitions useful in optimizing the EVRP.
+ *
+ * I define the two useful data structures here. I also include every library I need for this project here,
+ * which I know isn't the best practice, but since every class that has anything to do with solving this problem
+ * needs to include this class to get a reference to the EVRP_Data typedef, I figured that it would be a good way
+ * to guarantee that I don't have multiple of the same includes spread across multiple files.
+ ******************************************************************************/
 
+using namespace std;
 
 /** 
 * The Node structure consists of an x and y coordinate, the value of the demand at this node (always 0 for charging nodes),
@@ -21,7 +31,7 @@
 typedef struct
 {
 	double x;
-	double y;
+	double y; 
 	int demand;
 	bool isCharger;
 	int index;
@@ -35,7 +45,7 @@ typedef struct
 */
 typedef struct
 {
-	std::vector<Node> nodes;
+	vector<Node> nodes;
 	float fuelCapacity;
 	int loadCapacity;
 	float fuelConsumptionRate;
@@ -43,11 +53,5 @@ typedef struct
 } EVRP_Data;
 
 
-/***************************************************************************//**
- * Data structure definitions useful in optimizing the EVRP.
- *
- * I define the two useful data structures here. I also include every library I need for this project here,
- * which I know isn't the best practice, but since every class that has anything to do with solving this problem
- * needs to include this class to get a reference to the EVRP_Data typedef, I figured that it would be a good way
- * to guarantee that I don't have multiple of the same includes spread across multiple files.
- ******************************************************************************/
+
+

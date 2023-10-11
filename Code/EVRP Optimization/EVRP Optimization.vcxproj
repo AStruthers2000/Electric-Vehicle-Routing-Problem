@@ -130,13 +130,17 @@
     <ClInclude Include="EVRP\EVRP_Solver.h" />
     <ClInclude Include="EVRP\GraphStructure.h" />
     <ClInclude Include="EVRP\Vehicle.h" />
-    <ClInclude Include="EVRP\GA\GeneticAlgorithmOptimizer.h" />
+    <ClInclude Include="EVRP\Algorithms\GA\GeneticAlgorithmOptimizer.h" />
+    <ClInclude Include="EVRP\Algorithms\RandomSearch\RandomSearchOptimizer.h" />
+    <ClInclude Include="EVRP\HelperFunctions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EVRP\EVRPOptimization.cpp" />
     <ClCompile Include="EVRP\EVRP_Solver.cpp" />
     <ClCompile Include="EVRP\Vehicle.cpp" />
-    <ClCompile Include="EVRP\GA\GeneticAlgorithmOptimizer.cpp" />
+    <ClCompile Include="EVRP\Algorithms\GA\GeneticAlgorithmOptimizer.cpp" />
+    <ClCompile Include="EVRP\Algorithms\RandomSearch\RandomSearchOptimizer.cpp" />
+    <ClCompile Include="EVRP\HelperFunctions.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

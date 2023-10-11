@@ -4,7 +4,7 @@
 
 #define STR_LEN 256 /*!< STR_LEN is the maximum number of characters a filepath could be*/
 
-constexpr char FILENAME[STR_LEN] = ".\\EVRP\\Data_Sets\\EVRP TW\\r202_21.txt"; /*!< The filepath to the EVRP problem definition with respect to the project root directory*/
+constexpr char FILENAME[STR_LEN] = ".\\EVRP\\Data_Sets\\EVRP TW\\rc103c15.txt"; /*!< The filepath to the EVRP problem definition with respect to the project root directory*/
 
 /***************************************************************************//**
  * A class used for reading the EVRP problem definition from a file then generically solving. 
@@ -19,7 +19,7 @@ class EVRP_Solver
 {
 public:
 	EVRP_Solver();
-	std::vector<int> SolveEVRP();
+	vector<int> SolveEVRP();
 
 private:
 	int vehicleLoadCapacity;/*!< A temporary variable to store the inventory load capacity when we are actively parsing the data file*/
@@ -27,6 +27,6 @@ private:
 	float vehicleFuelConsumptionRate;/*!< A temporary variable to store the vehicle consumption rate when we are actively parsing the data file*/
 
 	EVRP_Data data; /*!< This is the core of what the file gets loaded into. This data structure will contain all the necessary information to represent the selected EVRP problem*/
-	std::vector<Node> nodes; /*!< A vector of all nodes in the graph. This will contain customer nodes, charging station nodes, and the depot*/
+	vector<Node> nodes; /*!< A vector of all nodes in the graph. This will contain customer nodes, charging station nodes, and the depot*/
 };
 

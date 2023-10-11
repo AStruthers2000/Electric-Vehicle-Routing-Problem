@@ -1,6 +1,7 @@
 #include "GeneticAlgorithmOptimizer.h"
 #include <set>
-#include "../Vehicle.h"
+#include "../../Vehicle.h"
+#include "../../HelperFunctions.h"
 
 /**
 * Core of the Genetic Algorithm.
@@ -29,19 +30,19 @@
 * @param bestTour An out parameter that will represent the best tour upon completion of this function
 * @param bestDistance An out parameter for the true distance of the best tour 
 */
-void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, std::vector<int>& bestTour, float& bestDistance)
+void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, vector<int>& bestTour, float& bestDistance)
 {
 	//Vehicle class used to calculate the fitness of each route. Initialized with each Node, the vehicle's batter capacity, load capacity, and battery consumption rate
 	Vehicle* vehicle = new Vehicle(data.nodes, data.fuelCapacity, data.loadCapacity, data.fuelConsumptionRate);
 
-	std::vector<std::vector<int>> population;
-	std::vector<float> tourDistances;
+	vector<vector<int>> population;
+	vector<float> tourDistances;
 
 	//generate initial population and fitnesses
 	for (int i = 0; i < POPULATION_SIZE; i++)
 	{
 		//Generate initial solutions, then calculate the fitnesses using the Vehicle.SimulateDrive()
-		std::vector<int> initialTour = GenerateRandomTour(data.customerStartIndex, (data.nodes.size() - data.customerStartIndex));
+		vector<int> initialTour = HelperFunctions::GenerateRandomTour(data.customerStartIndex, (static_cast<int>(data.nodes.size()) - data.customerStartIndex));
 		float tourDistance = vehicle->SimulateDrive(initialTour);
 
 		//Add the initial solutions and initial distances (fitness of solution) to respective vectors
@@ -52,20 +53,20 @@ void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, std::vector<int>&
 	//iterate for #MAX_GENERATIONS generations
 	for (int generation = 0; generation < MAX_GENERATIONS; generation++)
 	{
-		std::cout << "Currently calculating generation: " << generation << std::endl;
+		//cout << "Currently calculating generation: " << generation << endl;
 
-		std::vector<std::vector<int>> newPopulation;
-		std::vector<float> newDistances;
+		vector<vector<int>> newPopulation;
+		vector<float> newDistances;
 
 		for (int i = 0; i < POPULATION_SIZE; i++)
 		{
 			//select parents
 			//perform crossover between parents
 			//mutate child
-			std::vector<int> parentTour1 = TournamentSelection(population, tourDistances);
-			std::vector<int> parentTour2 = TournamentSelection(population, tourDistances);
-			std::vector<int> childTour = Crossover(parentTour1, parentTour2);
-			if (std::rand() <= MUTATION_RATE)
+			vector<int> parentTour1 = TournamentSelection(population, tourDistances);
+			vector<int> parentTour2 = TournamentSelection(population, tourDistances);
+			vector<int> childTour = Crossover(parentTour1, parentTour2);
+			if (rand() <= MUTATION_RATE)
 			{
 				Mutate(childTour);
 			}
@@ -82,10 +83,10 @@ void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, std::vector<int>&
 	}
 
 	//select the best tour after #MAX_GENERATIONS generations
-	bestDistance = std::numeric_limits<double>::max();
+	bestDistance = numeric_limits<float>::max();
 	for (int i = 0; i < POPULATION_SIZE; i++)
 	{
-		std::vector<int> tour = population[i];
+		vector<int> tour = population[i];
 
 		float distance = tourDistances[i];
 		if (distance < bestDistance)
@@ -95,9 +96,9 @@ void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, std::vector<int>&
 		}
 	}
 
-	std::cout << "Best tour: ";
-	PrintTour(bestTour);
-	std::cout << "The best tour has distance breakdown: " << vehicle->SimulateDrive(bestTour, true) << std::endl;
+	cout << "Best tour: ";
+	HelperFunctions::PrintTour(bestTour);
+	cout << "The best tour has distance breakdown: " << vehicle->SimulateDrive(bestTour, true) << endl;
 }
 
 /**
@@ -110,16 +111,16 @@ void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, std::vector<int>&
 * 
 * @return Returns the best solution (lowest true distance) out of max(2, #TOURNAMENT_SIZE) solutions
 */
-std::vector<int> GeneticAlgorithmOptimizer::TournamentSelection(const std::vector<std::vector<int>> population, const std::vector<float> distances) const
+vector<int> GeneticAlgorithmOptimizer::TournamentSelection(const vector<vector<int>> population, const vector<float> distances) const
 {
-	std::vector<int> bestTour;
-	double bestDistance = std::numeric_limits<double>::max();
+	vector<int> bestTour;
+	double bestDistance = numeric_limits<double>::max();
 
-	for (int i = 0; i < std::max(2, TOURNAMENT_SIZE); i++)
+	for (int i = 0; i < max(2, TOURNAMENT_SIZE); i++)
 	{
-		int index = RandomNumberGenerator(0, population.size() - 1);
+		int index = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(population.size()) - 1);
 
-		std::vector<int> tour = population[index];
+		vector<int> tour = population[index];
 		float distance = distances[index];
 
 		if (distance < bestDistance)
@@ -143,14 +144,14 @@ std::vector<int> GeneticAlgorithmOptimizer::TournamentSelection(const std::vecto
 * 
 * @return A unique element crossover of parent1 and parent2. This vector should contain an unmodified subset of parent1, with the remaining indices filled with unique elements from parent2
 */
-std::vector<int> GeneticAlgorithmOptimizer::Crossover(const std::vector<int> parentTour1, const std::vector<int> parentTour2) const
+vector<int> GeneticAlgorithmOptimizer::Crossover(const vector<int> parentTour1, const vector<int> parentTour2) const
 {
 	// Create a child vector with the same size as the parents
-	std::vector<int> child(parentTour1.size());
+	vector<int> child(parentTour1.size());
 
 	// Copy a random subset of elements from parent1 to the child
 	int crossoverPoint = rand() % parentTour1.size();
-	std::copy(parentTour1.begin(), parentTour1.begin() + crossoverPoint, child.begin());
+	copy(parentTour1.begin(), parentTour1.begin() + crossoverPoint, child.begin());
 
 	// Fill the remaining elements in the child with unique elements from parent2
 	int childIndex = crossoverPoint;
@@ -158,23 +159,23 @@ std::vector<int> GeneticAlgorithmOptimizer::Crossover(const std::vector<int> par
 	{
 		int element = parentTour2[i];
 		// Check if the element is already present in the child
-		if (std::find(child.begin(), child.end(), element) == child.end())
+		if (find(child.begin(), child.end(), element) == child.end())
 		{
 			child[childIndex] = element;
 			++childIndex;
 		}
 	}
 	//this is to assert that the child doesn't contain any duplicates (i.e. the crossover algorithm didn't preserve uniqueness of the elements)
-	std::set<int> unique_s(child.begin(), child.end());
-	std::vector<int> unique_v(unique_s.begin(), unique_s.end());
+	set<int> unique_s(child.begin(), child.end());
+	vector<int> unique_v(unique_s.begin(), unique_s.end());
 	for (int i = 0; i < unique_v.size() - 1; i++)
 	{
 		if (unique_v[i] + 1 != unique_v[i + 1])
 		{
-			std::cout << "\n\n\nERROR IN CROSSOVER!!!!\n\n\n" << std::endl;
-			PrintTour(child);
-			PrintTour(unique_v);
-			std::cout << "\n\n\n======================\n\n\n" << std::endl;
+			cout << "\n\n\nERROR IN CROSSOVER!!!!\n\n\n" << endl;
+			HelperFunctions::PrintTour(child);
+			HelperFunctions::PrintTour(unique_v);
+			cout << "\n\n\n======================\n\n\n" << endl;
 		}
 	}
 
@@ -188,82 +189,9 @@ std::vector<int> GeneticAlgorithmOptimizer::Crossover(const std::vector<int> par
 * 
 * @param child The solution that needs to be mutated
 */
-void GeneticAlgorithmOptimizer::Mutate(std::vector<int>& child)
+void GeneticAlgorithmOptimizer::Mutate(vector<int>& child)
 {
-	int index1 = RandomNumberGenerator(0, child.size() - 1);
-	int index2 = RandomNumberGenerator(0, child.size() - 1);
-	std::swap(child[index1], child[index2]);
+	int index1 = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(child.size()) - 1);
+	int index2 = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(child.size()) - 1);
+	swap(child[index1], child[index2]);
 }
-
-/**
-* Helper functions used in the Genetic Algorithm code
-* 
-* Pseudo-random number generator that implements the standard C++ Mersenne Twister algorithm
-* 
-* @param min The lower end of the range of values in the uniform distribution (inclusive)
-* @param max The upper end of the range of values in the uniform distribution (inclusive)
-* 
-* @return A uniformly distributed integer between min (inclusive) and max (inclusive)
-*/
-int GeneticAlgorithmOptimizer::RandomNumberGenerator(const int min, const int max) const
-{
-	std::random_device rd;
-	std::mt19937 generator(rd());
-	std::uniform_int_distribution<int> distr(min, max);
-	return distr(generator);
-}
-
-/**
-* Helper functions used in the Genetic Algorithm code.
-*
-* Generates a random tour through all customer nodes, represented by index number.
-*
-* @param customerStart The index representing the first customer node. When we read all nodes from the file, index 0 = depot node, and then there are some amount of charging nodes. We only care about generating indices for customer nodes
-* @param size The number of total nodes in the list of all nodes. 
-*
-* @return A vector of node indices (ints) starting with customerStart and going to customerStart + size
-*/
-std::vector<int> GeneticAlgorithmOptimizer::GenerateRandomTour(const int customerStart, const int size)
-{
-	std::vector<int> tour(size);
-	for (int i = customerStart; i < customerStart + size; i++)
-	{
-		tour[i - customerStart] = i;
-	}
-	ShuffleVector(tour);
-	return tour;
-}
-
-/**
-* Helper functions used in the Genetic Algorithm code.
-*
-* Suffles a generic vector in place using the Mersenne Twister algorithm for the random number generator
-*
-* @param container The vector that needs to be shuffled
-*
-* @return A shuffled vector relative to the input container
-*/
-void GeneticAlgorithmOptimizer::ShuffleVector(std::vector<int>& container)
-{
-	std::random_device rd;
-	std::mt19937 generator(rd());
-	std::shuffle(container.begin(), container.end(), generator);
-}
-
-/**
-* Helper functions used in the Genetic Algorithm code.
-*
-* Prints the tour in a human readable form, useful for debugging initial tours and final solution tour.
-*
-* @param tour The tour to be printed.
-*/
-void GeneticAlgorithmOptimizer::PrintTour(const std::vector<int> tour) const
-{
-	std::cout << "Tour: ";
-	for (int i = 0; i < tour.size(); i++)
-	{
-		std::cout << tour[i] << " ";
-	}
-	std::cout << std::endl;
-}
-

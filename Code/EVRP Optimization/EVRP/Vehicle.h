@@ -13,7 +13,7 @@ public:
 	* @param inventory The maximum size of the vehicle's carrying capacity
 	* @param batteryRate The rate in which the battery discharges over distance
 	*/
-	Vehicle(const std::vector<Node> nodes, const float battery, const int inventory, const float batteryRate)
+	Vehicle(const vector<Node> nodes, const float battery, const int inventory, const float batteryRate)
 	{
 		_nodes = nodes;
 		_battery = battery;
@@ -34,16 +34,16 @@ public:
 		batteryConsumptionRate = _batteryRate;
 	}
 
-	float SimulateDrive(const std::vector<int> desiredRoute, bool verbose=false);
+	float SimulateDrive(const vector<int> desiredRoute, bool verbose=false);
 
 private:
 	float CalculateInterNodeDistance(const Node& node1, const Node& node2) const;
 	int GetClosestChargingStationToNode(const Node node) const;
 	bool CanGetToNextCustomerSafely(Node from, Node to);
 	float BatteryCost(const Node node1, const Node node2) const;
-	float CalculateFullRouteDistance(const std::vector<int> trueRoute, bool verbose=false);
+	float CalculateFullRouteDistance(const vector<int> trueRoute, bool verbose=false);
 
-	std::vector<Node> _nodes; /*!< All nodes in the EVRP graph*/
+	vector<Node> _nodes; /*!< All nodes in the EVRP graph*/
 	float _battery; /*!< An interal variable that holds the state of the maximum battery capacity*/
 	int _inventory; /*!< An internal variable that holds the state of the maximum vehicle inventory capacity*/
 	float _batteryRate; /*!< An internal variable that holds the state of the rate in which the battery discharges over distance */

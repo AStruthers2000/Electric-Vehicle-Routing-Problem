@@ -1,4 +1,5 @@
 #include "Vehicle.h"
+#include "HelperFunctions.h"
 
 /**
 * Fitness calculation for the provided tour.
@@ -19,24 +20,19 @@
 * 
 * @return Returns the true distance that the desired route would actually traverse with the fuel and capacity constraints
 */
-float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
+float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
 {
 	//Resets the vehicle so that we are "starting fresh" every time a new drive starts
 	ResetVehicle();
 	if (verbose)
 	{
-		std::cout << "Simulating drive of route: ";
-		for (auto i : desiredRoute)
-		{
-			std::cout << i << " ";
-		}
-		std::cout << std::endl;
-		std::cout << "----------------------------------------" << std::endl;
+		cout << "Simulating drive of route: ";
+		HelperFunctions::PrintTour(desiredRoute);
 	}
 
 	//we will construct the "true" tour during the simulation. desiredRoute is just the order of customer nodes for this route.
 	//we will need to find when we need to charge at a station and when we need to return to the depot as we "simulate" the drive.
-	std::vector<int> paddedTour;
+	vector<int> paddedTour;
 
 	//we start at the depot, which is always node "0"
 	//starting at the depot satisfies part of the first constraint of the EVRP. We also need to end at the depot
@@ -52,8 +48,8 @@ float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
 	{
 		if (verbose)
 		{
-			std::cout << "I can travel " << currentBatteryCapacity << " units and I have " << currentInventoryCapacity << " inventory remaining" << std::endl;
-			std::cout << "Current Node Index: " << currentNodeIndex << std::endl;
+			cout << "I can travel " << currentBatteryCapacity << " units and I have " << currentInventoryCapacity << " inventory remaining" << endl;
+			cout << "Current Node Index: " << currentNodeIndex << endl;
 		}
 
 		/*
@@ -77,11 +73,11 @@ float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
 
 		//Calculate battery cost to go from the current node to the next desired node
 		float routeCost = BatteryCost(currentNode, nextDesiredNode);
-		float demandCost = nextDesiredNode.demand;
+		int demandCost = nextDesiredNode.demand;
 
 		if (verbose)
 		{
-			std::cout << "Going from node (" << currentNode.x << ", " << currentNode.y << ") to node (" << nextDesiredNode.x << ", " << nextDesiredNode.y << ") will cost " << routeCost << " battery. This node has a demand of: " << demandCost << std::endl;
+			cout << "Going from node (" << currentNode.x << ", " << currentNode.y << ") to node (" << nextDesiredNode.x << ", " << nextDesiredNode.y << ") will cost " << routeCost << " battery. This node has a demand of: " << demandCost << endl;
 		}
 
 		//we only want to go to the next customer node if we can get from where we are, to the next customer, then to a charging station.
@@ -92,7 +88,7 @@ float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
 		{
 			if (verbose)
 			{
-				std::cout << "I can go to this and have the battery to continue to the nearest node (aka I won't get stranded at this node)" << std::endl;
+				cout << "I can go to this and have the battery to continue to the nearest node (aka I won't get stranded at this node)" << endl;
 			}
 
 			//Do we have the capacity to satisfy the demand at the next customer, and can we make the trip on our current battery state
@@ -100,7 +96,7 @@ float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
 			{
 				if (verbose)
 				{
-					std::cout << "I went to this node!" << std::endl;
+					cout << "I went to this node!" << endl;
 				}
 				//travel to the next customer, subtracting the demand from our inventory and the battery cost from our battery capacity
 				currentInventoryCapacity -= demandCost;
@@ -117,7 +113,7 @@ float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
 				{
 					if (verbose)
 					{
-						std::cout << "I can't meet the demand at the next node, so I must go to the depot and restock." << std::endl;
+						cout << "I can't meet the demand at the next node, so I must go to the depot and restock." << endl;
 					}
 
 					//while we aren't at the depot, continue moving towards the depot. 
@@ -156,7 +152,7 @@ float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
 				else 
 				{
 					//should never reach this line of code
-					std::cout << "I am lost as a vehicle... how did I get here?" << std::endl;
+					cout << "I am lost as a vehicle... how did I get here?" << endl;
 				}
 			}
 		}
@@ -166,7 +162,7 @@ float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
 		{
 			if (verbose)
 			{
-				std::cout << "I need to detour to a charging station before visiting this node." << std::endl;
+				cout << "I need to detour to a charging station before visiting this node." << endl;
 			}
 			//recharge the battery from the next charging station. This satisfies constraint 4, 5, 6, and 7. 
 			int chargingNodeIndex = GetClosestChargingStationToNode(currentNode);
@@ -177,7 +173,7 @@ float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
 		
 		if (verbose)
 		{
-			std::cout << "----------------------------------------" << std::endl;
+			cout << "----------------------------------------" << endl;
 		}
 	}
 
@@ -208,13 +204,13 @@ float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
 	//we have now serviced every customer node and have driven back home, and constructed the true tour
 	if (verbose)
 	{
-		std::cout << "True route: ";
+		cout << "True route: ";
 		for (auto i : paddedTour)
 		{
-			std::cout << i << " ";
+			cout << i << " ";
 		}
-		std::cout << std::endl;
-		std::cout << "----------------------------------------" << std::endl;
+		cout << endl;
+		cout << "----------------------------------------" << endl;
 	}
 
 	//the full distance is the "fitness" of this solution
@@ -233,7 +229,7 @@ float Vehicle::SimulateDrive(const std::vector<int> desiredRoute, bool verbose)
 */
 float Vehicle::CalculateInterNodeDistance(const Node& node1, const Node& node2) const
 {
-	float dist = hypot(node1.x - node2.x, node1.y - node2.y);
+	float dist = static_cast<float>(hypot(node1.x - node2.x, node1.y - node2.y));
 	return dist;
 }
 
@@ -246,7 +242,7 @@ float Vehicle::CalculateInterNodeDistance(const Node& node1, const Node& node2) 
 */
 int Vehicle::GetClosestChargingStationToNode(const Node node) const
 {
-	float closest = std::numeric_limits<float>::max();
+	float closest = numeric_limits<float>::max();
 	int closestChargerIndex = -1;
 
 	for (int i = 0; i < _nodes.size(); i++)
@@ -315,7 +311,7 @@ float Vehicle::BatteryCost(const Node node1, const Node node2) const
 * 
 * @return Returns the true distance of the found route. 
 */
-float Vehicle::CalculateFullRouteDistance(const std::vector<int> trueRoute, bool verbose)
+float Vehicle::CalculateFullRouteDistance(const vector<int> trueRoute, bool verbose)
 {
 	float dist = 0.f;
 
@@ -324,7 +320,7 @@ float Vehicle::CalculateFullRouteDistance(const std::vector<int> trueRoute, bool
 	{
 		if (verbose)
 		{
-			std::cout << "Calculating distance starting at node " << trueRoute[i - 1] << " and going to node " << trueRoute[i] << std::endl;
+			cout << "Calculating distance starting at node " << trueRoute[i - 1] << " and going to node " << trueRoute[i] << endl;
 		}
 		Node currentNode = _nodes[trueRoute[i-1]];
 		Node nextNode = _nodes[trueRoute[i]];

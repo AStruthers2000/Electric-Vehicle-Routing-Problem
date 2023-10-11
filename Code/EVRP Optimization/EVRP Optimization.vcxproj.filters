@@ -24,7 +24,13 @@
     <ClInclude Include="EVRP\Vehicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EVRP\GA\GeneticAlgorithmOptimizer.h">
+    <ClInclude Include="EVRP\Algorithms\RandomSearch\RandomSearchOptimizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EVRP\Algorithms\GA\GeneticAlgorithmOptimizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HelperFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,7 +44,13 @@
     <ClCompile Include="EVRP\Vehicle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EVRP\GA\GeneticAlgorithmOptimizer.cpp">
+    <ClCompile Include="EVRP\Algorithms\RandomSearch\RandomSearchOptimizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EVRP\Algorithms\GA\GeneticAlgorithmOptimizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,5 +1,6 @@
 #include "EVRP_Solver.h"
-#include "GA\GeneticAlgorithmOptimizer.h"
+#include "Algorithms\GA\GeneticAlgorithmOptimizer.h"
+#include "Algorithms/RandomSearch/RandomSearchOptimizer.h"
 
 /***************************************************************************//**
  * EVRP_Solver constructor handles the loading of data from a file.
@@ -26,50 +27,47 @@
  ******************************************************************************/
 EVRP_Solver::EVRP_Solver()
 {
-	float nLocations, temp;
-
-	std::ifstream file;
-	
+	ifstream file;
 
 	file.open(FILENAME);
 	if (!file.is_open())
 	{
-		std::cout << "Failed to open data file, exiting" << std::endl;
+		cout << "Failed to open data file, exiting" << endl;
 		exit(1);
 	}
 	else
 	{
 
-		std::string ID;
+		string ID;
 		char nodeType;
-		std::string line;
+		string line;
 		double x, y;
 		int demand;
 		int index = 0;
 		data.customerStartIndex = -1;
-		while (std::getline(file, line))
+		while (getline(file, line))
 		{
-			std::istringstream iss(line);
+			istringstream iss(line);
 			if (!(iss >> ID >> nodeType >> x >> y >> demand))
 			{
 				char type = line[0];
-				int pos = 0;
-				std::string token;
-				while ((pos = line.find('/')) != std::string::npos)
+				size_t pos = 0;
+				string token;
+				while ((pos = line.find('/')) != string::npos)
 				{
 					token = line.substr(0, pos);
 					line.erase(0, pos + 1);
 				}
 				if (!token.empty())
 				{
-					float num = std::stof(token);
+					float num = stof(token);
 					switch (type)
 					{
 					case 'Q':
 						vehicleBatteryCapacity = num;
 						break;
 					case 'C':
-						vehicleLoadCapacity = num;
+						vehicleLoadCapacity = static_cast<int>(num);
 						break;
 					case 'r':
 						vehicleFuelConsumptionRate = num;
@@ -108,7 +106,7 @@ EVRP_Solver::EVRP_Solver()
 	{
 		tot_demand += node.demand;
 	}
-	std::cout << "The minimum number of subtours with only constraint of capacity is: " << std::ceil(double(tot_demand) / vehicleLoadCapacity) << std::endl;
+	cout << "The minimum number of subtours with only constraint of capacity is: " << ceil(double(tot_demand) / vehicleLoadCapacity) << endl;
 }
 
 /***************************************************************************//**
@@ -123,22 +121,25 @@ EVRP_Solver::EVRP_Solver()
  * that represents the optimal tour, and a float out parameter that stores the distance of 
  * the optimal tour.
  ******************************************************************************/
-std::vector<int> EVRP_Solver::SolveEVRP()
+vector<int> EVRP_Solver::SolveEVRP()
 {
 	//The only currently implemented optimization algorithm 
 	GeneticAlgorithmOptimizer* ga = new GeneticAlgorithmOptimizer();
 
+	RandomSearchOptimizer* randSearch = new RandomSearchOptimizer();
+
 	//Out parameter for the optimal tour
-	std::vector<int> optimalTour;
+	vector<int> optimalTour;
 
 	//Out parameter for the distance of the optimal tour
 	float bestDistance;
 
 	//Function call to the GeneticAlgorithmOptimizer class that will return the best tour
 	//from the given data
-	ga->Optimize(data, optimalTour, bestDistance);
+	//ga->Optimize(data, optimalTour, bestDistance);
+	randSearch->Optimize(data, optimalTour, bestDistance);
 
-	std::cout << "The best route has a distance of: " << bestDistance << std::endl;
+	cout << "The best route has a distance of: " << bestDistance << endl;
 	return optimalTour;
 	
 }
