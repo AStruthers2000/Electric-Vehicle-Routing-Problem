@@ -48,22 +48,25 @@
  * a file. We then start a timer to measure the execution time of the SolveEVRP function
  * of the EVRP_Solver class.
  ******************************************************************************/
+
+
+
 int main()
 {
-    EVRP_Solver* solver = new EVRP_Solver();
+    auto *solver = new EVRP_Solver();
 
     //What time is it before solving the problem
-    auto startTime = chrono::high_resolution_clock::now();
+    const auto start_time = std::chrono::high_resolution_clock::now();
 
     //Actually solve the problem
     vector<int> solution = solver->SolveEVRP();
 
     //What time is it now that we've solved the problem
-    auto endTime = chrono::high_resolution_clock::now();
+    const auto end_time = chrono::high_resolution_clock::now();
 
     //Get the execution time in milliseconds 
-    auto duration = chrono::duration_cast<chrono::milliseconds>(endTime - startTime).count();
-    cout << "Execution time: " << duration/1000.0f << " seconds" << endl;
+    const auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
+    cout << "Execution time: " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
 
     return 0;
 }
