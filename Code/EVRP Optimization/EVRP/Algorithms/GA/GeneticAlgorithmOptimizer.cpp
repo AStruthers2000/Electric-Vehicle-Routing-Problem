@@ -26,15 +26,13 @@
 * The fitness of each solution is represented by the true distance of the route as simulated by the Vehicle class.
 * We seek to minimize the true distance through a Genetic Algorithm approach. 
 * 
-* @param data This is a reference to the EVRP_Data struct that contains all information regarding the current EVRP
 * @param bestTour An out parameter that will represent the best tour upon completion of this function
 * @param bestDistance An out parameter for the true distance of the best tour 
 */
-void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, vector<int>& bestTour, float& bestDistance)
+void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDistance)
 {
 	//Vehicle class used to calculate the fitness of each route. Initialized with each Node, the vehicle's batter capacity, load capacity, and battery consumption rate
-	Vehicle* vehicle = new Vehicle(data.nodes, data.fuelCapacity, data.loadCapacity, data.fuelConsumptionRate);
-
+	
 	vector<vector<int>> population;
 	vector<float> tourDistances;
 
@@ -42,7 +40,7 @@ void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, vector<int>& best
 	for (int i = 0; i < POPULATION_SIZE; i++)
 	{
 		//Generate initial solutions, then calculate the fitnesses using the Vehicle.SimulateDrive()
-		vector<int> initialTour = HelperFunctions::GenerateRandomTour(data.customerStartIndex, (static_cast<int>(data.nodes.size()) - data.customerStartIndex));
+		vector<int> initialTour = HelperFunctions::GenerateRandomTour(problem_data.customerStartIndex, (static_cast<int>(problem_data.nodes.size()) - problem_data.customerStartIndex));
 		float tourDistance = vehicle->SimulateDrive(initialTour);
 
 		//Add the initial solutions and initial distances (fitness of solution) to respective vectors
@@ -54,6 +52,7 @@ void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, vector<int>& best
 	for (int generation = 0; generation < MAX_GENERATIONS; generation++)
 	{
 		//cout << "Currently calculating generation: " << generation << endl;
+		PrintIfTheTimeIsRight("Genetic Algorithm", generation, MAX_GENERATIONS);
 
 		vector<vector<int>> newPopulation;
 		vector<float> newDistances;
@@ -63,10 +62,11 @@ void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, vector<int>& best
 			//select parents
 			//perform crossover between parents
 			//mutate child
-			vector<int> parentTour1 = TournamentSelection(population, tourDistances);
-			vector<int> parentTour2 = TournamentSelection(population, tourDistances);
+			const vector<int> parentTour1 = TournamentSelection(population, tourDistances);
+			const vector<int> parentTour2 = TournamentSelection(population, tourDistances);
 			vector<int> childTour = Crossover(parentTour1, parentTour2);
-			if (rand() <= MUTATION_RATE)
+			const float r = static_cast<float>(rand()) / RAND_MAX;
+			if (r <= MUTATION_RATE)
 			{
 				Mutate(childTour);
 			}
@@ -76,7 +76,6 @@ void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, vector<int>& best
 
 			newPopulation.push_back(childTour);
 			newDistances.push_back(tourDistance);
-
 		}
 		population = newPopulation;
 		tourDistances = newDistances;
@@ -96,9 +95,9 @@ void GeneticAlgorithmOptimizer::Optimize(const EVRP_Data data, vector<int>& best
 		}
 	}
 
-	cout << "Best tour: ";
-	HelperFunctions::PrintTour(bestTour);
-	cout << "The best tour has distance breakdown: " << vehicle->SimulateDrive(bestTour, true) << endl;
+	//cout << "Best tour: ";
+	//HelperFunctions::PrintTour(bestTour);
+	//cout << "The best tour has distance breakdown: " << vehicle->SimulateDrive(bestTour, true) << endl;
 }
 
 /**

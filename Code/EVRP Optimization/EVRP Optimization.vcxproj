@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EVRP\Algorithms\AlgorithmBase.h" />
     <ClInclude Include="EVRP\EVRP_Solver.h" />
     <ClInclude Include="EVRP\GraphStructure.h" />
     <ClInclude Include="EVRP\Vehicle.h" />
@@ -135,6 +136,7 @@
     <ClInclude Include="EVRP\HelperFunctions.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EVRP\Algorithms\AlgorithmBase.cpp" />
     <ClCompile Include="EVRP\EVRPOptimization.cpp" />
     <ClCompile Include="EVRP\EVRP_Solver.cpp" />
     <ClCompile Include="EVRP\Vehicle.cpp" />

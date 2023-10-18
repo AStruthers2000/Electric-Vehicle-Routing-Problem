@@ -11,6 +11,7 @@
 #include <sstream>
 #include <chrono>
 #include <map>
+#include <iterator>
 
 /***************************************************************************//**
  * Data structure definitions useful in optimizing the EVRP.
@@ -52,6 +53,17 @@ typedef struct
 	int customerStartIndex;
 } EVRP_Data;
 
+typedef struct
+{
+	string algorithm_name;
+	float execution_time;
+	float distance;
+	vector<int> solution_encoded;
+	vector<Node> solution_decoded;
+	vector<string> hyperparameters;
+	//maybe care about memory use?
+	
+} optimization_result;
 
 
 

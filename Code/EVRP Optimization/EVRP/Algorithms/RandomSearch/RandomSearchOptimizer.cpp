@@ -2,23 +2,29 @@
 #include "../../Vehicle.h"
 #include "../../HelperFunctions.h"
 
-void RandomSearchOptimizer::Optimize(const EVRP_Data data, vector<int>& bestTour, float& bestDistance)
+/**
+ * \brief 
+ * \param bestTour 
+ * \param bestDistance 
+ */
+void RandomSearchOptimizer::Optimize(vector<int>& bestTour, float& bestDistance)
 {
 	//Vehicle class used to calculate the fitness of each route. Initialized with each Node, the vehicle's batter capacity, load capacity, and battery consumption rate
-	Vehicle *vehicle = new Vehicle(data.nodes, data.fuelCapacity, data.loadCapacity, data.fuelConsumptionRate);
 	
-	int tourSize = static_cast<int>(data.nodes.size()) - data.customerStartIndex;
+	int tourSize = static_cast<int>(problem_data.nodes.size()) - problem_data.customerStartIndex;
 
 	map<vector<int>, float> bestSolutions;
 
-	for (int i = 0; i < NUM_BEST_SOLUTIONS; i++)
+	for (int i = 0; i < NUM_GENERATIONS; i++)
 	{
 		vector<int> _bestTour;
 		float _bestDistance = numeric_limits<float>::max();
 
+		PrintIfTheTimeIsRight("Random Search", i, NUM_GENERATIONS);
+
 		for (int j = 0; j < SOLUTIONS_PER_GENERATION; j++)
 		{
-			vector<int> tour = HelperFunctions::GenerateRandomTour(data.customerStartIndex, tourSize);
+			vector<int> tour = HelperFunctions::GenerateRandomTour(problem_data.customerStartIndex, tourSize);
 			float tourDistance = vehicle->SimulateDrive(tour, false);
 
 			if (tourDistance < _bestDistance)
@@ -42,6 +48,7 @@ void RandomSearchOptimizer::Optimize(const EVRP_Data data, vector<int>& bestTour
 	}
 
 
+	/*
 	cout << "Best tour: ";
 	HelperFunctions::PrintTour(bestTour);
 	cout << "The best tour has distance breakdown: " << vehicle->SimulateDrive(bestTour, true) << endl;
@@ -53,4 +60,5 @@ void RandomSearchOptimizer::Optimize(const EVRP_Data data, vector<int>& bestTour
 		cout << "\t with distance " << iter.second << endl;
 		cout << "---------------------------------------" << endl;
 	}
+	*/
 }

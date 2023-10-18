@@ -59,14 +59,14 @@ int main()
     const auto start_time = std::chrono::high_resolution_clock::now();
 
     //Actually solve the problem
-    vector<int> solution = solver->SolveEVRP();
+    solver->SolveEVRP();
 
     //What time is it now that we've solved the problem
     const auto end_time = chrono::high_resolution_clock::now();
 
     //Get the execution time in milliseconds 
     const auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-    cout << "Execution time: " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
+    cout << "Total execution time: " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
 
     return 0;
 }

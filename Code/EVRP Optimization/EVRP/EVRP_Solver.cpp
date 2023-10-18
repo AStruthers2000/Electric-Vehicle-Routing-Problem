@@ -1,4 +1,5 @@
 #include "EVRP_Solver.h"
+#include "Algorithms/AlgorithmBase.h"
 #include "Algorithms\GA\GeneticAlgorithmOptimizer.h"
 #include "Algorithms/RandomSearch/RandomSearchOptimizer.h"
 
@@ -29,7 +30,7 @@ EVRP_Solver::EVRP_Solver()
 {
 	ifstream file;
 
-	file.open(FILENAME);
+	file.open(string(DATA_PATH) + string(READ_FILENAME));
 	if (!file.is_open())
 	{
 		cout << "Failed to open data file, exiting" << endl;
@@ -121,13 +122,14 @@ EVRP_Solver::EVRP_Solver()
  * that represents the optimal tour, and a float out parameter that stores the distance of 
  * the optimal tour.
  ******************************************************************************/
-vector<int> EVRP_Solver::SolveEVRP()
+void EVRP_Solver::SolveEVRP()
 {
-	//The only currently implemented optimization algorithm 
-	GeneticAlgorithmOptimizer* ga = new GeneticAlgorithmOptimizer();
+	vector<AlgorithmBase*> algorithms;
 
-	RandomSearchOptimizer* randSearch = new RandomSearchOptimizer();
+	algorithms.push_back(new GeneticAlgorithmOptimizer(data));
+	algorithms.push_back(new RandomSearchOptimizer(data));
 
+	/*
 	//Out parameter for the optimal tour
 	vector<int> optimalTour;
 
@@ -137,9 +139,69 @@ vector<int> EVRP_Solver::SolveEVRP()
 	//Function call to the GeneticAlgorithmOptimizer class that will return the best tour
 	//from the given data
 	//ga->Optimize(data, optimalTour, bestDistance);
-	randSearch->Optimize(data, optimalTour, bestDistance);
+	rand_search->Optimize(optimalTour, bestDistance);
+	
 
 	cout << "The best route has a distance of: " << bestDistance << endl;
 	return optimalTour;
+	*/
 	
+	for(const auto alg : algorithms)
+	{
+		vector<int> encoded_tour;
+		float best_distance;
+
+		//What time is it before solving the problem
+		const auto start_time = std::chrono::high_resolution_clock::now();
+		
+		alg->Optimize(encoded_tour, best_distance);
+
+		//What time is it now that we've solved the problem
+		const auto end_time = chrono::high_resolution_clock::now();
+
+		//Get the execution time in milliseconds 
+		const auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
+		
+		cout << "Execution time: " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
+		cout << "The best route has a distance of: " << best_distance << endl;
+
+		optimization_result result;
+		result.algorithm_name = alg->GetName();
+		result.execution_time = static_cast<float>(duration)/1000.0f;
+		result.solution_encoded = encoded_tour;
+		result.distance = best_distance;
+		result.hyperparameters = alg->GetHyperParameters();
+		
+		WriteToFile(result);
+	}
+}
+
+void EVRP_Solver::WriteToFile(const optimization_result& result)
+{
+	ofstream file;
+	file.open(WRITE_FILENAME, ios_base::app);
+	file << result.distance << ",";
+	file << READ_FILENAME << ",";
+	file << result.algorithm_name << ",";
+	file << result.execution_time << ",";
+
+	string encoded_solution;
+	for(const auto &iter : result.solution_encoded)
+	{
+		encoded_solution += to_string(iter) + " ";
+	}
+	encoded_solution.pop_back();
+	file << encoded_solution << ",";
+
+	string hyper_parameters;
+	for(const auto &iter : result.hyperparameters)
+	{
+		hyper_parameters += iter + "|";
+	}
+	hyper_parameters.pop_back();
+	file << hyper_parameters;
+	
+	file << "\n";
+
+	file.clear();
 }
