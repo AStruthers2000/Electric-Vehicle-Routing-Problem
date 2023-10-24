@@ -1,5 +1,6 @@
 #include "EVRP_Solver.h"
 #include "Algorithms/AlgorithmBase.h"
+#include "Algorithms/NEH/NEH_NearestNeighbor.h"
 #include "Algorithms\GA\GeneticAlgorithmOptimizer.h"
 #include "Algorithms/RandomSearch/RandomSearchOptimizer.h"
 
@@ -126,8 +127,9 @@ void EVRP_Solver::SolveEVRP()
 {
 	vector<AlgorithmBase*> algorithms;
 
-	algorithms.push_back(new GeneticAlgorithmOptimizer(data));
-	algorithms.push_back(new RandomSearchOptimizer(data));
+	//algorithms.push_back(new GeneticAlgorithmOptimizer(data));
+	//algorithms.push_back(new RandomSearchOptimizer(data));
+	algorithms.push_back(new NEH_NearestNeighbor(data));
 
 	/*
 	//Out parameter for the optimal tour

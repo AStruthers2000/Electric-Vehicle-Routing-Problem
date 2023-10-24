@@ -8,5 +8,6 @@ public:
 	static void ShuffleVector(vector<int>& container);
 	static void PrintTour(const vector<int> tour);
 	static vector<int> GenerateRandomTour(const int customerStart, const int size);
+	static float CalculateInterNodeDistance(const Node& node1, const Node& node2);
 };
 

@@ -37,7 +37,7 @@ public:
 	float SimulateDrive(const vector<int> desiredRoute, bool verbose=false);
 
 private:
-	float CalculateInterNodeDistance(const Node& node1, const Node& node2) const;
+	
 	int GetClosestChargingStationToNode(const Node node) const;
 	bool CanGetToNextCustomerSafely(Node from, Node to);
 	float BatteryCost(const Node node1, const Node node2) const;

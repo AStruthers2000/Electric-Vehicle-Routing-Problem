@@ -219,19 +219,7 @@ float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
 	return fullDistance;
 }
 
-/**
-* Calculates the distance between two nodes. Each Node has an x and y coordinate, so we can find the straight line between both points. 
-* 
-* @param node1 The first node in the distance calculation
-* @param node2 The second node in the distance calculation
-* 
-* @return Returns the Euclidean distance calculation between two nodes.
-*/
-float Vehicle::CalculateInterNodeDistance(const Node& node1, const Node& node2) const
-{
-	float dist = static_cast<float>(hypot(node1.x - node2.x, node1.y - node2.y));
-	return dist;
-}
+
 
 /**
 * Helper for finding the closest charging station to the given node.
@@ -249,7 +237,7 @@ int Vehicle::GetClosestChargingStationToNode(const Node node) const
 	{
 		if (_nodes[i].isCharger && _nodes[i].index != node.index)
 		{
-			float dist = CalculateInterNodeDistance(node, _nodes[i]);
+			float dist = HelperFunctions::CalculateInterNodeDistance(node, _nodes[i]);
 			if (dist < closest)
 			{
 				closestChargerIndex = i;
@@ -300,7 +288,7 @@ bool Vehicle::CanGetToNextCustomerSafely(Node from, Node to)
 */
 float Vehicle::BatteryCost(const Node node1, const Node node2) const
 {
-	return CalculateInterNodeDistance(node1, node2) * batteryConsumptionRate;
+	return HelperFunctions::CalculateInterNodeDistance(node1, node2) * batteryConsumptionRate;
 }
 
 /** 
@@ -325,7 +313,7 @@ float Vehicle::CalculateFullRouteDistance(const vector<int> trueRoute, bool verb
 		Node currentNode = _nodes[trueRoute[i-1]];
 		Node nextNode = _nodes[trueRoute[i]];
 
-		dist += CalculateInterNodeDistance(currentNode, nextNode);
+		dist += HelperFunctions::CalculateInterNodeDistance(currentNode, nextNode);
 	}
 	
 	return dist;

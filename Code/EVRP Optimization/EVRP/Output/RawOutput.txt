@@ -1,3 +1,5 @@
 Distance,Problem Name,Algorithm Name,Execution Time,Node-Index Encoded Solution,Hyper Parameters
 359.541,rc103c15.txt,Genetic Algorithm,243.139,20 15 17 13 16 19 9 12 8 18 7 11 6 14 10,Population Size: 100|Maximum Generations: 5000|Tournament Size: 10|Mutation Rate: 0.200000
 439.996,rc103c15.txt,Random Search,5.669,8 18 15 20 6 7 11 14 19 9 12 16 17 13 10,Solutions per Generation: 100|Number of Best Solutions: 1000
+208.903,c101c5.txt,Genetic Algorithm,217.866,7 8 4 5 6,Population Size: 100|Maximum Generations: 5000|Tournament Size: 10|Mutation Rate: 0.200000
+208.903,c101c5.txt,Random Search,2.653,7 8 4 5 6,Solutions per Generation: 100|Number of Best Solutions: 1000

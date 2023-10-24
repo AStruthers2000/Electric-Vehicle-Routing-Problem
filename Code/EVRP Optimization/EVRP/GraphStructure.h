@@ -29,14 +29,35 @@ using namespace std;
 * a bool that represents if this node is a charger or not (depot and charging nodes both have demand = 0, so we need more specificity),
 * and the index of this node in the list of all nodes. The depot is always index = 0. 
 */
-typedef struct
+typedef struct Node
 {
 	double x;
 	double y; 
 	int demand;
 	bool isCharger;
 	int index;
+
+	bool operator==(const Node &) const;
+	bool operator!=(const Node &) const;
+	bool operator<(const Node &) const;
 } Node;
+
+inline bool Node::operator==(const Node& n) const
+{
+	return index == n.index;
+}
+
+inline bool Node::operator!=(const Node& n) const
+{
+	return index != n.index;
+}
+inline bool Node::operator<(const Node& n) const
+{
+	return demand < n.demand;
+}
+
+
+
 
 /**
 * the EVRP_Data structure holds a vector of every Node in the problem, as well as information for the vehicle.

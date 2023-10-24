@@ -71,3 +71,17 @@ vector<int> HelperFunctions::GenerateRandomTour(const int customerStart, const i
 	ShuffleVector(tour);
 	return tour;
 }
+
+/**
+* Calculates the distance between two nodes. Each Node has an x and y coordinate, so we can find the straight line between both points. 
+* 
+* @param node1 The first node in the distance calculation
+* @param node2 The second node in the distance calculation
+* 
+* @return Returns the Euclidean distance calculation between two nodes.
+*/
+float HelperFunctions::CalculateInterNodeDistance(const Node& node1, const Node& node2)
+{
+	const float dist = static_cast<float>(hypot(node1.x - node2.x, node1.y - node2.y));
+	return dist;
+}
