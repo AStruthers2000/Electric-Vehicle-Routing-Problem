@@ -69,6 +69,10 @@ void NEH_NearestNeighbor::Optimize(vector<int>& bestTour, float& bestDistance)
 
     //now we have all of the subtours required for this route
     //we now need to implement NEH concepts to find the best ordering of each element in each subtour
+    for(auto subtour : subtours)
+    {
+        
+    }
     cout << "Subtours" << endl;
 }
 
