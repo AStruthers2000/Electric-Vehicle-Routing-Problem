@@ -2,8 +2,8 @@
 #include "../AlgorithmBase.h"
 #include "../../GraphStructure.h"
 
-constexpr int SOLUTIONS_PER_GENERATION = 100; /*!< The number of solutions that will be randomly generated. Of n solutions, the top 1 will be saved */
-constexpr int NUM_GENERATIONS = 100; /*!< Number of "best" solutions desired, 1 from every "generation" */
+constexpr int SOLUTIONS_PER_GENERATION = 1000; /*!< The number of solutions that will be randomly generated. Of n solutions, the top 1 will be saved */
+constexpr int NUM_GENERATIONS = 1000; /*!< Number of "best" solutions desired, 1 from every "generation" */
 
 class RandomSearchOptimizer : public AlgorithmBase
 {

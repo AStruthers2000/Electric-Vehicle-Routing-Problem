@@ -127,8 +127,8 @@ void EVRP_Solver::SolveEVRP()
 {
 	vector<AlgorithmBase*> algorithms;
 
-	//algorithms.push_back(new GeneticAlgorithmOptimizer(data));
-	//algorithms.push_back(new RandomSearchOptimizer(data));
+	algorithms.push_back(new GeneticAlgorithmOptimizer(data));
+	algorithms.push_back(new RandomSearchOptimizer(data));
 	algorithms.push_back(new NEH_NearestNeighbor(data));
 
 	/*

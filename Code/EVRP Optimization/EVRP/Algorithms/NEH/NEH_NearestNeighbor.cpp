@@ -21,7 +21,7 @@ void NEH_NearestNeighbor::Optimize(vector<int>& bestTour, float& bestDistance)
      */
 
     //depot node is always node 0
-    Node depot = problem_data.nodes[0];
+    const Node depot = problem_data.nodes[0];
     vector<Node> customer_nodes;
     vector<Node> visited_nodes;
     
@@ -69,11 +69,23 @@ void NEH_NearestNeighbor::Optimize(vector<int>& bestTour, float& bestDistance)
 
     //now we have all of the subtours required for this route
     //we now need to implement NEH concepts to find the best ordering of each element in each subtour
-    for(auto subtour : subtours)
+    vector<vector<int>> optimal_subtours;
+    optimal_subtours.reserve(subtours.size());
+    cout << "subtours" << endl;
+    for(const auto &subtour : subtours)
     {
-        
+        optimal_subtours.push_back(NEH_Calculation(subtour));
     }
-    cout << "Subtours" << endl;
+    vector<int> tour;
+    for(const auto &subtour : optimal_subtours)
+    {
+        for(const auto &node : subtour)
+        {
+            tour.push_back(node);
+        }
+    }
+    bestTour = tour;
+    bestDistance = vehicle->SimulateDrive(bestTour);
 }
 
 Node NEH_NearestNeighbor::GetNearestUnvisitedNode(const vector<Node>& customer_nodes, const vector<Node>& visited_nodes,
@@ -112,4 +124,54 @@ Node NEH_NearestNeighbor::GetNearestNode(const vector<Node> &customer_nodes, con
         }
     }
     return closest_node;
+}
+
+/**
+ * \brief Use NEH concepts to find the best ordering of nodes in each subtour.
+ * we need to figure out the optimal ordering of the nodes in the subtour to minimize the distance
+ * in each subtour. We will use NEH concepts to do this.
+ * \param subtour 
+ * \return 
+ */
+vector<int> NEH_NearestNeighbor::NEH_Calculation(const vector<Node>& subtour)
+{
+    //if there is only one node in the subtour, we want to return. it is already "ordered"
+    if(subtour.size() == 1) return {subtour[0].index};
+
+    vector<int> subtour_index;
+    subtour_index.reserve(subtour.size());
+    for(const auto &node : subtour)
+    {
+        subtour_index.push_back(node.index);
+    }
+    
+    //first we need to figure out the optimal ordering of the first two elements in the subtour
+
+    //start with l = 2
+    int l = 2;
+    vector<int> best_partial;
+    vector<int> partial_subtour;// = {subtour_index.begin(), subtour_index.begin() + l};
+    partial_subtour.push_back(subtour_index[0]);
+    
+    do
+    {
+        float best_dist = numeric_limits<float>::max();
+        for(size_t i = 0; i < partial_subtour.size() + 1; i++)
+        {
+            vector<int> temp_subtour = {partial_subtour.begin(), partial_subtour.end()};
+            const auto index = temp_subtour.begin() + static_cast<long long>(i);
+            temp_subtour.insert(index, subtour_index[l-1]);
+
+            const float dist = vehicle->SimulateDrive(temp_subtour);
+            if(dist < best_dist)
+            {
+                best_partial = temp_subtour;
+                best_dist = dist;
+            }
+        }
+        partial_subtour = {best_partial.begin(), best_partial.end()};
+        l++;
+    }while(static_cast<unsigned long long>(l) < subtour.size() + 1);
+
+    return partial_subtour;
 }
