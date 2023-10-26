@@ -5,7 +5,7 @@
 #define STR_LEN 256 /*!< STR_LEN is the maximum number of characters a filepath could be*/
 
 constexpr char DATA_PATH[STR_LEN] = ".\\EVRP\\Data_Sets\\EVRP TW\\";
-constexpr char READ_FILENAME[STR_LEN] = "r202_21.txt"; /*!< The filepath to the EVRP problem definition with respect to the project root directory*/
+constexpr char READ_FILENAME[STR_LEN] = "rc206_21.txt"; /*!< The filepath to the EVRP problem definition with respect to the project root directory*/
 constexpr char WRITE_FILENAME[STR_LEN] = ".\\EVRP\\Output\\RawOutput.txt";
 
 
