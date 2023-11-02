@@ -1,13 +1,16 @@
 #pragma once
 
 #include "GraphStructure.h"
+#include <mutex>
 
-#define STR_LEN 256 /*!< STR_LEN is the maximum number of characters a filepath could be*/
+enum
+{
+	STR_LEN = 256 /*!< STR_LEN is the maximum number of characters a filepath could be */
+};
 
 constexpr char DATA_PATH[STR_LEN] = ".\\EVRP\\Data_Sets\\EVRP TW\\";
-constexpr char READ_FILENAME[STR_LEN] = "rc206_21.txt"; /*!< The filepath to the EVRP problem definition with respect to the project root directory*/
+constexpr char READ_FILENAME[STR_LEN] = "c101_21.txt"; /*!< The filepath to the EVRP problem definition with respect to the project root directory */
 constexpr char WRITE_FILENAME[STR_LEN] = ".\\EVRP\\Output\\RawOutput.txt";
-
 
 /***************************************************************************//**
  * A class used for reading the EVRP problem definition from a file then generically solving. 
@@ -21,11 +24,12 @@ constexpr char WRITE_FILENAME[STR_LEN] = ".\\EVRP\\Output\\RawOutput.txt";
 class EVRP_Solver
 {
 public:
-	EVRP_Solver();
-	void SolveEVRP();
+	EVRP_Solver(const string &file_name);
+	void SolveEVRP() const;
+	bool IsGoodOpen() const { return _is_good_open;};
 
 private:
-	void WriteToFile(const optimization_result &result);
+	void WriteToFile(const optimization_result &result) const;
 	
 	int vehicleLoadCapacity;/*!< A temporary variable to store the inventory load capacity when we are actively parsing the data file*/
 	float vehicleBatteryCapacity;/*!< A temporary variable to store the battery capacity when we are actively parsing the data file*/
@@ -33,5 +37,10 @@ private:
 
 	EVRP_Data data; /*!< This is the core of what the file gets loaded into. This data structure will contain all the necessary information to represent the selected EVRP problem*/
 	vector<Node> nodes; /*!< A vector of all nodes in the graph. This will contain customer nodes, charging station nodes, and the depot*/
+
+	string _current_filename;
+	bool _is_good_open;
+
+	
 };
 

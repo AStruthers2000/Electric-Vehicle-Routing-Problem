@@ -4,6 +4,11 @@
 #include "Algorithms\GA\GeneticAlgorithmOptimizer.h"
 #include "Algorithms/RandomSearch/RandomSearchOptimizer.h"
 
+#include <thread>
+#include <mutex>
+
+mutex file_write_mutex_;
+
 /***************************************************************************//**
  * EVRP_Solver constructor handles the loading of data from a file.
  *
@@ -25,96 +30,101 @@
  * 
  * After the data is loaded into the custom EVRP_Data struct, we do a quick summation
  * to find the total demand from all customer nodes, divided by the vehicle inventory capacity,
- * to determine the true miniumum number of subtours possible if the only constraint is inventory.
+ * to determine the true minimum number of subtours possible if the only constraint is inventory.
  ******************************************************************************/
-EVRP_Solver::EVRP_Solver()
+EVRP_Solver::EVRP_Solver(const string &file_name)
 {
 	ifstream file;
 
-	file.open(string(DATA_PATH) + string(READ_FILENAME));
+	file.open(string(DATA_PATH) + file_name);
 	if (!file.is_open())
 	{
-		cout << "Failed to open data file, exiting" << endl;
-		exit(1);
+		cout << "Failed to open data file " << file_name << ", exiting" << endl;
+		//quick_exit(1);
+		_is_good_open = false;
+		return;
 	}
-	else
+	_current_filename = file_name;
+	string ID;
+	char nodeType;
+	string line;
+	double x, y;
+	int demand;
+	int index = 0;
+	data.customerStartIndex = -1;
+	while (getline(file, line))
 	{
-
-		string ID;
-		char nodeType;
-		string line;
-		double x, y;
-		int demand;
-		int index = 0;
-		data.customerStartIndex = -1;
-		while (getline(file, line))
+		istringstream iss(line);
+		if (!(iss >> ID >> nodeType >> x >> y >> demand))
 		{
-			istringstream iss(line);
-			if (!(iss >> ID >> nodeType >> x >> y >> demand))
+			char type = line[0];
+			size_t pos = 0;
+			string token;
+			while ((pos = line.find('/')) != string::npos)
 			{
-				char type = line[0];
-				size_t pos = 0;
-				string token;
-				while ((pos = line.find('/')) != string::npos)
-				{
-					token = line.substr(0, pos);
-					line.erase(0, pos + 1);
-				}
-				if (!token.empty())
-				{
-					float num = stof(token);
-					switch (type)
-					{
-					case 'Q':
-						vehicleBatteryCapacity = num;
-						break;
-					case 'C':
-						vehicleLoadCapacity = static_cast<int>(num);
-						break;
-					case 'r':
-						vehicleFuelConsumptionRate = num;
-					default:
-						break;
-					}
-				}
+				token = line.substr(0, pos);
+				line.erase(0, pos + 1);
 			}
-			else
+			if (!token.empty())
 			{
-				Node n = Node{ x, y, 0, false, index };
-				switch (nodeType)
+				float num = stof(token);
+				switch (type)
 				{
-				case 'f':
-					n.demand = 0;
-					n.isCharger = true;
+				case 'Q':
+					vehicleBatteryCapacity = num;
 					break;
-				case 'c':
-					if (data.customerStartIndex == -1) data.customerStartIndex = index;
-					n.demand = demand;
-					n.isCharger = false;
+				case 'C':
+					vehicleLoadCapacity = static_cast<int>(num);
+					break;
+				case 'r':
+					vehicleFuelConsumptionRate = num;
 					break;
 				default:
 					break;
 				}
-				nodes.push_back(n);
-				index++;
 			}
 		}
-		data = EVRP_Data{ nodes, vehicleBatteryCapacity, vehicleLoadCapacity, vehicleFuelConsumptionRate, data.customerStartIndex };
+		else
+		{
+			Node n = Node{ x, y, 0, false, index };
+			switch (nodeType)
+			{
+			case 'f':
+				n.demand = 0;
+				n.isCharger = true;
+				break;
+			case 'c':
+				if (data.customerStartIndex == -1) data.customerStartIndex = index;
+				n.demand = demand;
+				n.isCharger = false;
+				break;
+			default:
+				break;
+			}
+			nodes.push_back(n);
+			index++;
+		}
 	}
+	data = EVRP_Data{ nodes, vehicleBatteryCapacity, vehicleLoadCapacity, vehicleFuelConsumptionRate, data.customerStartIndex };
+	
 	file.close();
+	_is_good_open = true;
+	cout << "~=~=~=~= Solving problem " << file_name << " now ~=~=~=~=" << endl;
 
+	/*
 	int tot_demand = 0;
 	for (const Node& node : nodes)
 	{
 		tot_demand += node.demand;
 	}
-	cout << "The minimum number of subtours with only constraint of capacity is: " << ceil(double(tot_demand) / vehicleLoadCapacity) << endl;
+	cout << "The minimum number of subtours with only constraint of capacity is: " << ceil(static_cast<double>(tot_demand) / vehicleLoadCapacity) << endl;
+	*/
 }
 
 /***************************************************************************//**
  * SolveEVRP is where the choice of algorithm occurs. 
  *
- * In order to keep the problem and the algorithm implementation seperate, the 
+ * In order to keep the problem and the algorithm implementation separate, the 
  * SolveEVRP function has control over which algorithm it selects. Currently, there
  * is only the GeneticAlgorithmOptimizer class in this project, but future work could
  * extend the amount of algorithms being used. To implement a different optimization
@@ -123,7 +133,7 @@ EVRP_Solver::EVRP_Solver()
  * that represents the optimal tour, and a float out parameter that stores the distance of 
  * the optimal tour.
  ******************************************************************************/
-void EVRP_Solver::SolveEVRP()
+void EVRP_Solver::SolveEVRP() const
 {
 	vector<AlgorithmBase*> algorithms;
 
@@ -153,6 +163,7 @@ void EVRP_Solver::SolveEVRP()
 		vector<int> encoded_tour;
 		float best_distance;
 
+		//cout << "\tCalculating answer with " << alg->GetName() << endl;
 		//What time is it before solving the problem
 		const auto start_time = std::chrono::high_resolution_clock::now();
 		
@@ -164,8 +175,8 @@ void EVRP_Solver::SolveEVRP()
 		//Get the execution time in milliseconds 
 		const auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
 		
-		cout << "Execution time: " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
-		cout << "The best route has a distance of: " << best_distance << endl;
+		//cout << "Execution time of algorithm " << alg->GetName() << ": " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
+		//cout << "The best route has a distance of: " << best_distance << endl;
 
 		optimization_result result;
 		result.algorithm_name = alg->GetName();
@@ -173,17 +184,20 @@ void EVRP_Solver::SolveEVRP()
 		result.solution_encoded = encoded_tour;
 		result.distance = best_distance;
 		result.hyperparameters = alg->GetHyperParameters();
-		
+
+		unique_lock<mutex> lock(file_write_mutex_);
 		WriteToFile(result);
+		lock.unlock();
 	}
+	//cout << "===== end of iteration =====" << endl;
 }
 
-void EVRP_Solver::WriteToFile(const optimization_result& result)
+void EVRP_Solver::WriteToFile(const optimization_result& result) const
 {
 	ofstream file;
 	file.open(WRITE_FILENAME, ios_base::app);
 	file << result.distance << ",";
-	file << READ_FILENAME << ",";
+	file << _current_filename << ",";
 	file << result.algorithm_name << ",";
 	file << result.execution_time << ",";
 

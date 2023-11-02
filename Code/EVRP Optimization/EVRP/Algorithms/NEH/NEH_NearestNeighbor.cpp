@@ -71,7 +71,7 @@ void NEH_NearestNeighbor::Optimize(vector<int>& bestTour, float& bestDistance)
     //we now need to implement NEH concepts to find the best ordering of each element in each subtour
     vector<vector<int>> optimal_subtours;
     optimal_subtours.reserve(subtours.size());
-    cout << "subtours" << endl;
+
     for(const auto &subtour : subtours)
     {
         optimal_subtours.push_back(NEH_Calculation(subtour));
@@ -133,7 +133,7 @@ Node NEH_NearestNeighbor::GetNearestNode(const vector<Node> &customer_nodes, con
  * \param subtour 
  * \return 
  */
-vector<int> NEH_NearestNeighbor::NEH_Calculation(const vector<Node>& subtour)
+vector<int> NEH_NearestNeighbor::NEH_Calculation(const vector<Node>& subtour) const
 {
     //if there is only one node in the subtour, we want to return. it is already "ordered"
     if(subtour.size() == 1) return {subtour[0].index};

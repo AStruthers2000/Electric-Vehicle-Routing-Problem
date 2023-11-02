@@ -52,7 +52,7 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 	for (int generation = 0; generation < MAX_GENERATIONS; generation++)
 	{
 		//cout << "Currently calculating generation: " << generation << endl;
-		PrintIfTheTimeIsRight("Genetic Algorithm", generation, MAX_GENERATIONS);
+		//PrintIfTheTimeIsRight("Genetic Algorithm", generation, MAX_GENERATIONS);
 
 		vector<vector<int>> newPopulation;
 		vector<float> newDistances;

@@ -21,7 +21,7 @@ int HelperFunctions::RandomNumberGenerator(const int min, const int max)
 /**
 * Helper functions used in the Genetic Algorithm code.
 *
-* Suffles a generic vector in place using the Mersenne Twister algorithm for the random number generator
+* Shuffles a generic vector in place using the Mersenne Twister algorithm for the random number generator
 *
 * @param container The vector that needs to be shuffled
 *

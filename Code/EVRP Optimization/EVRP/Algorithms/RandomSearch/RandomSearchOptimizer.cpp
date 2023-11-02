@@ -20,7 +20,7 @@ void RandomSearchOptimizer::Optimize(vector<int>& bestTour, float& bestDistance)
 		vector<int> _bestTour;
 		float _bestDistance = numeric_limits<float>::max();
 
-		PrintIfTheTimeIsRight("Random Search", i, NUM_GENERATIONS);
+		//PrintIfTheTimeIsRight("Random Search", i, NUM_GENERATIONS);
 
 		for (int j = 0; j < SOLUTIONS_PER_GENERATION; j++)
 		{

@@ -48,25 +48,44 @@
  * a file. We then start a timer to measure the execution time of the SolveEVRP function
  * of the EVRP_Solver class.
  ******************************************************************************/
-
-
-
 int main()
 {
-    auto *solver = new EVRP_Solver();
+    const vector<string> files = {"r101_21.txt", "r201_21.txt", "r202c5.txt", "r202c15.txt",
+                            "rc101_21.txt", "rc102c10.txt", "rc103c15.txt", "rc108c5.txt", "rc201_21.txt", "rc201c10.txt", "rc202c15.txt", "rc204c5.txt"};
+    
+    //const vector<string> files = {"c101c5.txt"};
+    for(const auto &file : files)
+    {
+        const auto *solver = new EVRP_Solver(file);
+        if(solver->IsGoodOpen())
+        {
+            //What time is it before solving the problem
+            const auto start_time = std::chrono::high_resolution_clock::now();
 
-    //What time is it before solving the problem
-    const auto start_time = std::chrono::high_resolution_clock::now();
+            vector<thread> solver_threads;
+            for(size_t i = 0; i < 40; i++)
+            {
+                //Actually solve the problem
+                solver_threads.emplace_back(thread(&EVRP_Solver::SolveEVRP, solver));
+                //solver->SolveEVRP();
+            }
+            for(auto &t : solver_threads)
+            {
+                t.join();
+            }
+                //cout << " ========== end of iteration " << i << " for file " << file << " ==========" << endl;
 
-    //Actually solve the problem
-    solver->SolveEVRP();
+            //What time is it now that we've solved the problem
+            const auto end_time = chrono::high_resolution_clock::now();
 
-    //What time is it now that we've solved the problem
-    const auto end_time = chrono::high_resolution_clock::now();
-
-    //Get the execution time in milliseconds 
-    const auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-    cout << "Total execution time: " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
-
+            //Get the execution time in milliseconds 
+            const auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
+            cout << "Total execution time: " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
+        }
+        else
+        {
+            cout << "EVRP_Solver had problems opening file " << file << ", so we are skipping" << endl;
+        }
+    }
     return 0;
 }

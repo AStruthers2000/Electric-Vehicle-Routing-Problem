@@ -1,10 +1,10 @@
 #pragma once
 #include "../AlgorithmBase.h"
 #include "../../GraphStructure.h"
-constexpr int POPULATION_SIZE = 50; /*!< Size of the population, aka how many solutions should each successive generation have*/
+constexpr int POPULATION_SIZE = 100; /*!< Size of the population, aka how many solutions should each successive generation have*/
 constexpr int MAX_GENERATIONS = 2000; /*!< Number of generations the evolution will take place over.*/
-constexpr int TOURNAMENT_SIZE = 10; /*!< The number of candidate solutions chosen at random from the current population when doing tournament selection*/
-constexpr float MUTATION_RATE = 0.1f; /*!< The percent chance that each child will get mutated*/
+constexpr int TOURNAMENT_SIZE = 15; /*!< The number of candidate solutions chosen at random from the current population when doing tournament selection*/
+constexpr float MUTATION_RATE = 0.2f; /*!< The percent chance that each child will get mutated*/
 
 class GeneticAlgorithmOptimizer : public AlgorithmBase
 {

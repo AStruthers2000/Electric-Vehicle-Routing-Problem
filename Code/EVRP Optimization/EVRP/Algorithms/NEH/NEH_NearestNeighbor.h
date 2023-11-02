@@ -8,7 +8,7 @@ public:
         AlgorithmBase("NEH with Nearest Neighbor Subtours", data)
     {
         vector<string> hyper_parameters;
-        hyper_parameters.push_back("None");
+        hyper_parameters.emplace_back("None");
         SetHyperParameters(hyper_parameters);
     }
 
@@ -21,7 +21,7 @@ private:
         map<Node, float> distance_map;
     } node_distances;
 
-    Node GetNearestUnvisitedNode(const vector<Node> &customer_nodes, const vector<Node> &visited_nodes, const Node &node);
-    Node GetNearestNode(const vector<Node> &customer_nodes, const Node &node);
-    vector<int> NEH_Calculation(const vector<Node> &subtour);
+    static Node GetNearestUnvisitedNode(const vector<Node> &customer_nodes, const vector<Node> &visited_nodes, const Node &node);
+    static Node GetNearestNode(const vector<Node> &customer_nodes, const Node &node);
+    vector<int> NEH_Calculation(const vector<Node> &subtour) const;
 };
