@@ -14,8 +14,8 @@ int HelperFunctions::RandomNumberGenerator(const int min, const int max)
 {
 	random_device rd;
 	mt19937 generator(rd());
-	uniform_int_distribution<int> distr(min, max);
-	return distr(generator);
+	const uniform_int_distribution<> distribution(min, max);
+	return distribution(generator);
 }
 
 /**
@@ -41,12 +41,12 @@ void HelperFunctions::ShuffleVector(vector<int>& container)
 *
 * @param tour The tour to be printed.
 */
-void HelperFunctions::PrintTour(const vector<int> tour)
+void HelperFunctions::PrintTour(const vector<int> &tour)
 {
 	cout << "Tour: ";
-	for (int i = 0; i < tour.size(); i++)
+	for (const int i : tour)
 	{
-		cout << tour[i] << " ";
+		cout << i << " ";
 	}
 	cout << endl;
 }
@@ -82,6 +82,6 @@ vector<int> HelperFunctions::GenerateRandomTour(const int customerStart, const i
 */
 float HelperFunctions::CalculateInterNodeDistance(const Node& node1, const Node& node2)
 {
-	const float dist = static_cast<float>(hypot(node1.x - node2.x, node1.y - node2.y));
+	const auto dist = static_cast<float>(hypot(node1.x - node2.x, node1.y - node2.y));
 	return dist;
 }

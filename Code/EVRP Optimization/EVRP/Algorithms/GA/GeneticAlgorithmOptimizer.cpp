@@ -150,13 +150,12 @@ vector<int> GeneticAlgorithmOptimizer::Crossover(const vector<int> parentTour1, 
 
 	// Copy a random subset of elements from parent1 to the child
 	int crossoverPoint = rand() % parentTour1.size();
-	copy(parentTour1.begin(), parentTour1.begin() + crossoverPoint, child.begin());
+	copy_n(parentTour1.begin(), crossoverPoint, child.begin());
 
 	// Fill the remaining elements in the child with unique elements from parent2
 	int childIndex = crossoverPoint;
-	for (int i = 0; i < parentTour2.size(); ++i)
+	for (const int element : parentTour2)
 	{
-		int element = parentTour2[i];
 		// Check if the element is already present in the child
 		if (find(child.begin(), child.end(), element) == child.end())
 		{
@@ -167,7 +166,7 @@ vector<int> GeneticAlgorithmOptimizer::Crossover(const vector<int> parentTour1, 
 	//this is to assert that the child doesn't contain any duplicates (i.e. the crossover algorithm didn't preserve uniqueness of the elements)
 	set<int> unique_s(child.begin(), child.end());
 	vector<int> unique_v(unique_s.begin(), unique_s.end());
-	for (int i = 0; i < unique_v.size() - 1; i++)
+	for (size_t i = 0; i < unique_v.size() - 1; i++)
 	{
 		if (unique_v[i] + 1 != unique_v[i + 1])
 		{

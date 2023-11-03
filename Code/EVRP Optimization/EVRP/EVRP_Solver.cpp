@@ -40,7 +40,6 @@ EVRP_Solver::EVRP_Solver(const string &file_name)
 	if (!file.is_open())
 	{
 		cout << "Failed to open data file " << file_name << ", exiting" << endl;
-		//quick_exit(1);
 		_is_good_open = false;
 		return;
 	}
@@ -122,7 +121,7 @@ EVRP_Solver::EVRP_Solver(const string &file_name)
 }
 
 /***************************************************************************//**
- * SolveEVRP is where the choice of algorithm occurs. 
+ * \brief SolveEVRP is where the choice of algorithm occurs. 
  *
  * In order to keep the problem and the algorithm implementation separate, the 
  * SolveEVRP function has control over which algorithm it selects. Currently, there
@@ -137,36 +136,24 @@ void EVRP_Solver::SolveEVRP() const
 {
 	vector<AlgorithmBase*> algorithms;
 
+	//Create new instances of the algorithm solvers
 	algorithms.push_back(new GeneticAlgorithmOptimizer(data));
 	algorithms.push_back(new RandomSearchOptimizer(data));
 	algorithms.push_back(new NEH_NearestNeighbor(data));
-
-	/*
-	//Out parameter for the optimal tour
-	vector<int> optimalTour;
-
-	//Out parameter for the distance of the optimal tour
-	float bestDistance;
-
-	//Function call to the GeneticAlgorithmOptimizer class that will return the best tour
-	//from the given data
-	//ga->Optimize(data, optimalTour, bestDistance);
-	rand_search->Optimize(optimalTour, bestDistance);
-	
-
-	cout << "The best route has a distance of: " << bestDistance << endl;
-	return optimalTour;
-	*/
 	
 	for(const auto alg : algorithms)
 	{
+		//Out parameter for the optimal tour
 		vector<int> encoded_tour;
-		float best_distance;
 
-		//cout << "\tCalculating answer with " << alg->GetName() << endl;
+		//Out parameter for the distance of the optimal tour
+		float best_distance;
+		
 		//What time is it before solving the problem
 		const auto start_time = std::chrono::high_resolution_clock::now();
-		
+
+		//Function call to the GeneticAlgorithmOptimizer class that will return the best tour
+		//from the given data
 		alg->Optimize(encoded_tour, best_distance);
 
 		//What time is it now that we've solved the problem
@@ -189,18 +176,30 @@ void EVRP_Solver::SolveEVRP() const
 		WriteToFile(result);
 		lock.unlock();
 	}
-	//cout << "===== end of iteration =====" << endl;
 }
 
+/**
+ * \brief Static write to file function that takes the results and writes to @WRITE_FILENAME.
+ * We care about logging the results distance, name of the problem, algorithm name, and execution time.
+ * We also care about writing the solution and the hyperparameters to the file in case we want to do more
+ * evaluation on the specifics that went into generating this solution.
+ * \param result A const reference to the optimization_results data structure that holds the information we care about
+ */
 void EVRP_Solver::WriteToFile(const optimization_result& result) const
 {
 	ofstream file;
 	file.open(WRITE_FILENAME, ios_base::app);
+
+	//The distance of the solution
 	file << result.distance << ",";
+
+	//The problem name
 	file << _current_filename << ",";
+	
 	file << result.algorithm_name << ",";
 	file << result.execution_time << ",";
 
+	//Writing each element of the solution vector
 	string encoded_solution;
 	for(const auto &iter : result.solution_encoded)
 	{
@@ -209,6 +208,7 @@ void EVRP_Solver::WriteToFile(const optimization_result& result) const
 	encoded_solution.pop_back();
 	file << encoded_solution << ",";
 
+	//Writing each element of the hyperparameters vector
 	string hyper_parameters;
 	for(const auto &iter : result.hyperparameters)
 	{
@@ -219,5 +219,5 @@ void EVRP_Solver::WriteToFile(const optimization_result& result) const
 	
 	file << "\n";
 
-	file.clear();
+	file.close();
 }

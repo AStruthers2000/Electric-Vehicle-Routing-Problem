@@ -1,4 +1,8 @@
 #include "Vehicle.h"
+
+#include <queue>
+#include <unordered_map>
+
 #include "HelperFunctions.h"
 
 /**
@@ -20,7 +24,7 @@
 * 
 * @return Returns the true distance that the desired route would actually traverse with the fuel and capacity constraints
 */
-float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
+float Vehicle::SimulateDrive(const vector<int> &desiredRoute, bool verbose)
 {
 	//Resets the vehicle so that we are "starting fresh" every time a new drive starts
 	ResetVehicle();
@@ -39,12 +43,12 @@ float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
 	int currentNodeIndex = 0;
 	paddedTour.push_back(currentNodeIndex);
 
-	//start wuth zero distance
+	//start with zero distance
 	float fullDistance = 0.f;
 
 	//loop until we have serviced all customer nodes, which satisfies constraint number 2
 	int customerNodesServiced = 0;
-	while (customerNodesServiced < desiredRoute.size())
+	while (static_cast<size_t>(customerNodesServiced) < desiredRoute.size())
 	{
 		if (verbose)
 		{
@@ -57,7 +61,6 @@ float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
 		where the vehicle must bounce between two charging stations, never having enough battery to safely go to the next customer. 
 		If that's the case, we want to heavily punish this route with a huge distance penalty. 
 		*/
-		
 		if (paddedTour.size() > 10 &&
 			(paddedTour[paddedTour.size() - 1] == paddedTour[paddedTour.size() - 3] && paddedTour[paddedTour.size() - 2] == paddedTour[paddedTour.size() - 4]))
 		{
@@ -73,7 +76,7 @@ float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
 
 		//Calculate battery cost to go from the current node to the next desired node
 		float routeCost = BatteryCost(currentNode, nextDesiredNode);
-		int demandCost = nextDesiredNode.demand;
+		const int demandCost = nextDesiredNode.demand;
 
 		if (verbose)
 		{
@@ -83,7 +86,7 @@ float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
 		//we only want to go to the next customer node if we can get from where we are, to the next customer, then to a charging station.
 		//If we can't go from the next customer to a charging station, we need to first visit a charging station or else we would get stranded
 		//at the next customer. Bad day. 
-		bool canGetToNextCustomerSafely = CanGetToNextCustomerSafely(currentNode, nextDesiredNode);
+		const bool canGetToNextCustomerSafely = CanGetToNextCustomerSafely(currentNode, nextDesiredNode);
 		if (canGetToNextCustomerSafely)
 		{
 			if (verbose)
@@ -182,10 +185,10 @@ float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
 	//but.... 
 	while (currentNodeIndex != 0)
 	{
-		Node currentNode = _nodes[currentNodeIndex];
-		Node desiredNode = _nodes[0];
+		const Node currentNode = _nodes[currentNodeIndex];
+		const Node desiredNode = _nodes[0];
 
-		float routeCost = BatteryCost(currentNode, desiredNode);
+		const float routeCost = BatteryCost(currentNode, desiredNode);
 		if (currentBatteryCapacity > routeCost)
 		{
 			currentBatteryCapacity -= routeCost;
@@ -205,7 +208,7 @@ float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
 	if (verbose)
 	{
 		cout << "True route: ";
-		for (auto i : paddedTour)
+		for (const auto i : paddedTour)
 		{
 			cout << i << " ";
 		}
@@ -219,7 +222,109 @@ float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
 	return fullDistance;
 }
 
+/* This new implementation of SimulateDrive is still in active development and currently won't compile.
+ * There were some inefficiencies with the above implementation, so this was an attempt to clean up the fitness
+ * calculation before implementing new stuff like time window constraints
+float Vehicle::SimulateDrive(const vector<int> &desiredRoute, bool verbose)
+{
+	ResetVehicle();
+	if(verbose)
+	{
+		cout << "Simulating drive of route: ";
+		HelperFunctions::PrintTour(desiredRoute);
+	}
 
+	vector<int> padded_tour;
+	vector<Node> charger_nodes;
+	for(const auto &node : _nodes)
+	{
+		if(node.isCharger) charger_nodes.push_back(node);
+	}
+
+	int current_node_index = 0;
+	padded_tour.push_back(current_node_index);
+
+	float full_distance = 0.f;
+
+	int customer_nodes_serviced = 0;
+	while(customer_nodes_serviced < static_cast<int>(desiredRoute.size()))
+	{
+		int desired_route_index = desiredRoute[customer_nodes_serviced];
+		Node current_node = _nodes[current_node_index];
+		Node next_desired_node = _nodes[desired_route_index];
+
+		const float route_cost = BatteryCost(current_node, next_desired_node);
+		const int demand_cost = next_desired_node.demand;
+
+		//i know that i can just go from where i am to where i want to go
+		if(currentBatteryCapacity > route_cost)
+		{
+			
+		}
+		else
+		{
+			vector<Node> subgraph = {charger_nodes.begin(), charger_nodes.end()};
+			subgraph.push_back(current_node);
+			subgraph.push_back(next_desired_node);
+			vector<Node> safe_route = astar_pathfinding(subgraph, current_node, next_desired_node);
+		}
+	}
+}
+
+struct Compare
+{
+	bool operator()(const pair<Node, float> &a, const pair<Node, float> &b) const
+	{
+		return a.second > b.second;
+	}
+};
+
+vector<Node> Vehicle::astar_pathfinding(const vector<Node>& graph, const Node& start, const Node& end)
+{
+	priority_queue<pair<Node, float>, vector<pair<Node, float>>, Compare> pq;
+	unordered_map<Node, float> cost;
+	unordered_map<Node, Node> parent;
+
+	pq.push({start, 0.f});
+	cost[start] = 0.f;
+	parent[start] = start;
+
+	while(!pq.empty())
+	{
+		Node current = pq.top().first;
+		pq.pop();
+
+		if(current.x == end.x && current.y == end.y)
+		{
+			vector<Node> path;
+			while(current.x != start.x || current.y != start.y)
+			{
+				path.push_back(current);
+				current = parent[current];
+			}
+			path.push_back(start);
+			reverse(path.begin(), path.end());
+			return path;
+		}
+
+		for(const Node &neighbor : graph)
+		{
+			if(neighbor.x == current.x && neighbor.y == current.y) continue;
+
+			float new_cost = cost[current] + HelperFunctions::CalculateInterNodeDistance(current, neighbor);
+
+			if(!cost.count(neighbor) || new_cost < cost[neighbor])
+			{
+				cost[neighbor] = new_cost;
+				pq.push({neighbor, new_cost + HelperFunctions::CalculateInterNodeDistance(neighbor, end)});
+				parent[neighbor] = current;
+			}
+		}
+	}
+
+	return {};
+}
+*/
 
 /**
 * Helper for finding the closest charging station to the given node.
@@ -228,19 +333,19 @@ float Vehicle::SimulateDrive(const vector<int> desiredRoute, bool verbose)
 * 
 * @return The index of the nearest charging station to the given node. 
 */
-int Vehicle::GetClosestChargingStationToNode(const Node node) const
+int Vehicle::GetClosestChargingStationToNode(const Node &node) const
 {
 	float closest = numeric_limits<float>::max();
 	int closestChargerIndex = -1;
 
-	for (int i = 0; i < _nodes.size(); i++)
+	for (size_t i = 0; i < _nodes.size(); i++)
 	{
 		if (_nodes[i].isCharger && _nodes[i].index != node.index)
 		{
-			float dist = HelperFunctions::CalculateInterNodeDistance(node, _nodes[i]);
+			const float dist = HelperFunctions::CalculateInterNodeDistance(node, _nodes[i]);
 			if (dist < closest)
 			{
-				closestChargerIndex = i;
+				closestChargerIndex = static_cast<int>(i);
 				closest = dist;
 			}
 		}
@@ -260,16 +365,16 @@ int Vehicle::GetClosestChargingStationToNode(const Node node) const
 * 
 * @return Whether or not the Vehicle can safely get from one node to the next. 
 */
-bool Vehicle::CanGetToNextCustomerSafely(Node from, Node to)
+bool Vehicle::CanGetToNextCustomerSafely(const Node &from, const Node &to) const
 {
-	int chargerIndex = GetClosestChargingStationToNode(to);
+	const int chargerIndex = GetClosestChargingStationToNode(to);
 
 	if (chargerIndex == -1)
 	{
 		return false;
 	}
 
-	Node closestCharger = _nodes[chargerIndex];
+	const Node closestCharger = _nodes[chargerIndex];
 	if (currentBatteryCapacity > BatteryCost(from, to) + BatteryCost(to, closestCharger))
 	{
 		return true;
@@ -286,7 +391,7 @@ bool Vehicle::CanGetToNextCustomerSafely(Node from, Node to)
 * 
 * @return The battery cost between both nodes. 
 */
-float Vehicle::BatteryCost(const Node node1, const Node node2) const
+float Vehicle::BatteryCost(const Node &node1, const Node &node2) const
 {
 	return HelperFunctions::CalculateInterNodeDistance(node1, node2) * batteryConsumptionRate;
 }
@@ -299,12 +404,12 @@ float Vehicle::BatteryCost(const Node node1, const Node node2) const
 * 
 * @return Returns the true distance of the found route. 
 */
-float Vehicle::CalculateFullRouteDistance(const vector<int> trueRoute, bool verbose)
+float Vehicle::CalculateFullRouteDistance(const vector<int> &trueRoute, bool verbose) const
 {
 	float dist = 0.f;
 
 	//iterate from node 1 in the true route to the end of the route
-	for (int i = 1; i < trueRoute.size(); i++)
+	for (size_t i = 1; i < trueRoute.size(); i++)
 	{
 		if (verbose)
 		{

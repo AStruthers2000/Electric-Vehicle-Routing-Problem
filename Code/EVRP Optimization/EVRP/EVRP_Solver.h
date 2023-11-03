@@ -1,16 +1,16 @@
 #pragma once
 
 #include "GraphStructure.h"
-#include <mutex>
+//#include <mutex>
 
 enum
 {
 	STR_LEN = 256 /*!< STR_LEN is the maximum number of characters a filepath could be */
 };
 
-constexpr char DATA_PATH[STR_LEN] = ".\\EVRP\\Data_Sets\\EVRP TW\\";
+constexpr char DATA_PATH[STR_LEN] = R"(.\EVRP\Data_Sets\EVRP TW\)";
 constexpr char READ_FILENAME[STR_LEN] = "c101_21.txt"; /*!< The filepath to the EVRP problem definition with respect to the project root directory */
-constexpr char WRITE_FILENAME[STR_LEN] = ".\\EVRP\\Output\\RawOutput.txt";
+constexpr char WRITE_FILENAME[STR_LEN] = R"(.\EVRP\Output\RawOutput.txt)";
 
 /***************************************************************************//**
  * A class used for reading the EVRP problem definition from a file then generically solving. 
@@ -26,7 +26,7 @@ class EVRP_Solver
 public:
 	EVRP_Solver(const string &file_name);
 	void SolveEVRP() const;
-	bool IsGoodOpen() const { return _is_good_open;};
+	bool IsGoodOpen() const { return _is_good_open;}
 
 private:
 	void WriteToFile(const optimization_result &result) const;

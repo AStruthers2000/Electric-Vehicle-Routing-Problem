@@ -31,11 +31,13 @@
 * also be using the same dataset as the one discussed.
 
 * \section start Where to Start
-* The file EVRPOptimization.cpp contains a generic main function that instanciates an 
+* The file EVRPOptimization.cpp contains a generic main function that instantiates an 
 * EVRP_Solver object, which has the method SolveEVRP()
 */
 
 #include "EVRP_Solver.h"
+
+#include <thread>
 
 /***************************************************************************//**
  * Generic starting point for the code execution. 
@@ -50,32 +52,38 @@
  ******************************************************************************/
 int main()
 {
+    //list of files to run our tests on
     const vector<string> files = {"r101_21.txt", "r201_21.txt", "r202c5.txt", "r202c15.txt",
                             "rc101_21.txt", "rc102c10.txt", "rc103c15.txt", "rc108c5.txt", "rc201_21.txt", "rc201c10.txt", "rc202c15.txt", "rc204c5.txt"};
     
-    //const vector<string> files = {"c101c5.txt"};
+    //iterate through each of the files, so this can run overnight
     for(const auto &file : files)
     {
+        //create EVRP_Solver instance and read the file
+        //EVRP_Solver::IsGoodOpen() is false if the constructor failed to read the file
         const auto *solver = new EVRP_Solver(file);
         if(solver->IsGoodOpen())
         {
             //What time is it before solving the problem
+            //TODO: this timing only works in the single threaded case, figure out how to time each individual thread
             const auto start_time = std::chrono::high_resolution_clock::now();
 
+            //Create 40 threads that each run a call to the solve function
             vector<thread> solver_threads;
             for(size_t i = 0; i < 40; i++)
             {
                 //Actually solve the problem
-                solver_threads.emplace_back(thread(&EVRP_Solver::SolveEVRP, solver));
-                //solver->SolveEVRP();
+                solver_threads.emplace_back(&EVRP_Solver::SolveEVRP, solver);
             }
+
+            //wait for all threads to finish computing
             for(auto &t : solver_threads)
             {
                 t.join();
             }
-                //cout << " ========== end of iteration " << i << " for file " << file << " ==========" << endl;
 
             //What time is it now that we've solved the problem
+            //TODO: see todo above
             const auto end_time = chrono::high_resolution_clock::now();
 
             //Get the execution time in milliseconds 
