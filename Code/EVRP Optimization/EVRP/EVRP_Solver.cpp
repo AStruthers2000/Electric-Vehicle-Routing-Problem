@@ -124,13 +124,10 @@ EVRP_Solver::EVRP_Solver(const string &file_name)
  * \brief SolveEVRP is where the choice of algorithm occurs. 
  *
  * In order to keep the problem and the algorithm implementation separate, the 
- * SolveEVRP function has control over which algorithm it selects. Currently, there
- * is only the GeneticAlgorithmOptimizer class in this project, but future work could
- * extend the amount of algorithms being used. To implement a different optimization
- * algorithm, all that would need to happen is to create a new class, for example 
- * AntColonyOptimizer, that has a function we can pass EVRP_Data, a vector out parameter
- * that represents the optimal tour, and a float out parameter that stores the distance of 
- * the optimal tour.
+ * SolveEVRP function has control over which algorithm it selects. Currently, we
+ * implement GeneticAlgorithmOptimizer, RandomSearchOptimizer, and NEH_NearestNeighbor.
+ * Each one of these algorithms runs with the provided problem instance, and the results
+ * are each logged to a file with the proper information. 
  ******************************************************************************/
 void EVRP_Solver::SolveEVRP() const
 {
