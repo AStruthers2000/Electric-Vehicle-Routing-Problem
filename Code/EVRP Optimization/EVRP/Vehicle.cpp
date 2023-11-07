@@ -150,7 +150,7 @@ float Vehicle::SimulateDrive(const vector<int>& desiredRoute, bool verbose)
 	
 	return true_distance;
 }
-*/
+
 vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, const Node& end, PathfindingResult &out_result)
 {
 	float current_battery = currentBatteryCapacity;
@@ -242,7 +242,7 @@ vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, 
 
 	return visited_nodes;
 }
-
+*/
 
 float Vehicle::SimulateDrive(const vector<int> &desiredRoute, bool verbose)
 {
