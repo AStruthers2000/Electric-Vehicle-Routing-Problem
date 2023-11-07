@@ -24,6 +24,7 @@
 * 
 * @return Returns the true distance that the desired route would actually traverse with the fuel and capacity constraints
 */
+/*
 float Vehicle::SimulateDrive(const vector<int>& desiredRoute, bool verbose)
 {
 	ResetVehicle();
@@ -149,7 +150,7 @@ float Vehicle::SimulateDrive(const vector<int>& desiredRoute, bool verbose)
 	
 	return true_distance;
 }
-
+*/
 vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, const Node& end, PathfindingResult &out_result)
 {
 	float current_battery = currentBatteryCapacity;
@@ -242,7 +243,7 @@ vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, 
 	return visited_nodes;
 }
 
-/*
+
 float Vehicle::SimulateDrive(const vector<int> &desiredRoute, bool verbose)
 {
 	//Resets the vehicle so that we are "starting fresh" every time a new drive starts
@@ -439,7 +440,7 @@ float Vehicle::SimulateDrive(const vector<int> &desiredRoute, bool verbose)
 
 	return fullDistance;
 }
-*/
+
 
 
 /* This new implementation of SimulateDrive is still in active development and currently won't compile.

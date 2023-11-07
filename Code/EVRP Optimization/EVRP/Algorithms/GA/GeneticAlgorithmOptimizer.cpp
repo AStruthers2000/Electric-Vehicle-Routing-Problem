@@ -67,9 +67,8 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 			const vector<int> parentTour1 = TournamentSelection(population, tourDistances);
 			const vector<int> parentTour2 = TournamentSelection(population, tourDistances);
 			vector<int> childTour = Crossover(parentTour1, parentTour2);
-			const float r = HelperFunctions::RandomNumberGenerator(0, 100);
-			//const float r = static_cast<float>(rand()) / RAND_MAX;
-			if (r <= MUTATION_RATE * 100.f)
+			const int r = HelperFunctions::RandomNumberGenerator(0, 100);
+			if (r <= static_cast<int>(MUTATION_RATE * 100.f))
 			{
 				Mutate(childTour);
 			}
@@ -169,7 +168,7 @@ vector<int> GeneticAlgorithmOptimizer::Crossover(const vector<int> parentTour1, 
 
 	// Copy a random subset of elements from parent1 to the child
 	//int crossoverPoint = rand() % parentTour1.size();
-	int crossoverPoint = HelperFunctions::RandomNumberGenerator(0, parentTour1.size());
+	const int crossoverPoint = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(parentTour1.size()));
 	copy_n(parentTour1.begin(), crossoverPoint, child.begin());
 
 	// Fill the remaining elements in the child with unique elements from parent2

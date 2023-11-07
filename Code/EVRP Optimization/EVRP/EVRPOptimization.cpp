@@ -39,7 +39,7 @@
 
 #include <thread>
 
-#define DEBUG true
+#define DEBUG false
 /***************************************************************************//**
  * Generic starting point for the code execution. 
  *
