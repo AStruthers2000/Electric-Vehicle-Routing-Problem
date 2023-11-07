@@ -25,6 +25,7 @@ class EVRP_Solver
 {
 public:
 	EVRP_Solver(const string &file_name);
+	void DebugEVRP() const;
 	void SolveEVRP() const;
 	bool IsGoodOpen() const { return _is_good_open;}
 

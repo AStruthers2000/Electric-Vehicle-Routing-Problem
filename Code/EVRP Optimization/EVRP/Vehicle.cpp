@@ -24,6 +24,225 @@
 * 
 * @return Returns the true distance that the desired route would actually traverse with the fuel and capacity constraints
 */
+float Vehicle::SimulateDrive(const vector<int>& desiredRoute, bool verbose)
+{
+	ResetVehicle();
+	if(verbose)
+	{
+		cout << "Simulating drive of route: ";
+		HelperFunctions::PrintTour(desiredRoute);
+	}
+
+	vector<int> padded_tour;
+	vector<Node> charger_nodes;
+	for(const auto &node : _nodes)
+	{
+		if(node.isCharger) charger_nodes.push_back(node);
+	}
+
+	int current_node_index = 0;
+	padded_tour.push_back(current_node_index);
+
+	float full_distance = 0.f;
+
+	int customer_nodes_serviced = 0;
+	while(customer_nodes_serviced < static_cast<int>(desiredRoute.size()))
+	{
+		const int desired_route_index = desiredRoute[customer_nodes_serviced];
+		Node current_node = _nodes[current_node_index];
+		Node next_desired_node = _nodes[desired_route_index];
+		
+		const int demand_cost = next_desired_node.demand;
+
+		RouteType route_type;
+		vector<Node> subgraph = {charger_nodes.begin(), charger_nodes.end()};
+		subgraph.push_back(current_node);
+
+		if(demand_cost <= currentInventoryCapacity)
+		{
+			route_type = RouteToCustomer;
+			subgraph.push_back(next_desired_node);
+		}
+		else
+		{
+			route_type = RouteToDepot;
+			subgraph.push_back(_nodes[0]);
+		}
+
+		PathfindingResult result;
+		const vector<Node> safe_route = pathfinding(subgraph, current_node, next_desired_node, result);
+
+		if(result == ImpossibleRoute)
+		{
+			cout << "Impossible route detected" << endl;
+			full_distance += 1000000000.f;
+			return full_distance;
+		}
+
+		for(size_t i = 1; i < safe_route.size(); i++)
+		{
+			padded_tour.push_back(safe_route[i].index);
+			currentBatteryCapacity -= BatteryCost(safe_route[i-1], safe_route[i]);
+			full_distance += HelperFunctions::CalculateInterNodeDistance(safe_route[i-1], safe_route[i]);
+			if(safe_route[i].isCharger)
+			{
+				currentBatteryCapacity = maxBatteryCapacity;
+			}
+		}
+
+		if(route_type == RouteToCustomer)
+		{
+			current_node_index = desired_route_index;
+			currentInventoryCapacity -= demand_cost;
+			customer_nodes_serviced++;
+		}
+		else
+		{
+			current_node_index = 0;
+			currentInventoryCapacity = maxInventoryCapacity;
+			currentBatteryCapacity = maxBatteryCapacity;
+		}
+	}
+
+	vector<Node> subgraph = {charger_nodes.begin(), charger_nodes.end()};
+	const Node current_node = _nodes[current_node_index];
+	const Node depot = _nodes[0];
+	subgraph.push_back(current_node);
+	subgraph.push_back(depot);
+
+	PathfindingResult result;
+	const vector<Node> safe_route = pathfinding(subgraph, current_node, depot, result);
+
+	if(result == ImpossibleRoute)
+	{
+		cout << "Impossible route detected" << endl;
+		full_distance += 1000000000.f;
+		return full_distance;
+	}
+
+	for(size_t i = 1; i < safe_route.size(); i++)
+	{
+		padded_tour.push_back(safe_route[i].index);
+		currentBatteryCapacity -= BatteryCost(safe_route[i-1], safe_route[i]);
+		full_distance += HelperFunctions::CalculateInterNodeDistance(safe_route[i-1], safe_route[i]);
+		if(safe_route[i].isCharger)
+		{
+			currentBatteryCapacity = maxBatteryCapacity;
+		}
+	}
+
+	float true_distance = CalculateFullRouteDistance(padded_tour);
+	
+	if(fabs(true_distance - full_distance) < 1)
+	{
+		cout << "Great, i calculated things correctly" << endl;
+	}
+
+	cout << "----------------------------------------" << endl;
+	cout << "True route: ";
+	for (const auto i : padded_tour)
+	{
+		cout << i << " ";
+	}
+	cout << endl;
+	cout << "----------------------------------------" << endl;
+	
+	return true_distance;
+}
+
+vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, const Node& end, PathfindingResult &out_result)
+{
+	float current_battery = currentBatteryCapacity;
+	bool found_route_to_end = false;
+
+	Node current_node = start;
+	vector<Node> visited_nodes = {start};
+	
+	while(!found_route_to_end)
+	{
+		vector<Node> unvisited_nodes;
+		//get all unvisited nodes
+		for(const auto &node : graph)
+		{
+			bool node_has_been_visited = false;
+			for(const auto &n : visited_nodes)
+			{
+				if(node.index == n.index)
+				{
+					node_has_been_visited = true;
+				}
+			}
+			if(!node_has_been_visited)
+			{
+				unvisited_nodes.push_back(node);
+			}
+		}
+		
+		vector<Node> nodes_in_range = GetAllNodesWithinRange(unvisited_nodes, current_node, current_battery);
+
+		if(nodes_in_range.empty())
+		{
+			out_result = ImpossibleRoute;
+			return {};
+		}
+
+		//if we found a direct path from where we are to the end, then we want to go there
+		for(const auto &n : nodes_in_range)
+		{
+			if(n.index == end.index)
+			{
+				//we can get to the end, but can we get there safely?
+				if(CanGetToNextCustomerSafely(current_node, end))
+				{
+					found_route_to_end = true;
+					visited_nodes.push_back(end);
+					break;
+				}
+
+				//we can't get there safely, so we need to go to the nearest charger again
+				found_route_to_end = false;
+			}
+		}
+		
+		//if we didn't find a direct path from where we are to the end, then we must be at a charging station
+		if(!found_route_to_end)
+		{
+			//if we didn't find a route to the end, AND we have only not visited 1 node, AND  that node happens to be the end node,
+			//we can't reach the end node, so this is an impossible path 
+			if(unvisited_nodes.size() == 1 && unvisited_nodes[0].index == end.index)
+			{
+				cout << "We have been to every charging node and have been unable to find our way to the end" << endl;
+				out_result = ImpossibleRoute;
+				return {};
+			}
+			
+			//find the closest charging node to the end that's in range 
+			const Node closest = GetClosestNodeFromRange(nodes_in_range, end);
+
+			//simulate a recharge
+			current_battery = maxBatteryCapacity;
+
+			//go to closest node
+			visited_nodes.push_back(closest);
+			current_node = closest;
+		}
+	}
+
+	//we started at the start, and found a direct route to the end (only visited start and end nodes)
+	if(visited_nodes.size() == 2)
+	{
+		out_result = DirectPathFound;
+	}
+	//we didn't find a direct path from start to end
+	else
+	{
+		out_result = RouteThroughChargers;
+	}
+
+	return visited_nodes;
+}
+
+/*
 float Vehicle::SimulateDrive(const vector<int> &desiredRoute, bool verbose)
 {
 	//Resets the vehicle so that we are "starting fresh" every time a new drive starts
@@ -56,11 +275,10 @@ float Vehicle::SimulateDrive(const vector<int> &desiredRoute, bool verbose)
 			cout << "Current Node Index: " << currentNodeIndex << endl;
 		}
 
-		/*
-		This if statement checks for a supposed infinite loop. It is possible, under the current implementation, to have an impossible route
-		where the vehicle must bounce between two charging stations, never having enough battery to safely go to the next customer. 
-		If that's the case, we want to heavily punish this route with a huge distance penalty. 
-		*/
+		
+		//This if statement checks for a supposed infinite loop. It is possible, under the current implementation, to have an impossible route
+		//where the vehicle must bounce between two charging stations, never having enough battery to safely go to the next customer. 
+		//If that's the case, we want to heavily punish this route with a huge distance penalty. 
 		if (paddedTour.size() > 10 &&
 			(paddedTour[paddedTour.size() - 1] == paddedTour[paddedTour.size() - 3] && paddedTour[paddedTour.size() - 2] == paddedTour[paddedTour.size() - 4]))
 		{
@@ -221,6 +439,8 @@ float Vehicle::SimulateDrive(const vector<int> &desiredRoute, bool verbose)
 
 	return fullDistance;
 }
+*/
+
 
 /* This new implementation of SimulateDrive is still in active development and currently won't compile.
  * There were some inefficiencies with the above implementation, so this was an attempt to clean up the fitness
@@ -423,3 +643,40 @@ float Vehicle::CalculateFullRouteDistance(const vector<int> &trueRoute, bool ver
 	
 	return dist;
 }
+
+vector<Node> Vehicle::GetAllNodesWithinRange(const vector<Node>& graph, const Node& node, const float battery) const
+{
+	vector<Node> nodes_in_range;
+	for(const auto &n : graph)
+	{
+		if(HelperFunctions::CalculateInterNodeDistance(n, node) <= battery && n.index != node.index)
+		{
+			nodes_in_range.push_back(n);
+		}
+	}
+	return nodes_in_range;
+}
+
+Node Vehicle::GetClosestNodeFromRange(const vector<Node>& graph, const Node& node) const
+{
+	float shortest_distance = numeric_limits<float>::max();
+	Node closest_node = node;
+
+	for(const auto &n : graph)
+	{
+		if(n.index != node.index)
+		{
+			const float distance = HelperFunctions::CalculateInterNodeDistance(n, node);
+			if(distance < shortest_distance)
+			{
+				closest_node = n;
+				shortest_distance = distance;
+			}
+		}	
+	}
+	return closest_node;
+}
+
+
+
+

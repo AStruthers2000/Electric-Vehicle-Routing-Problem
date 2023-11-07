@@ -37,12 +37,26 @@ public:
 	float SimulateDrive(const vector<int> &desiredRoute, bool verbose = false);
 
 private:
-	
+	enum PathfindingResult
+	{
+		DirectPathFound,
+		RouteThroughChargers,
+		ImpossibleRoute
+	};
+	enum RouteType
+	{
+		RouteToCustomer,
+		RouteToDepot
+	};
 	int GetClosestChargingStationToNode(const Node &node) const;
 	bool CanGetToNextCustomerSafely(const Node &from, const Node &to) const;
 	float BatteryCost(const Node &node1, const Node &node2) const;
 	float CalculateFullRouteDistance(const vector<int> &trueRoute, bool verbose=false) const;
+	vector<Node> GetAllNodesWithinRange(const vector<Node> &graph, const Node &node, float battery) const;
+	Node GetClosestNodeFromRange(const vector<Node> &graph, const Node &node) const;
+	
 	vector<Node> astar_pathfinding(const vector<Node> &graph, const Node &start, const Node &end);
+	vector<Node> pathfinding(const vector<Node> &graph, const Node &start, const Node &end, PathfindingResult &out_result);
 
 	vector<Node> _nodes; /*!< All nodes in the EVRP graph*/
 	float _battery; /*!< An internal variable that holds the state of the maximum battery capacity*/

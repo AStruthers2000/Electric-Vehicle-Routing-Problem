@@ -7,6 +7,8 @@
 #include <thread>
 #include <mutex>
 
+#include "HelperFunctions.h"
+
 mutex file_write_mutex_;
 
 /***************************************************************************//**
@@ -118,6 +120,22 @@ EVRP_Solver::EVRP_Solver(const string &file_name)
 	}
 	cout << "The minimum number of subtours with only constraint of capacity is: " << ceil(static_cast<double>(tot_demand) / vehicleLoadCapacity) << endl;
 	*/
+}
+
+void EVRP_Solver::DebugEVRP() const
+{
+	/*
+	auto *alg = new NEH_NearestNeighbor(data);
+	vector<int> tour;
+	float distance;
+	alg->Optimize(tour, distance);
+
+	HelperFunctions::PrintTour(tour);
+	cout << "Best tour has a distance of: " << distance << endl;
+	*/
+	auto *vehicle = new Vehicle(data.nodes, data.fuelCapacity, data.loadCapacity, data.fuelConsumptionRate);
+	vector<int> test_route = {8, 7, 4, 5, 6};
+	vehicle->SimulateDrive(test_route);
 }
 
 /***************************************************************************//**
