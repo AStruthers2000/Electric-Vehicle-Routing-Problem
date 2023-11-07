@@ -14,7 +14,7 @@ int HelperFunctions::RandomNumberGenerator(const int min, const int max)
 {
 	random_device rd;
 	mt19937 generator(rd());
-	const uniform_int_distribution<> distribution(min, max);
+	uniform_int_distribution<> distribution(min, max);
 	return distribution(generator);
 }
 

@@ -12,6 +12,7 @@
 #include <chrono>
 #include <map>
 #include <iterator>
+#include <assert.h>
 
 /***************************************************************************//**
  * Data structure definitions useful in optimizing the EVRP.

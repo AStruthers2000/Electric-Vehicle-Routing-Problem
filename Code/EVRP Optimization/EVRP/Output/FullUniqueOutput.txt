@@ -1,0 +1,721 @@
+Distance,Problem Name,Algorithm Name,Execution Time,Node-Index Encoded Solution,Hyper Parameters
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.007,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.01,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.007,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.012,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.011,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.016,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.02,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.016,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.018,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.02,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.024,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.027,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.03,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.032,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.034,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.034,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.037,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.037,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.04,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.041,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.04,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.041,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.048,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.044,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.048,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.05,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.049,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.049,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.053,7 8 4 5 6,None
+208.903,c101C5.txt,NEH with Nearest Neighbor Subtours,0.054,7 8 4 5 6,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.025,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.013,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.031,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.02,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.03,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.02,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.034,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.036,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.021,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.029,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.04,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.038,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.046,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.036,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.03,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.029,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.047,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.037,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.04,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.04,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.051,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.044,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.057,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.059,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.054,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.05,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.052,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.057,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.051,5 7 6 8 9,None
+205.44,c206C5.txt,NEH with Nearest Neighbor Subtours,0.051,5 7 6 8 9,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.014,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.018,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.014,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.031,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.022,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.018,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.029,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.025,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.026,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.027,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.027,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.042,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.031,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.037,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.044,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.037,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.038,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.038,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.037,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.038,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.054,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.045,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.043,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.044,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.057,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.049,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.065,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.053,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.057,8 6 7 4 5,None
+139.945,r104C5.txt,NEH with Nearest Neighbor Subtours,0.06,8 6 7 4 5,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.014,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.017,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.02,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.009,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.023,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.03,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.027,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.021,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.021,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.022,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.024,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.035,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.027,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.031,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.031,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.04,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.041,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.033,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.041,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.036,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.042,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.045,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.043,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.043,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.044,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.043,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.044,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.046,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.058,4 7 5 6 8,None
+142.654,r202C5.txt,NEH with Nearest Neighbor Subtours,0.048,4 7 5 6 8,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.018,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.052,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.072,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.057,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.062,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.077,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.09,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.092,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.096,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.093,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.083,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.083,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.094,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.087,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.088,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.096,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.097,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.104,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.107,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.097,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.119,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.101,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.12,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.114,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.105,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.114,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.115,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.118,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.121,6 8 5 7 9,None
+209.836,rc105C5.txt,NEH with Nearest Neighbor Subtours,0.126,6 8 5 7 9,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.025,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.024,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.035,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.037,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.026,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.038,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.03,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.035,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.031,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.045,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.033,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.039,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.034,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.053,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.045,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.04,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.042,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.043,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.058,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.05,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.051,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.051,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.056,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.052,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.052,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.061,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.065,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.06,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.076,9 8 5 6 7,None
+176.394,rc204C5.txt,NEH with Nearest Neighbor Subtours,0.065,9 8 5 6 7,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.042,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.031,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.037,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.054,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.051,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.037,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.048,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.06,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.059,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.049,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.047,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.061,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.061,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.051,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.057,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.057,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.072,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.064,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.082,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.074,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.082,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.09,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.077,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.083,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.082,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.084,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.11,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.09,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.092,13 9 8 11 15 10 6 14 7 12,None
+310.97,c101C10.txt,NEH with Nearest Neighbor Subtours,0.107,13 9 8 11 15 10 6 14 7 12,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.024,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.039,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.056,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.042,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.046,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.067,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.072,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.074,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.062,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.079,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.071,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.087,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.07,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.076,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.076,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.095,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.097,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.083,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.083,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.089,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.091,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.106,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.11,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.112,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.101,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.105,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.101,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.106,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.112,12 15 10 7 13 9 14 11 8 6,None
+256.862,c202C10.txt,NEH with Nearest Neighbor Subtours,0.106,12 15 10 7 13 9 14 11 8 6,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.019,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.037,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.075,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.047,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.087,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.066,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.076,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.09,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.114,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.117,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.112,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.109,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.115,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.13,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.114,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.137,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.137,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.121,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.124,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.133,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.13,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.139,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.161,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.138,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.161,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.143,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.174,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.176,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.161,12 8 9 11 5 10 13 14 6 7,None
+250.465,r102C10.txt,NEH with Nearest Neighbor Subtours,0.157,12 8 9 11 5 10 13 14 6 7,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.037,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.031,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.031,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.052,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.039,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.063,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.079,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.079,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.062,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.079,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.064,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.072,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.084,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.087,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.078,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.1,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.084,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.114,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.093,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.092,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.09,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.108,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.119,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.104,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.103,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.118,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.104,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.109,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.105,6 5 8 12 13 11 14 7 9 10,None
+218.872,r201C10.txt,NEH with Nearest Neighbor Subtours,0.139,6 5 8 12 13 11 14 7 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.031,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.044,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.049,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.043,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.034,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.054,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.057,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.044,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.06,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.069,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.061,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.05,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.057,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.053,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.058,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.064,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.062,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.07,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.075,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.081,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.082,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.071,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.066,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.087,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.074,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.078,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.075,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.078,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.087,6 7 12 13 8 5 11 14 9 10,None
+411.086,rc102C10.txt,NEH with Nearest Neighbor Subtours,0.095,6 7 12 13 8 5 11 14 9 10,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.05,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.056,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.056,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.063,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.056,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.054,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.08,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.075,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.058,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.054,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.068,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.074,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.095,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.058,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.077,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.064,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.095,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.082,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.077,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.109,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.103,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.076,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.09,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.106,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.087,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.094,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.108,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.12,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.11,10 8 6 14 5 12 9 11 13 7,None
+282.087,rc201C10.txt,NEH with Nearest Neighbor Subtours,0.098,10 8 6 14 5 12 9 11 13 7,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.055,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.067,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.076,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.069,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.069,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.094,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.084,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.09,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.092,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.109,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.107,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.102,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.127,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.11,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.134,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.126,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.117,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.126,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.134,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.133,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.136,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.125,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.13,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.125,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.139,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.138,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.145,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.129,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.151,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+301.182,c103C15.txt,NEH with Nearest Neighbor Subtours,0.144,12 11 16 19 7 17 10 14 13 20 9 6 18 8 15,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.102,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.098,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.1,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.106,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.127,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.125,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.11,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.113,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.137,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.114,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.141,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.133,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.127,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.124,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.141,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.145,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.15,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.133,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.152,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.151,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.144,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.16,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.165,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.141,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.151,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.145,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.162,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.149,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.153,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+378.427,c202C15.txt,NEH with Nearest Neighbor Subtours,0.168,10 19 6 17 16 7 11 12 20 15 13 9 8 14 18,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.102,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.103,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.102,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.12,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.115,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.122,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.118,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.123,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.14,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.133,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.137,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.148,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.144,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.144,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.137,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.144,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.154,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.158,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.149,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.173,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.163,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.177,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.173,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.179,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.177,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.174,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.173,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.172,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.168,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+370.623,r102C15.txt,NEH with Nearest Neighbor Subtours,0.173,16 10 13 19 18 12 14 20 9 17 11 22 23 21 15,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.105,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.108,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.105,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.107,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.12,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.111,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.117,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.123,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.115,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.136,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.132,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.147,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.141,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.139,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.151,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.142,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.14,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.16,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.169,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.169,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.152,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.152,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.158,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.153,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.155,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.174,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.172,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.171,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.16,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+308.258,r202C15.txt,NEH with Nearest Neighbor Subtours,0.164,7 13 21 18 16 17 10 8 14 19 15 9 11 12 20,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.073,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.084,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.098,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.109,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.112,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.12,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.124,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.117,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.123,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.129,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.123,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.12,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.127,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.133,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.146,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.126,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.144,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.132,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.132,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.156,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.139,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.134,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.155,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.141,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.158,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.161,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.157,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.15,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.145,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+416.009,rc103C15.txt,NEH with Nearest Neighbor Subtours,0.146,7 6 14 11 20 15 10 17 13 16 19 9 12 8 18,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.078,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.1,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.11,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.111,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.127,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.125,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.133,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.128,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.137,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.125,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.134,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.146,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.138,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.136,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.136,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.148,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.164,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.149,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.155,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.16,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.17,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.154,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.171,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.157,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.168,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.161,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.173,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.164,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.163,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+339.163,rc202C15.txt,NEH with Nearest Neighbor Subtours,0.176,9 18 10 8 6 11 16 13 14 20 12 15 7 17 19,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.632,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.651,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.658,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.655,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.647,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.669,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.667,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.675,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.659,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.68,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.673,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.672,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.663,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.677,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.691,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.673,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.68,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.682,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.691,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.7,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.78,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.792,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.811,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.802,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.817,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.826,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.833,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.828,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.838,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+1287.14,c101_21.txt,NEH with Nearest Neighbor Subtours,0.819,42 44 47 49 51 57 55 50 48 46 45 43 41 90 87 83 89 85 82 93 95 84 86 88 28 29 31 32 30 27 25 24 26 119 23 22 96 62 61 65 66 69 72 52 71 73 70 68 67 63 64 116 112 109 106 105 103 104 107 108 110 111 39 40 38 34 36 37 35 33 56 59 60 58 54 53 80 78 102 99 97 117 115 113 114 118 121 120 76 75 81 79 77 74 101 94 100 91 92 98,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.013,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.051,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.083,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.097,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.103,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.099,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.135,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.146,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.132,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.141,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.159,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.173,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.178,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.167,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.176,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.194,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.174,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.189,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.188,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.211,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.481,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.52,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.527,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.514,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.537,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.533,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.55,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.555,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.547,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+960.254,c201_21.txt,NEH with Nearest Neighbor Subtours,2.568,26 23 121 118 113 115 116 24 25 105 109 107 104 103 106 92 97 101 91 94 100 102 99 98 90 87 83 95 117 108 112 110 28 119 120 22 96 114 47 49 44 46 30 32 31 29 42 43 48 51 57 55 54 58 60 59 56 52 53 27 71 72 66 62 63 64 69 68 73 50 45 41 88 89 67 65 61 86 85 82 93 84 78 80 75 76 70 81 79 77 74 111 34 38 39 40 37 35 33 36,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.753,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.746,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.77,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.754,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.779,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.783,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.775,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.781,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.783,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.777,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.794,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.793,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.782,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.783,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.787,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.793,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.79,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.806,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.8,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.816,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.931,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.929,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.935,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.938,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.964,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.951,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.959,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.956,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.964,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+1e+09,r101_21.txt,NEH with Nearest Neighbor Subtours,0.978,79 94 43 96 95 93 77 60 44 42 61 74 47 33 101 89 100 24 98 102 54 49 48 118 113 80 112 106 114 120 117 116 115 27 110 23 78 36 64 63 121 35 65 37 82 119 58 108 34 73 39 104 57 68 103 69 29 38 66 105 26 81 97 71 72 30 56 92 99 55 50 45 76 25 62 88 46 75 22 90 28 83 109 52 31 40 70 85 32 84 111 53 59 107 67 51 91 87 86 41,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.184,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.201,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.24,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.278,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.292,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.279,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.3,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.307,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.327,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.358,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.345,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.365,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.365,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.363,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.377,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.384,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.379,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.4,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.384,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.437,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.826,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.846,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.848,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.858,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.87,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.877,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.892,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.883,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.898,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+869.445,r201_21.txt,NEH with Nearest Neighbor Subtours,3.903,79 94 43 96 44 88 46 76 89 100 102 54 52 83 40 32 85 70 57 67 68 69 66 38 105 26 81 106 112 114 120 117 80 113 118 116 115 27 110 39 104 29 103 28 73 109 31 84 111 53 91 51 72 41 30 24 98 101 75 60 77 95 93 42 61 74 34 108 58 119 82 37 107 65 59 35 121 63 64 36 62 78 23 47 25 45 50 55 56 92 87 86 99 33 97 71 22 90 49 48,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.664,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.679,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.695,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.703,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.692,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.727,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.706,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.708,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.724,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.723,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.702,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.714,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.714,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.691,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.716,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.725,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.727,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.725,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.728,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.747,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.832,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.861,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.858,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.872,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.856,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.872,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.87,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.864,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.888,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+1344.93,rc101_21.txt,NEH with Nearest Neighbor Subtours,0.877,101 87 112 113 115 117 114 92 116 77 85 104 86 111 102 75 93 62 60 82 89 76 91 121 109 74 119 90 78 95 80 79 98 96 118 108 107 73 120 103 88 50 52 49 47 48 55 53 51 54 71 83 106 84 99 94 100 28 27 23 25 66 81 72 105 110 97 39 69 42 44 46 33 35 68 38 37 36 34 32 31 30 59 58 56 57 61 64 65 63 22 24 29 67 26 41 70 43 45 40,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,2.984,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,2.976,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,2.998,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.045,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.054,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.061,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.062,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.087,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.083,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.079,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.085,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.114,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.104,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.135,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.134,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.187,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.184,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.185,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.179,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.17,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.641,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.628,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.624,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.659,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.648,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.667,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.655,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.666,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.675,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None
+922.822,rc201_21.txt,NEH with Nearest Neighbor Subtours,3.67,101 87 112 113 115 114 92 75 82 76 109 119 90 89 102 117 88 52 55 50 51 49 47 48 71 83 116 77 105 106 84 110 97 72 85 104 86 103 120 78 95 80 79 45 43 41 70 40 39 69 42 44 46 98 96 118 108 107 73 111 91 23 27 28 81 74 33 32 31 30 34 35 68 36 37 38 99 94 100 29 67 26 24 22 66 25 121 63 65 64 60 61 57 56 58 59 62 93 53 54,None

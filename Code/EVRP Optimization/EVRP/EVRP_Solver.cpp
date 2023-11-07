@@ -135,8 +135,8 @@ void EVRP_Solver::SolveEVRP() const
 
 	//Create new instances of the algorithm solvers
 	algorithms.push_back(new GeneticAlgorithmOptimizer(data));
-	algorithms.push_back(new RandomSearchOptimizer(data));
-	algorithms.push_back(new NEH_NearestNeighbor(data));
+	//algorithms.push_back(new RandomSearchOptimizer(data));
+	//algorithms.push_back(new NEH_NearestNeighbor(data));
 	
 	for(const auto alg : algorithms)
 	{
@@ -161,6 +161,16 @@ void EVRP_Solver::SolveEVRP() const
 		
 		//cout << "Execution time of algorithm " << alg->GetName() << ": " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
 		//cout << "The best route has a distance of: " << best_distance << endl;
+
+		for (const auto& index : encoded_tour)
+		{
+			int index_count = 0;
+			for (const auto& i : encoded_tour)
+			{
+				if (index == i) index_count++;
+			}
+			assert(index_count == 1);
+		}
 
 		optimization_result result;
 		result.algorithm_name = alg->GetName();

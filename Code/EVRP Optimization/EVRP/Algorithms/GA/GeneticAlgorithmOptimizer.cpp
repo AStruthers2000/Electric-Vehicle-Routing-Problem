@@ -53,6 +53,8 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 	{
 		//cout << "Currently calculating generation: " << generation << endl;
 		//PrintIfTheTimeIsRight("Genetic Algorithm", generation, MAX_GENERATIONS);
+		//if (generation % (MAX_GENERATIONS / 100) == 0) 
+		//cout << "Currently calculating generation: " << generation << " which is " << (static_cast<float>(generation) / static_cast<float>(MAX_GENERATIONS)) * 100.f << "% of the way done" << endl;
 
 		vector<vector<int>> newPopulation;
 		vector<float> newDistances;
@@ -65,8 +67,9 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 			const vector<int> parentTour1 = TournamentSelection(population, tourDistances);
 			const vector<int> parentTour2 = TournamentSelection(population, tourDistances);
 			vector<int> childTour = Crossover(parentTour1, parentTour2);
-			const float r = static_cast<float>(rand()) / RAND_MAX;
-			if (r <= MUTATION_RATE)
+			const float r = HelperFunctions::RandomNumberGenerator(0, 100);
+			//const float r = static_cast<float>(rand()) / RAND_MAX;
+			if (r <= MUTATION_RATE * 100.f)
 			{
 				Mutate(childTour);
 			}
@@ -79,6 +82,22 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 		}
 		population = newPopulation;
 		tourDistances = newDistances;
+
+		/*
+		//display best fitness each generation
+		float best_gen_distance = numeric_limits<float>::max();
+		for (int i = 0; i < POPULATION_SIZE; i++)
+		{
+			
+			float distance = tourDistances[i];
+			if (distance < best_gen_distance)
+			{
+				//bestTour = tour;
+				best_gen_distance = distance;
+			}
+		}
+		cout << "Best distance on generation " << generation << ": " << best_gen_distance << endl;
+		*/
 	}
 
 	//select the best tour after #MAX_GENERATIONS generations
@@ -149,7 +168,8 @@ vector<int> GeneticAlgorithmOptimizer::Crossover(const vector<int> parentTour1, 
 	vector<int> child(parentTour1.size());
 
 	// Copy a random subset of elements from parent1 to the child
-	int crossoverPoint = rand() % parentTour1.size();
+	//int crossoverPoint = rand() % parentTour1.size();
+	int crossoverPoint = HelperFunctions::RandomNumberGenerator(0, parentTour1.size());
 	copy_n(parentTour1.begin(), crossoverPoint, child.begin());
 
 	// Fill the remaining elements in the child with unique elements from parent2
