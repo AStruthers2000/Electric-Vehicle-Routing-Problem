@@ -1,5 +1,7 @@
 #pragma once
 
+#include <windows.h>
+
 #include "GraphStructure.h"
 //#include <mutex>
 
@@ -10,7 +12,7 @@ enum
 
 constexpr char DATA_PATH[STR_LEN] = R"(.\EVRP\Data_Sets\EVRP TW\)";
 constexpr char READ_FILENAME[STR_LEN] = "c101_21.txt"; /*!< The filepath to the EVRP problem definition with respect to the project root directory */
-constexpr char WRITE_FILENAME[STR_LEN] = R"(.\EVRP\Output\FullUniqueOutput.txt)";
+constexpr char WRITE_FILENAME[STR_LEN] = R"(.\EVRP\Output\FullUniqueGoodTimeOutput.txt)";
 
 /***************************************************************************//**
  * A class used for reading the EVRP problem definition from a file then generically solving. 
@@ -28,6 +30,7 @@ public:
 	void DebugEVRP() const;
 	void SolveEVRP() const;
 	bool IsGoodOpen() const { return _is_good_open;}
+	//vector<HANDLE> GetThreadHandles() const { return thread_handles;}
 
 private:
 	void WriteToFile(const optimization_result &result) const;
@@ -42,6 +45,6 @@ private:
 	string _current_filename;
 	bool _is_good_open;
 
-	
+	ULARGE_INTEGER get_thread_CPU_time(HANDLE h_thread) const;
 };
 

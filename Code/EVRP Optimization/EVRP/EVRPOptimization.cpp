@@ -97,6 +97,7 @@ int main()
         */
 
         //ALL NON-TIME-WINDOW-SPECIFIC-PROBLEMS IN ASCENDING ORDER
+        
         const vector<string> files = {
              //unique five customer problems
              "c101C5.txt", "c206C5.txt", "r104C5.txt", "r202C5.txt", "rc105C5.txt", "rc204C5.txt", 
@@ -137,9 +138,11 @@ int main()
                 //wait for all threads to finish computing
                 for(auto &t : solver_threads)
                 {
+                    
                     t.join();
                 }
 
+                
                 //What time is it now that we've solved the problem
                 //TODO: see todo above
                 const auto end_time = chrono::high_resolution_clock::now();

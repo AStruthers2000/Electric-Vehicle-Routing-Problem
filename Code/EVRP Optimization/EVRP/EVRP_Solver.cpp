@@ -165,17 +165,24 @@ void EVRP_Solver::SolveEVRP() const
 		float best_distance;
 		
 		//What time is it before solving the problem
-		const auto start_time = std::chrono::high_resolution_clock::now();
+		//const auto start_time = std::chrono::high_resolution_clock::now();
+		HANDLE thread = GetCurrentThread();
+		ULARGE_INTEGER start = get_thread_CPU_time(thread);
 
 		//Function call to the GeneticAlgorithmOptimizer class that will return the best tour
 		//from the given data
 		alg->Optimize(encoded_tour, best_distance);
 
 		//What time is it now that we've solved the problem
-		const auto end_time = chrono::high_resolution_clock::now();
-
+		ULARGE_INTEGER end = get_thread_CPU_time(thread);
+		//const auto end_time = chrono::high_resolution_clock::now();
+		
 		//Get the execution time in milliseconds 
-		const auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
+		const double duration = static_cast<double>(end.QuadPart - start.QuadPart) / 10000;
+
+		//const auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
+		//const auto duration = static_cast<double>(end.QuadPart - start.QuadPart) * 1e-7;
+		//const auto duration = 0.f;
 		
 		//cout << "Execution time of algorithm " << alg->GetName() << ": " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
 		//cout << "The best route has a distance of: " << best_distance << endl;
@@ -192,7 +199,7 @@ void EVRP_Solver::SolveEVRP() const
 
 		optimization_result result;
 		result.algorithm_name = alg->GetName();
-		result.execution_time = static_cast<float>(duration)/1000.0f;
+		result.execution_time = static_cast<float>(duration) / 1000.0f;
 		result.solution_encoded = encoded_tour;
 		result.distance = best_distance;
 		result.hyperparameters = alg->GetHyperParameters();
@@ -245,4 +252,19 @@ void EVRP_Solver::WriteToFile(const optimization_result& result) const
 	file << "\n";
 
 	file.close();
+}
+
+ULARGE_INTEGER EVRP_Solver::get_thread_CPU_time(HANDLE h_thread) const
+{
+	FILETIME ftCreation, ftExit, ftKernel, ftUser;
+	ULARGE_INTEGER ulKernel, ulUser;
+	if (GetThreadTimes(h_thread, &ftCreation, &ftExit, &ftKernel, &ftUser)) {
+		ulKernel.HighPart = ftKernel.dwHighDateTime;
+		ulKernel.LowPart = ftKernel.dwLowDateTime;
+		ulUser.HighPart = ftUser.dwHighDateTime;
+		ulUser.LowPart = ftUser.dwLowDateTime;
+	}
+	ULARGE_INTEGER total;
+	total.QuadPart = ulKernel.QuadPart + ulUser.QuadPart;
+	return total;
 }

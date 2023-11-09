@@ -93,8 +93,8 @@ void NEH_NearestNeighbor::Optimize(vector<int>& bestTour, float& bestDistance)
 			node_count++;
 		}
 	}
-	cout << "Sum of all nodes in subtours: " << node_count << endl;
-	assert(node_count == customer_nodes.size());
+	//cout << "Sum of all nodes in subtours: " << node_count << endl;
+	assert(node_count == static_cast<int>(customer_nodes.size()));
 
 	//assert that each customer is visited once and only once. if this is not the case, we have broken one of the critical
 	//constraints of the problem
@@ -141,7 +141,7 @@ void NEH_NearestNeighbor::Optimize(vector<int>& bestTour, float& bestDistance)
 	}
 	bestTour = tour;
 	bestDistance = vehicle->SimulateDrive(bestTour);
-	cout << bestDistance << endl;
+	//cout << bestDistance << endl;
 }
 
 /**
