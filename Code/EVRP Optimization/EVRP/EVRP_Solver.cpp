@@ -124,7 +124,7 @@ EVRP_Solver::EVRP_Solver(const string &file_name)
 
 void EVRP_Solver::DebugEVRP() const
 {
-	/*
+	
 	auto *alg = new NEH_NearestNeighbor(data);
 	vector<int> tour;
 	float distance;
@@ -132,10 +132,12 @@ void EVRP_Solver::DebugEVRP() const
 
 	HelperFunctions::PrintTour(tour);
 	cout << "Best tour has a distance of: " << distance << endl;
-	*/
+	
+	/*
 	auto *vehicle = new Vehicle(data.nodes, data.fuelCapacity, data.loadCapacity, data.fuelConsumptionRate);
-	vector<int> test_route = {8, 7, 4, 5, 6};
+	vector<int> test_route = {7, 8, 4, 5, 6};
 	vehicle->SimulateDrive(test_route);
+	*/
 }
 
 /***************************************************************************//**
@@ -152,9 +154,9 @@ void EVRP_Solver::SolveEVRP() const
 	vector<AlgorithmBase*> algorithms;
 
 	//Create new instances of the algorithm solvers
-	algorithms.push_back(new GeneticAlgorithmOptimizer(data));
+	//algorithms.push_back(new GeneticAlgorithmOptimizer(data));
 	//algorithms.push_back(new RandomSearchOptimizer(data));
-	//algorithms.push_back(new NEH_NearestNeighbor(data));
+	algorithms.push_back(new NEH_NearestNeighbor(data));
 	
 	for(const auto alg : algorithms)
 	{

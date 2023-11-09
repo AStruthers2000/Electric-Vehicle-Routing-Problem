@@ -50,12 +50,12 @@ private:
 	};
 	int GetClosestChargingStationToNode(const Node &node) const;
 	bool CanGetToNextCustomerSafely(const Node &from, const Node &to) const;
+	bool CanGetToNextCustomerSafely(const Node &from, const Node &to, const float battery_level) const;
 	float BatteryCost(const Node &node1, const Node &node2) const;
 	float CalculateFullRouteDistance(const vector<int> &trueRoute, bool verbose=false) const;
 	vector<Node> GetAllNodesWithinRange(const vector<Node> &graph, const Node &node, float battery) const;
 	Node GetClosestNodeFromRange(const vector<Node> &graph, const Node &node) const;
 	
-	vector<Node> astar_pathfinding(const vector<Node> &graph, const Node &start, const Node &end);
 	vector<Node> pathfinding(const vector<Node> &graph, const Node &start, const Node &end, PathfindingResult &out_result);
 
 	vector<Node> _nodes; /*!< All nodes in the EVRP graph*/

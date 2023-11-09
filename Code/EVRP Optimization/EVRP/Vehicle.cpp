@@ -24,69 +24,77 @@
 * 
 * @return Returns the true distance that the desired route would actually traverse with the fuel and capacity constraints
 */
-/*
+
 float Vehicle::SimulateDrive(const vector<int>& desiredRoute, bool verbose)
 {
 	ResetVehicle();
 	if(verbose)
 	{
-		cout << "Simulating drive of route: ";
+		cout << "Simulating drive of ";
 		HelperFunctions::PrintTour(desiredRoute);
 	}
 
-	vector<int> padded_tour;
 	vector<Node> charger_nodes;
 	for(const auto &node : _nodes)
 	{
 		if(node.isCharger) charger_nodes.push_back(node);
 	}
 
-	int current_node_index = 0;
-	padded_tour.push_back(current_node_index);
+	vector<int> padded_tour;
+	//we start the padded tour at the depot (or node 0)
+	padded_tour.push_back(0);
 
+	//we will track the full distance of the route in case there's any early returns
 	float full_distance = 0.f;
-
+	
+	int current_node_index = 0;
 	int customer_nodes_serviced = 0;
-	while(customer_nodes_serviced < static_cast<int>(desiredRoute.size()))
+
+	//the true desired route should be the desired route plus the depot at the very end
+	vector<int> desired_route = {desiredRoute.begin(), desiredRoute.end()};
+	desired_route.push_back(0);
+	
+	while(customer_nodes_serviced < static_cast<int>(desired_route.size()))
 	{
-		const int desired_route_index = desiredRoute[customer_nodes_serviced];
+		const int desired_route_index = desired_route[customer_nodes_serviced];
 		Node current_node = _nodes[current_node_index];
 		Node next_desired_node = _nodes[desired_route_index];
 		
 		const int demand_cost = next_desired_node.demand;
 
-		RouteType route_type;
-		vector<Node> subgraph = {charger_nodes.begin(), charger_nodes.end()};
-		subgraph.push_back(current_node);
+		if(verbose) cout << "I am currently at node " << current_node.index << " and my goal is to go to node " << next_desired_node.index << endl;
+		if(verbose) cout << "The next node has a demand cost of " << demand_cost << " and I have " << currentInventoryCapacity << " inventory" << endl;
+		const RouteType route_type = demand_cost <= currentInventoryCapacity ? RouteToCustomer : RouteToDepot;
 
-		if(demand_cost <= currentInventoryCapacity)
+		PathfindingResult result;
+		vector<Node> safe_route;
+		if(route_type == RouteToCustomer)
 		{
-			route_type = RouteToCustomer;
-			subgraph.push_back(next_desired_node);
+			safe_route = pathfinding(charger_nodes, current_node, next_desired_node, result);
+			if(verbose) cout << "I am routing to customer " << next_desired_node.index << " because I have the inventory capacity" << endl;
 		}
 		else
 		{
-			route_type = RouteToDepot;
-			subgraph.push_back(_nodes[0]);
+			safe_route = pathfinding(charger_nodes, current_node, _nodes[0], result);
+			if(verbose) cout << "I need to stop at the depot before I go to customer " << next_desired_node.index << endl;
 		}
-
-		PathfindingResult result;
-		const vector<Node> safe_route = pathfinding(subgraph, current_node, next_desired_node, result);
 
 		if(result == ImpossibleRoute)
 		{
-			cout << "Impossible route detected" << endl;
+			if(verbose) cout << "=!=!= Impossible route detected after regular pathfinding =!=!=" << endl;
 			full_distance += 1000000000.f;
 			return full_distance;
 		}
 
 		for(size_t i = 1; i < safe_route.size(); i++)
 		{
+			if(verbose) cout << "\tMy route has me going from node " << safe_route[i-1].index << " to node " << safe_route[i].index << endl;
 			padded_tour.push_back(safe_route[i].index);
 			currentBatteryCapacity -= BatteryCost(safe_route[i-1], safe_route[i]);
 			full_distance += HelperFunctions::CalculateInterNodeDistance(safe_route[i-1], safe_route[i]);
 			if(safe_route[i].isCharger)
 			{
+				if(verbose) cout << "\t\tNode " << safe_route[i].index << " is a charging station, so I need to fuel up" << endl;
 				currentBatteryCapacity = maxBatteryCapacity;
 			}
 		}
@@ -96,58 +104,37 @@ float Vehicle::SimulateDrive(const vector<int>& desiredRoute, bool verbose)
 			current_node_index = desired_route_index;
 			currentInventoryCapacity -= demand_cost;
 			customer_nodes_serviced++;
+			if(verbose) cout << "I am now at node " << current_node_index << " and have serviced this customer" << endl;
+			assert(currentInventoryCapacity >= 0);
 		}
-		else
+		else if(route_type == RouteToDepot)
 		{
 			current_node_index = 0;
 			currentInventoryCapacity = maxInventoryCapacity;
 			currentBatteryCapacity = maxBatteryCapacity;
+			if(verbose) cout << "I made it to the depot, and have refilled my inventory and my battery capacity" << endl;
 		}
+
+		assert(currentBatteryCapacity >= 0);
+		assert(currentInventoryCapacity >= 0);
+		if(verbose) cout << "-------------------------------------------------------" << endl;
 	}
 
-	vector<Node> subgraph = {charger_nodes.begin(), charger_nodes.end()};
-	const Node current_node = _nodes[current_node_index];
-	const Node depot = _nodes[0];
-	subgraph.push_back(current_node);
-	subgraph.push_back(depot);
+	const float true_distance = CalculateFullRouteDistance(padded_tour);
+	//cout << "True distance: " << true_distance << ", and \"simulated\" full distance: " << full_distance << endl;
+	assert(fabs(true_distance - full_distance) < 1);
 
-	PathfindingResult result;
-	const vector<Node> safe_route = pathfinding(subgraph, current_node, depot, result);
-
-	if(result == ImpossibleRoute)
+	if(verbose)
 	{
-		cout << "Impossible route detected" << endl;
-		full_distance += 1000000000.f;
-		return full_distance;
-	}
-
-	for(size_t i = 1; i < safe_route.size(); i++)
-	{
-		padded_tour.push_back(safe_route[i].index);
-		currentBatteryCapacity -= BatteryCost(safe_route[i-1], safe_route[i]);
-		full_distance += HelperFunctions::CalculateInterNodeDistance(safe_route[i-1], safe_route[i]);
-		if(safe_route[i].isCharger)
+		cout << "----------------------------------------" << endl;
+		cout << "True route with distance " << true_distance << ": ";
+		for (const auto i : padded_tour)
 		{
-			currentBatteryCapacity = maxBatteryCapacity;
+			cout << i << " ";
 		}
+		cout << endl;
+		cout << "----------------------------------------" << endl;
 	}
-
-	float true_distance = CalculateFullRouteDistance(padded_tour);
-	
-	if(fabs(true_distance - full_distance) < 1)
-	{
-		cout << "Great, i calculated things correctly" << endl;
-	}
-
-	cout << "----------------------------------------" << endl;
-	cout << "True route: ";
-	for (const auto i : padded_tour)
-	{
-		cout << i << " ";
-	}
-	cout << endl;
-	cout << "----------------------------------------" << endl;
-	
 	return true_distance;
 }
 
@@ -161,64 +148,49 @@ vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, 
 	
 	while(!found_route_to_end)
 	{
-		vector<Node> unvisited_nodes;
-		//get all unvisited nodes
-		for(const auto &node : graph)
+		//cout << "My current range is " << current_battery << endl;
+		//if we can go from the current node to the end safely, we are done
+		if(CanGetToNextCustomerSafely(current_node, end, current_battery))
 		{
-			bool node_has_been_visited = false;
-			for(const auto &n : visited_nodes)
+			//cout << "Can get from node " << current_node.index << " to node " << end.index << " safely without charging" << endl;
+			//cout << "I have capacity " << current_battery << " and the distance cost is " << BatteryCost(current_node, end) << endl;
+			found_route_to_end = true;
+			visited_nodes.push_back(end);
+		}
+		else
+		{
+			//cout << "I can't get from node " << current_node.index << " to node " << end.index << " safely without charging" << endl;
+			vector<Node> unvisited_nodes;
+			
+			//get all unvisited nodes
+			for(const auto &node : graph)
 			{
-				if(node.index == n.index)
+				bool node_has_been_visited = false;
+				for(const auto &n : visited_nodes)
 				{
-					node_has_been_visited = true;
+					if(node.index == n.index)
+					{
+						node_has_been_visited = true;
+					}
+				}
+				if(!node_has_been_visited)
+				{
+					unvisited_nodes.push_back(node);
 				}
 			}
-			if(!node_has_been_visited)
+			
+			vector<Node> nodes_in_range = GetAllNodesWithinRange(unvisited_nodes, current_node, current_battery);
+			//cout << "There are " << nodes_in_range.size() << " nodes within my current battery range" << endl;
+			if(nodes_in_range.empty())
 			{
-				unvisited_nodes.push_back(node);
-			}
-		}
-		
-		vector<Node> nodes_in_range = GetAllNodesWithinRange(unvisited_nodes, current_node, current_battery);
-
-		if(nodes_in_range.empty())
-		{
-			out_result = ImpossibleRoute;
-			return {};
-		}
-
-		//if we found a direct path from where we are to the end, then we want to go there
-		for(const auto &n : nodes_in_range)
-		{
-			if(n.index == end.index)
-			{
-				//we can get to the end, but can we get there safely?
-				if(CanGetToNextCustomerSafely(current_node, end))
-				{
-					found_route_to_end = true;
-					visited_nodes.push_back(end);
-					break;
-				}
-
-				//we can't get there safely, so we need to go to the nearest charger again
-				found_route_to_end = false;
-			}
-		}
-		
-		//if we didn't find a direct path from where we are to the end, then we must be at a charging station
-		if(!found_route_to_end)
-		{
-			//if we didn't find a route to the end, AND we have only not visited 1 node, AND  that node happens to be the end node,
-			//we can't reach the end node, so this is an impossible path 
-			if(unvisited_nodes.size() == 1 && unvisited_nodes[0].index == end.index)
-			{
-				cout << "We have been to every charging node and have been unable to find our way to the end" << endl;
+				//cout << "Oh... I am stranded. Oops ig" << endl;
 				out_result = ImpossibleRoute;
 				return {};
 			}
-			
+
 			//find the closest charging node to the end that's in range 
 			const Node closest = GetClosestNodeFromRange(nodes_in_range, end);
+			//cout << "The closest node to the end that I can get to is node " << closest.index << endl;
 
 			//simulate a recharge
 			current_battery = maxBatteryCapacity;
@@ -227,6 +199,8 @@ vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, 
 			visited_nodes.push_back(closest);
 			current_node = closest;
 		}
+		
+		//cout << "=======================================" << endl;
 	}
 
 	//we started at the start, and found a direct route to the end (only visited start and end nodes)
@@ -242,310 +216,6 @@ vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, 
 
 	return visited_nodes;
 }
-*/
-
-float Vehicle::SimulateDrive(const vector<int> &desiredRoute, bool verbose)
-{
-	//Resets the vehicle so that we are "starting fresh" every time a new drive starts
-	ResetVehicle();
-	if (verbose)
-	{
-		cout << "Simulating drive of route: ";
-		HelperFunctions::PrintTour(desiredRoute);
-	}
-
-	//we will construct the "true" tour during the simulation. desiredRoute is just the order of customer nodes for this route.
-	//we will need to find when we need to charge at a station and when we need to return to the depot as we "simulate" the drive.
-	vector<int> paddedTour;
-
-	//we start at the depot, which is always node "0"
-	//starting at the depot satisfies part of the first constraint of the EVRP. We also need to end at the depot
-	int currentNodeIndex = 0;
-	paddedTour.push_back(currentNodeIndex);
-
-	//start with zero distance
-	float fullDistance = 0.f;
-
-	//loop until we have serviced all customer nodes, which satisfies constraint number 2
-	int customerNodesServiced = 0;
-	while (static_cast<size_t>(customerNodesServiced) < desiredRoute.size())
-	{
-		if (verbose)
-		{
-			cout << "I can travel " << currentBatteryCapacity << " units and I have " << currentInventoryCapacity << " inventory remaining" << endl;
-			cout << "Current Node Index: " << currentNodeIndex << endl;
-		}
-
-		
-		//This if statement checks for a supposed infinite loop. It is possible, under the current implementation, to have an impossible route
-		//where the vehicle must bounce between two charging stations, never having enough battery to safely go to the next customer. 
-		//If that's the case, we want to heavily punish this route with a huge distance penalty. 
-		if (paddedTour.size() > 10 &&
-			(paddedTour[paddedTour.size() - 1] == paddedTour[paddedTour.size() - 3] && paddedTour[paddedTour.size() - 2] == paddedTour[paddedTour.size() - 4]))
-		{
-			//infinite loop of charging stations detected, break out and heavily penalize impossible route
-			fullDistance += 1000000000.f;
-			return fullDistance;
-		}
-		
-		//We want to select the next customer node in the desired route to set as our preferred target
-		int desiredRouteIndex = desiredRoute[customerNodesServiced];
-		Node currentNode = _nodes[currentNodeIndex];
-		Node nextDesiredNode = _nodes[desiredRouteIndex];
-
-		//Calculate battery cost to go from the current node to the next desired node
-		float routeCost = BatteryCost(currentNode, nextDesiredNode);
-		const int demandCost = nextDesiredNode.demand;
-
-		if (verbose)
-		{
-			cout << "Going from node (" << currentNode.x << ", " << currentNode.y << ") to node (" << nextDesiredNode.x << ", " << nextDesiredNode.y << ") will cost " << routeCost << " battery. This node has a demand of: " << demandCost << endl;
-		}
-
-		//we only want to go to the next customer node if we can get from where we are, to the next customer, then to a charging station.
-		//If we can't go from the next customer to a charging station, we need to first visit a charging station or else we would get stranded
-		//at the next customer. Bad day. 
-		const bool canGetToNextCustomerSafely = CanGetToNextCustomerSafely(currentNode, nextDesiredNode);
-		if (canGetToNextCustomerSafely)
-		{
-			if (verbose)
-			{
-				cout << "I can go to this and have the battery to continue to the nearest node (aka I won't get stranded at this node)" << endl;
-			}
-
-			//Do we have the capacity to satisfy the demand at the next customer, and can we make the trip on our current battery state
-			if (currentInventoryCapacity >= demandCost && currentBatteryCapacity > routeCost)
-			{
-				if (verbose)
-				{
-					cout << "I went to this node!" << endl;
-				}
-				//travel to the next customer, subtracting the demand from our inventory and the battery cost from our battery capacity
-				currentInventoryCapacity -= demandCost;
-				currentBatteryCapacity -= routeCost;
-				paddedTour.push_back(desiredRouteIndex);
-				currentNodeIndex = desiredRouteIndex;
-				customerNodesServiced++;
-			}
-			//we can't satisfy the next customer, either because we don't have enough battery to reach them or we don't have enough inventory
-			else
-			{
-				//if we are lacking in inventory, we must visit the depot to restock. 
-				if (currentInventoryCapacity < demandCost)
-				{
-					if (verbose)
-					{
-						cout << "I can't meet the demand at the next node, so I must go to the depot and restock." << endl;
-					}
-
-					//while we aren't at the depot, continue moving towards the depot. 
-					while (currentNodeIndex != 0)
-					{
-						currentNode = _nodes[currentNodeIndex];
-						nextDesiredNode = _nodes[0];
-
-						routeCost = BatteryCost(currentNode, nextDesiredNode);
-						if (currentBatteryCapacity > routeCost)
-						{
-							//simulate driving cost
-							currentBatteryCapacity -= routeCost;
-
-							//restock inventory and recharge. one constant in the EVRP problem is there is always a charger at the depot
-							//if we introduced charging time/restock time/time windows for servicing, we wouldn't necessarily want to charge
-							//every time we went to the depot, because that might be unnecessary, but in the time-doesn't-matter version of this problem
-							//we might as well recharge when we restock
-							currentInventoryCapacity = maxInventoryCapacity;
-							currentBatteryCapacity = maxBatteryCapacity;
-
-							paddedTour.push_back(0);
-							currentNodeIndex = 0;
-						}
-						else
-						{
-							//visit the nearest charging station and continue moving towards the depot. 
-							int chargingNodeIndex = GetClosestChargingStationToNode(currentNode);
-							currentBatteryCapacity = maxBatteryCapacity;
-							currentNodeIndex = chargingNodeIndex;
-							paddedTour.push_back(chargingNodeIndex);
-						}
-					}
-
-				}
-				else 
-				{
-					//should never reach this line of code
-					cout << "I am lost as a vehicle... how did I get here?" << endl;
-				}
-			}
-		}
-		//we can get to the next customer on our current battery, but once we get there we won't have enough battery to get anywhere else. 
-		//we must recharge before continuing safely. 
-		else
-		{
-			if (verbose)
-			{
-				cout << "I need to detour to a charging station before visiting this node." << endl;
-			}
-			//recharge the battery from the next charging station. This satisfies constraint 4, 5, 6, and 7. 
-			int chargingNodeIndex = GetClosestChargingStationToNode(currentNode);
-			currentBatteryCapacity = maxBatteryCapacity;
-			currentNodeIndex = chargingNodeIndex;
-			paddedTour.push_back(chargingNodeIndex);
-		}
-		
-		if (verbose)
-		{
-			cout << "----------------------------------------" << endl;
-		}
-	}
-
-	//we exit the while loop when we are at the last desired customer node, but we need to simulate getting home, as required by constraint 1.
-	//this is going to take the same structure as the loop we used above to get to the depot. I'm sure there's some clever way to just combine them
-	//but.... 
-	while (currentNodeIndex != 0)
-	{
-		const Node currentNode = _nodes[currentNodeIndex];
-		const Node desiredNode = _nodes[0];
-
-		const float routeCost = BatteryCost(currentNode, desiredNode);
-		if (currentBatteryCapacity > routeCost)
-		{
-			currentBatteryCapacity -= routeCost;
-			paddedTour.push_back(0);
-			currentNodeIndex = 0;
-		}
-		else
-		{
-			int chargingNodeIndex = GetClosestChargingStationToNode(currentNode);
-			currentBatteryCapacity = maxBatteryCapacity;
-			currentNodeIndex = chargingNodeIndex;
-			paddedTour.push_back(chargingNodeIndex);
-		}
-	}
-
-	//we have now serviced every customer node and have driven back home, and constructed the true tour
-	if (verbose)
-	{
-		cout << "True route: ";
-		for (const auto i : paddedTour)
-		{
-			cout << i << " ";
-		}
-		cout << endl;
-		cout << "----------------------------------------" << endl;
-	}
-
-	//the full distance is the "fitness" of this solution
-	fullDistance = CalculateFullRouteDistance(paddedTour, false);
-
-	return fullDistance;
-}
-
-
-
-/* This new implementation of SimulateDrive is still in active development and currently won't compile.
- * There were some inefficiencies with the above implementation, so this was an attempt to clean up the fitness
- * calculation before implementing new stuff like time window constraints
-float Vehicle::SimulateDrive(const vector<int> &desiredRoute, bool verbose)
-{
-	ResetVehicle();
-	if(verbose)
-	{
-		cout << "Simulating drive of route: ";
-		HelperFunctions::PrintTour(desiredRoute);
-	}
-
-	vector<int> padded_tour;
-	vector<Node> charger_nodes;
-	for(const auto &node : _nodes)
-	{
-		if(node.isCharger) charger_nodes.push_back(node);
-	}
-
-	int current_node_index = 0;
-	padded_tour.push_back(current_node_index);
-
-	float full_distance = 0.f;
-
-	int customer_nodes_serviced = 0;
-	while(customer_nodes_serviced < static_cast<int>(desiredRoute.size()))
-	{
-		int desired_route_index = desiredRoute[customer_nodes_serviced];
-		Node current_node = _nodes[current_node_index];
-		Node next_desired_node = _nodes[desired_route_index];
-
-		const float route_cost = BatteryCost(current_node, next_desired_node);
-		const int demand_cost = next_desired_node.demand;
-
-		//i know that i can just go from where i am to where i want to go
-		if(currentBatteryCapacity > route_cost)
-		{
-			
-		}
-		else
-		{
-			vector<Node> subgraph = {charger_nodes.begin(), charger_nodes.end()};
-			subgraph.push_back(current_node);
-			subgraph.push_back(next_desired_node);
-			vector<Node> safe_route = astar_pathfinding(subgraph, current_node, next_desired_node);
-		}
-	}
-}
-
-struct Compare
-{
-	bool operator()(const pair<Node, float> &a, const pair<Node, float> &b) const
-	{
-		return a.second > b.second;
-	}
-};
-
-vector<Node> Vehicle::astar_pathfinding(const vector<Node>& graph, const Node& start, const Node& end)
-{
-	priority_queue<pair<Node, float>, vector<pair<Node, float>>, Compare> pq;
-	unordered_map<Node, float> cost;
-	unordered_map<Node, Node> parent;
-
-	pq.push({start, 0.f});
-	cost[start] = 0.f;
-	parent[start] = start;
-
-	while(!pq.empty())
-	{
-		Node current = pq.top().first;
-		pq.pop();
-
-		if(current.x == end.x && current.y == end.y)
-		{
-			vector<Node> path;
-			while(current.x != start.x || current.y != start.y)
-			{
-				path.push_back(current);
-				current = parent[current];
-			}
-			path.push_back(start);
-			reverse(path.begin(), path.end());
-			return path;
-		}
-
-		for(const Node &neighbor : graph)
-		{
-			if(neighbor.x == current.x && neighbor.y == current.y) continue;
-
-			float new_cost = cost[current] + HelperFunctions::CalculateInterNodeDistance(current, neighbor);
-
-			if(!cost.count(neighbor) || new_cost < cost[neighbor])
-			{
-				cost[neighbor] = new_cost;
-				pq.push({neighbor, new_cost + HelperFunctions::CalculateInterNodeDistance(neighbor, end)});
-				parent[neighbor] = current;
-			}
-		}
-	}
-
-	return {};
-}
-*/
 
 /**
 * Helper for finding the closest charging station to the given node.
@@ -588,7 +258,13 @@ int Vehicle::GetClosestChargingStationToNode(const Node &node) const
 */
 bool Vehicle::CanGetToNextCustomerSafely(const Node &from, const Node &to) const
 {
+	return CanGetToNextCustomerSafely(from, to, currentBatteryCapacity);
+}
+
+bool Vehicle::CanGetToNextCustomerSafely(const Node& from, const Node& to, const float battery_level) const
+{
 	const int chargerIndex = GetClosestChargingStationToNode(to);
+	//cout << "\tThe closest charger to node " << to.index << " is node " << chargerIndex << endl;
 
 	if (chargerIndex == -1)
 	{
@@ -596,7 +272,7 @@ bool Vehicle::CanGetToNextCustomerSafely(const Node &from, const Node &to) const
 	}
 
 	const Node closestCharger = _nodes[chargerIndex];
-	if (currentBatteryCapacity > BatteryCost(from, to) + BatteryCost(to, closestCharger))
+	if (battery_level > BatteryCost(from, to) + BatteryCost(to, closestCharger))
 	{
 		return true;
 	}
