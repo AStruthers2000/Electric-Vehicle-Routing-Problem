@@ -55,12 +55,6 @@ int main()
 {
     if(!DEBUG)
     {
-        //list of files to run our tests on
-        /*
-        const vector<string> files = {"r101_21.txt", "r201_21.txt", "r202c5.txt", "r202c15.txt",
-                                "rc101_21.txt", "rc102c10.txt", "rc103c15.txt", "rc108c5.txt", "rc201_21.txt", "rc201c10.txt", "rc202c15.txt", "rc204c5.txt"};
-        */
-
         /*
         
         //ALL FILES IN ASCENDING ORDER
@@ -97,7 +91,7 @@ int main()
         */
 
         //ALL NON-TIME-WINDOW-SPECIFIC-PROBLEMS IN ASCENDING ORDER
-        
+        /*
         const vector<string> files = {
              //unique five customer problems
              "c101C5.txt", "c206C5.txt", "r104C5.txt", "r202C5.txt", "rc105C5.txt", "rc204C5.txt", 
@@ -111,9 +105,10 @@ int main()
              //unique one hundred customer problems
              "c101_21.txt", "c201_21.txt", "r101_21.txt", "r201_21.txt", "rc101_21.txt", "rc201_21.txt", 
         };
-        
+        */
 
-        //const vector<string> files = { "c101_21.txt" };
+        //list of files to run our tests on
+        const vector<string> files = { "rc101_21.txt" };
 
         //iterate through each of the files, so this can run overnight
         for(const auto &file : files)
@@ -124,10 +119,9 @@ int main()
             if(solver->IsGoodOpen())
             {
                 //What time is it before solving the problem
-                //TODO: this timing only works in the single threaded case, figure out how to time each individual thread
                 const auto start_time = std::chrono::high_resolution_clock::now();
 
-                //Create 40 threads that each run a call to the solve function
+                //Create n threads that each run a call to the solve function
                 vector<thread> solver_threads;
                 for(size_t i = 0; i < 30; i++)
                 {
@@ -143,8 +137,7 @@ int main()
                 }
 
                 
-                //What time is it now that we've solved the problem
-                //TODO: see todo above
+                //What time is it now that we've solved the problem and all threads have run
                 const auto end_time = chrono::high_resolution_clock::now();
 
                 //Get the execution time in milliseconds 

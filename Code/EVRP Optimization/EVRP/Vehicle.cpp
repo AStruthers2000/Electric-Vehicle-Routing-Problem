@@ -138,6 +138,14 @@ float Vehicle::SimulateDrive(const vector<int>& desiredRoute, bool verbose)
 	return true_distance;
 }
 
+/**
+ * \brief 
+ * \param graph 
+ * \param start 
+ * \param end 
+ * \param out_result 
+ * \return 
+ */
 vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, const Node& end, PathfindingResult &out_result)
 {
 	float current_battery = currentBatteryCapacity;
@@ -321,6 +329,13 @@ float Vehicle::CalculateFullRouteDistance(const vector<int> &trueRoute, bool ver
 	return dist;
 }
 
+/**
+ * \brief 
+ * \param graph 
+ * \param node 
+ * \param battery 
+ * \return 
+ */
 vector<Node> Vehicle::GetAllNodesWithinRange(const vector<Node>& graph, const Node& node, const float battery) const
 {
 	vector<Node> nodes_in_range;
@@ -334,6 +349,12 @@ vector<Node> Vehicle::GetAllNodesWithinRange(const vector<Node>& graph, const No
 	return nodes_in_range;
 }
 
+/**
+ * \brief 
+ * \param graph 
+ * \param node 
+ * \return 
+ */
 Node Vehicle::GetClosestNodeFromRange(const vector<Node>& graph, const Node& node) const
 {
 	float shortest_distance = numeric_limits<float>::max();
