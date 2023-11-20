@@ -3,6 +3,12 @@
 #include "../../Vehicle.h"
 #include "../../HelperFunctions.h"
 
+void GeneticAlgorithmOptimizer::SetSeedSolutions(vector<vector<int>> seed)
+{
+	seed_solutions = {seed.begin(), seed.end()};
+	has_seed_solutions = true;
+}
+
 /**
 * Core of the Genetic Algorithm.
 * This function instanciates a Vehicle, that will simulate driving each of the routes, 
@@ -36,8 +42,22 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 	vector<vector<int>> population;
 	vector<float> tourDistances;
 
+	int seed_solution_count = 0;
+	if(has_seed_solutions)
+	{
+		cout << "GA using seed solutions" << endl;
+		seed_solution_count = static_cast<int>(seed_solutions.size());
+		for(const auto &seed : seed_solutions)
+		{
+			population.push_back(seed);
+			tourDistances.push_back(vehicle->SimulateDrive(seed));
+
+			if(population.size() >= POPULATION_SIZE) break;
+		}
+	}
+	
 	//generate initial population and fitnesses
-	for (int i = 0; i < POPULATION_SIZE; i++)
+	for (int i = 0; i < POPULATION_SIZE - seed_solution_count; i++)
 	{
 		//Generate initial solutions, then calculate the fitnesses using the Vehicle.SimulateDrive()
 		vector<int> initialTour = HelperFunctions::GenerateRandomTour(problem_data.customerStartIndex, (static_cast<int>(problem_data.nodes.size()) - problem_data.customerStartIndex));
@@ -48,10 +68,25 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 		tourDistances.push_back(tourDistance);
 	}
 
+	assert(population.size() == POPULATION_SIZE);
+	assert(population.size() == tourDistances.size());
+
+	cout << "Average fitness for first generation: " << CalculateAverageSolution(tourDistances) << endl;
+	cout << "Best fitness for first generation: " << CalculateBestSolution(tourDistances) << endl;
+	if(has_seed_solutions)
+	{
+		ofstream file;
+		file.open(R"(.\EVRP\Output\Average.txt)", ios_base::app);
+		file << CalculateAverageSolution(tourDistances) << ",";
+		file << CalculateBestSolution(tourDistances) << ",";
+		file << "\n";
+		file.close();
+	}
+
 	//iterate for #MAX_GENERATIONS generations
 	for (int generation = 0; generation < MAX_GENERATIONS; generation++)
 	{
-		//cout << "Currently calculating generation: " << generation << endl;
+		cout << "Currently calculating generation: " << generation << endl;
 		//PrintIfTheTimeIsRight("Genetic Algorithm", generation, MAX_GENERATIONS);
 		//if (generation % (MAX_GENERATIONS / 100) == 0) 
 		//cout << "Currently calculating generation: " << generation << " which is " << (static_cast<float>(generation) / static_cast<float>(MAX_GENERATIONS)) * 100.f << "% of the way done" << endl;
@@ -82,6 +117,19 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 		population = newPopulation;
 		tourDistances = newDistances;
 
+		assert(population.size() == tourDistances.size());
+
+		cout << "Average fitness for generation " << generation << ": " << CalculateAverageSolution(tourDistances) << endl;
+		cout << "Best fitness for generation: " << generation << ": " << CalculateBestSolution(tourDistances) << endl;
+		if(has_seed_solutions && generation % 25 == 0)
+		{
+			ofstream file;
+			file.open(R"(.\EVRP\Output\Average.txt)", ios_base::app);
+			file << CalculateAverageSolution(tourDistances) << ",";
+			file << CalculateBestSolution(tourDistances) << ",";
+			file << "\n";
+			file.close();
+		}
 		/*
 		//display best fitness each generation
 		float best_gen_distance = numeric_limits<float>::max();
@@ -103,9 +151,9 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 	bestDistance = numeric_limits<float>::max();
 	for (int i = 0; i < POPULATION_SIZE; i++)
 	{
-		vector<int> tour = population[i];
+		const vector<int> tour = population[i];
 
-		float distance = tourDistances[i];
+		const float distance = tourDistances[i];
 		if (distance < bestDistance)
 		{
 			bestTour = tour;

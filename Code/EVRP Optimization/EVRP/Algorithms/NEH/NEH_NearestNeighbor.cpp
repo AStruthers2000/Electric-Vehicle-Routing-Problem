@@ -141,6 +141,7 @@ void NEH_NearestNeighbor::Optimize(vector<int>& bestTour, float& bestDistance)
 	}
 	bestTour = tour;
 	bestDistance = vehicle->SimulateDrive(bestTour);
+	found_tours.emplace_back(bestTour);
 	//cout << bestDistance << endl;
 }
 

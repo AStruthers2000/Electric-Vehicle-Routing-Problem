@@ -154,12 +154,15 @@ void EVRP_Solver::SolveEVRP() const
 	vector<AlgorithmBase*> algorithms;
 
 	//Create new instances of the algorithm solvers
-	algorithms.push_back(new GeneticAlgorithmOptimizer(data));
+	//algorithms.push_back(new GeneticAlgorithmOptimizer(data));
 	//algorithms.push_back(new RandomSearchOptimizer(data));
-	//algorithms.push_back(new NEH_NearestNeighbor(data));
+	algorithms.push_back(new NEH_NearestNeighbor(data));
+	//algorithms.push_back(algorithm(data));
 	
 	for(const auto alg : algorithms)
 	{
+		cout << "Calculating standard solve for " << alg->GetName() << "!" << endl;
+		
 		//Out parameter for the optimal tour
 		vector<int> encoded_tour;
 
@@ -210,6 +213,36 @@ void EVRP_Solver::SolveEVRP() const
 		WriteToFile(result);
 		lock.unlock();
 	}
+}
+
+void EVRP_Solver::SolveEVRP_Seed(SeedAlgorithm seed) const
+{
+	vector<vector<int>> seed_solutions;
+	AlgorithmBase* seed_solver = nullptr;
+	switch(seed)
+	{
+	case NEH:
+		seed_solver = new NEH_NearestNeighbor(data);
+		break;
+	case RNG:
+		seed_solver = new RandomSearchOptimizer(data);
+		break;
+	}
+	if(seed_solver == nullptr) return;
+
+	cout << "Seed Solver with seed algorithm " << seed_solver->GetName() << endl;
+	
+	vector<int> best_tour;
+	float best_distance;
+	seed_solver->Optimize(best_tour, best_distance);
+	cout << "Best solution has distance of: " << best_distance<<endl;
+
+	best_tour.clear();
+	best_distance = 0.f;
+	
+	const auto GA_solver = new GeneticAlgorithmOptimizer(data);
+	GA_solver->SetSeedSolutions(seed_solver->GetFoundTours());
+	GA_solver->Optimize(best_tour, best_distance);
 }
 
 /**

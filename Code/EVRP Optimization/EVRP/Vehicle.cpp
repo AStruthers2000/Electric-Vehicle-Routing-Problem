@@ -374,7 +374,3 @@ Node Vehicle::GetClosestNodeFromRange(const vector<Node>& graph, const Node& nod
 	}
 	return closest_node;
 }
-
-
-
-

@@ -41,6 +41,7 @@ void RandomSearchOptimizer::Optimize(vector<int>& bestTour, float& bestDistance)
 	bestDistance = numeric_limits<float>::max();
 	for (const auto &iter : bestSolutions)
 	{
+		found_tours.emplace_back(iter.first);
 		if (iter.second < bestDistance)
 		{
 			bestTour = iter.first;

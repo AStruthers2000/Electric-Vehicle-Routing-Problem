@@ -23,11 +23,13 @@ public:
    virtual void Optimize(vector<int>& bestTour, float& bestDistance) = 0;
    string GetName() { return name; }
    vector<string> GetHyperParameters() { return hyper_parameters; }
+   vector<vector<int>> GetFoundTours() const { return found_tours; }
    
 protected:
    EVRP_Data problem_data;
    Vehicle *vehicle;
 
+   vector<vector<int>> found_tours;
    
    void SetHyperParameters(const vector<string> &params)
    {
