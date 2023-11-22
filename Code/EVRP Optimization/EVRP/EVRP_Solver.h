@@ -2,7 +2,7 @@
 
 #include <windows.h>
 
-#include "GraphStructure.h"
+#include "ProblemDefinition.h"
 //#include <mutex>
 
 enum
@@ -44,12 +44,13 @@ public:
 private:
 	void WriteToFile(const optimization_result &result) const;
 	
-	int vehicleLoadCapacity;/*!< A temporary variable to store the inventory load capacity when we are actively parsing the data file*/
-	float vehicleBatteryCapacity;/*!< A temporary variable to store the battery capacity when we are actively parsing the data file*/
-	float vehicleFuelConsumptionRate;/*!< A temporary variable to store the vehicle consumption rate when we are actively parsing the data file*/
+	//int vehicleLoadCapacity;/*!< A temporary variable to store the inventory load capacity when we are actively parsing the data file*/
+	//float vehicleBatteryCapacity;/*!< A temporary variable to store the battery capacity when we are actively parsing the data file*/
+	//float vehicleFuelConsumptionRate;/*!< A temporary variable to store the vehicle consumption rate when we are actively parsing the data file*/
 
-	EVRP_Data data; /*!< This is the core of what the file gets loaded into. This data structure will contain all the necessary information to represent the selected EVRP problem*/
-	vector<Node> nodes; /*!< A vector of all nodes in the graph. This will contain customer nodes, charging station nodes, and the depot*/
+	//EVRP_Data data; /*!< This is the core of what the file gets loaded into. This data structure will contain all the necessary information to represent the selected EVRP problem*/
+	//vector<Node> nodes; /*!< A vector of all nodes in the graph. This will contain customer nodes, charging station nodes, and the depot*/
+	ProblemDefinition* problem_definition;
 
 	string _current_filename;
 	bool _is_good_open;

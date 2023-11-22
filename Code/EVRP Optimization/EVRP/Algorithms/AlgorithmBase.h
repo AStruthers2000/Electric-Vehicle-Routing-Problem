@@ -1,35 +1,39 @@
 ﻿#pragma once
-#include "../GraphStructure.h"
+#include <iostream>
 #include "../Vehicle.h"
+#include "../SolutionSet.h"
 
 class AlgorithmBase
 {
 public:
    AlgorithmBase();
    
-   explicit AlgorithmBase(const string &algorithm_name, const EVRP_Data &data)
+   explicit AlgorithmBase(const string &algorithm_name, const ProblemDefinition* data)
    {
       problem_data = data;
-      vehicle = new Vehicle(data.nodes, data.fuelCapacity, data.loadCapacity, data.fuelConsumptionRate);
+      vehicle = new Vehicle(problem_data);
 
       name = algorithm_name;
       hyper_parameters.clear();
+
+      found_tours = new SolutionSet();
+      
    }
 
    virtual ~AlgorithmBase()
    {
       free(vehicle);
    }
-   virtual void Optimize(vector<int>& bestTour, float& bestDistance) = 0;
+   virtual void Optimize(solution &best_solution) = 0;
    string GetName() { return name; }
    vector<string> GetHyperParameters() { return hyper_parameters; }
-   vector<vector<int>> GetFoundTours() const { return found_tours; }
+   SolutionSet* GetFoundTours() const { return found_tours; }
    
 protected:
-   EVRP_Data problem_data;
+   const ProblemDefinition *problem_data;
    Vehicle *vehicle;
 
-   vector<vector<int>> found_tours;
+   SolutionSet* found_tours;
    
    void SetHyperParameters(const vector<string> &params)
    {

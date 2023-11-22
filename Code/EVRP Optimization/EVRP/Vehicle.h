@@ -1,5 +1,6 @@
 #pragma once
-#include "GraphStructure.h"
+#include "ProblemDefinition.h"
+
 class Vehicle
 {
 public:
@@ -8,17 +9,15 @@ public:
 	* 
 	* Sets internal variables used in the calculation and simulation of driving the tour, then calls ResetVehicle to make sure everything is initialized properly
 	* 
-	* @param nodes All nodes in the EVRP graph
-	* @param battery The maximum capacity of the EV battery
-	* @param inventory The maximum size of the vehicle's carrying capacity
-	* @param batteryRate The rate in which the battery discharges over distance
+	* @param problem
 	*/
-	Vehicle(const vector<Node> &nodes, const float battery, const int inventory, const float batteryRate)
+	Vehicle(const ProblemDefinition *problem)
 	{
-		_nodes = nodes;
-		_battery = battery;
-		_inventory = inventory;
-		_batteryRate = batteryRate;
+		problem_definition = problem;
+		_nodes = problem->GetAllNodes();
+		_battery = problem->GetVehicleParameters().battery_capacity;
+		_inventory = problem->GetVehicleParameters().load_capacity;
+		_batteryRate = problem->GetVehicleParameters().battery_consumption_rate;
 		ResetVehicle();
 	}
 
@@ -34,7 +33,7 @@ public:
 		batteryConsumptionRate = _batteryRate;
 	}
 
-	float SimulateDrive(const vector<int> &desiredRoute, bool verbose = false);
+	float SimulateDrive(const vector<Node> &route, bool verbose = false);
 
 private:
 	enum PathfindingResult
@@ -62,6 +61,7 @@ private:
 	float _battery; /*!< An internal variable that holds the state of the maximum battery capacity*/
 	int _inventory; /*!< An internal variable that holds the state of the maximum vehicle inventory capacity*/
 	float _batteryRate; /*!< An internal variable that holds the state of the rate in which the battery discharges over distance */
+	const ProblemDefinition *problem_definition;
 
 	float currentBatteryCapacity;/*!< The current battery capacity, updated during the simulation of the driving*/
 	float maxBatteryCapacity; /*!< The maximum battery capacity, shouldn't change during execution*/

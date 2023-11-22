@@ -1,53 +1,34 @@
 #include "RandomSearchOptimizer.h"
-#include "../../Vehicle.h"
+
 #include "../../HelperFunctions.h"
+#include "../../SolutionSet.h"
 
 /**
  * \brief Generate #NUM_GENERATIONS * #SOLUTIONS_PER_GENERATION random solutions, saving the best from each generation.
  * We use random generation to generate #SOLUTIONS_PER_GENERATION purely random solutions. We save the best one, and
  * do this #NUM_GENERATIONS times. By the end, we will have #NUM_GENERATIONS "good" solutions. This could be used as
  * a good seed for other algorithms that start with an initial population.
- * \param bestTour The best complete tour through all the customer nodes 
- * \param bestDistance The distance of the best tour
+ * \param best_solution
  */
-void RandomSearchOptimizer::Optimize(vector<int>& bestTour, float& bestDistance)
+void RandomSearchOptimizer::Optimize(solution &best_solution)
 {
-	const int tourSize = static_cast<int>(problem_data.nodes.size()) - problem_data.customerStartIndex;
-
-	map<vector<int>, float> bestSolutions;
+	auto* best_solutions = new SolutionSet();
 
 	for (int i = 0; i < NUM_GENERATIONS; i++)
 	{
-		vector<int> _bestTour;
-		float _bestDistance = numeric_limits<float>::max();
-
-		//PrintIfTheTimeIsRight("Random Search", i, NUM_GENERATIONS);
-
+		auto* generation_solutions = new SolutionSet();
+		
 		for (int j = 0; j < SOLUTIONS_PER_GENERATION; j++)
 		{
-			vector<int> tour = HelperFunctions::GenerateRandomTour(problem_data.customerStartIndex, tourSize);
-			const float tourDistance = vehicle->SimulateDrive(tour, false);
-
-			if (tourDistance < _bestDistance)
-			{
-				_bestDistance = tourDistance;
-				_bestTour = tour;
-			}
+			vector<Node> tour = problem_data->GenerateRandomTour();
+			generation_solutions->AddSolutionToSet({tour, vehicle->SimulateDrive(tour)});
 		}
-
-		bestSolutions.emplace(_bestTour, _bestDistance);
+		best_solutions->AddSolutionToSet(generation_solutions->GetBestSolution());
 	}
 
-	bestDistance = numeric_limits<float>::max();
-	for (const auto &iter : bestSolutions)
-	{
-		found_tours.emplace_back(iter.first);
-		if (iter.second < bestDistance)
-		{
-			bestTour = iter.first;
-			bestDistance = iter.second;
-		}
-	}
+	found_tours = new SolutionSet(best_solutions);
+	best_solution = best_solutions->GetBestSolution();
+	
 
 
 	/*

@@ -1,5 +1,8 @@
 #include "HelperFunctions.h"
 
+#include <iostream>
+#include <random>
+
 /**
 * Helper functions used in the Genetic Algorithm code
 *
@@ -85,3 +88,28 @@ float HelperFunctions::CalculateInterNodeDistance(const Node& node1, const Node&
 	const auto dist = static_cast<float>(hypot(node1.x - node2.x, node1.y - node2.y));
 	return dist;
 }
+
+vector<int> HelperFunctions::GetIndexEncodedTour(const vector<Node>& tour)
+{
+	vector<int> encoded_tour;
+	encoded_tour.reserve(tour.size());
+    
+	for(const auto &n: tour)
+	{
+		encoded_tour.push_back(n.index);
+	}
+	return encoded_tour;
+}
+
+vector<Node> HelperFunctions::GetNodeDecodedTour(const ProblemDefinition *problem, const vector<int>& tour)
+{
+	vector<Node> node_tour;
+	node_tour.reserve(tour.size());
+	
+	for(const auto &i:tour)
+	{
+		node_tour.push_back(problem->GetAllNodes()[i]);
+	}
+	return node_tour;
+}
+

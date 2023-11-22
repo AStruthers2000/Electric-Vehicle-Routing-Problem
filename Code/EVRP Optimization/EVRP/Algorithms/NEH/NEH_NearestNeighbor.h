@@ -1,10 +1,12 @@
 ﻿#pragma once
 #include "../AlgorithmBase.h"
+#include <map>
+
 
 class NEH_NearestNeighbor : public AlgorithmBase
 {
 public:
-    NEH_NearestNeighbor(const EVRP_Data& data) :
+    NEH_NearestNeighbor(const ProblemDefinition* data) :
         AlgorithmBase("NEH with Nearest Neighbor Subtours", data)
     {
         vector<string> hyper_parameters;
@@ -12,7 +14,7 @@ public:
         SetHyperParameters(hyper_parameters);
     }
 
-    void Optimize(vector<int>& bestTour, float& bestDistance) override;
+    void Optimize(solution &best_solution) override;
 
 private:
     typedef struct node_distances
@@ -23,5 +25,5 @@ private:
 
     static Node GetNearestUnvisitedNode(const vector<Node> &customer_nodes, const vector<Node> &visited_nodes, const Node &node);
     static Node GetNearestNode(const vector<Node> &customer_nodes, const Node &node);
-    vector<int> NEH_Calculation(const vector<Node> &subtour) const;
+    solution NEH_Calculation(const solution &subtour) const;
 };

@@ -1,13 +1,18 @@
 #include "EVRP_Solver.h"
-#include "Algorithms/AlgorithmBase.h"
+
+#include <cassert>
+#include <fstream>
+#include <mutex>
+#include <iostream>
+#include <sstream>
+
+#include "ProblemDefinition.h"
+#include "HelperFunctions.h"
+#include "SolutionSet.h"
+#include "Algorithms/GA/GeneticAlgorithmOptimizer.h"
 #include "Algorithms/NEH/NEH_NearestNeighbor.h"
-#include "Algorithms\GA\GeneticAlgorithmOptimizer.h"
 #include "Algorithms/RandomSearch/RandomSearchOptimizer.h"
 
-#include <thread>
-#include <mutex>
-
-#include "HelperFunctions.h"
 
 mutex file_write_mutex_;
 
@@ -46,13 +51,59 @@ EVRP_Solver::EVRP_Solver(const string &file_name)
 		return;
 	}
 	_current_filename = file_name;
+
+	/*
+	vector<Node> nodes;
+	VehicleParameters params;
+	int node_index = 0;
+
+	string line;
+	while(getline(file, line))
+	{
+		istringstream iss(line);
+		Node node;
+		string StringID;
+		char type;
+		if(!(iss >> StringID >> type >> node.x >> node.y >> node.demand >> node.ready_time >> node.due_data >> node.service_time))
+		{
+			cerr<<"Error reading nodes from file" << endl;
+		}
+		switch(type)
+		{
+		case 'f':
+			node.node_type = Charger;
+			node.isCharger = true;
+			break;
+		case 'c':
+			node.node_type = Customer;
+			break;
+		case 'd':
+			node.node_type = Depot;
+			break;
+		default: break;
+		}
+		node.index = node_index;
+		node_index++;
+		nodes.push_back(node);
+	}
+
+	getline(file, line);
+	istringstream params_stream(line);
+	if(!(params_stream >> params.battery_capacity >> params.load_capacity >> params.battery_consumption_rate >> params.inverse_recharging_rate >> params.average_velocity))
+	{
+		cerr << "Error reading vehicle parameters from file" << endl;
+	}
+	*/
+	
 	string ID;
 	char nodeType;
 	string line;
 	double x, y;
 	int demand;
 	int index = 0;
-	data.customerStartIndex = -1;
+	vector<Node> nodes;
+	VehicleParameters params;
+	int customerStartIndex = -1;
 	while (getline(file, line))
 	{
 		istringstream iss(line);
@@ -72,13 +123,16 @@ EVRP_Solver::EVRP_Solver(const string &file_name)
 				switch (type)
 				{
 				case 'Q':
-					vehicleBatteryCapacity = num;
+					//vehicleBatteryCapacity = num;
+					params.battery_capacity = num;
 					break;
 				case 'C':
-					vehicleLoadCapacity = static_cast<int>(num);
+					//vehicleLoadCapacity = static_cast<int>(num);
+					params.load_capacity = static_cast<int>(num);
 					break;
 				case 'r':
-					vehicleFuelConsumptionRate = num;
+					//vehicleFuelConsumptionRate = num;
+					params.battery_consumption_rate = num;
 					break;
 				default:
 					break;
@@ -87,56 +141,52 @@ EVRP_Solver::EVRP_Solver(const string &file_name)
 		}
 		else
 		{
-			Node n = Node{ x, y, 0, false, index };
-			switch (nodeType)
+			Node n;
+			n.x = x; n.y = y;
+			n.demand = demand;
+			switch(nodeType)
 			{
 			case 'f':
-				n.demand = 0;
+				n.node_type = Charger;
 				n.isCharger = true;
 				break;
 			case 'c':
-				if (data.customerStartIndex == -1) data.customerStartIndex = index;
-				n.demand = demand;
-				n.isCharger = false;
+				n.node_type = Customer;
 				break;
-			default:
+			case 'd':
+				n.node_type = Depot;
 				break;
+			default: break;
 			}
+			n.index = index;
 			nodes.push_back(n);
 			index++;
 		}
 	}
-	data = EVRP_Data{ nodes, vehicleBatteryCapacity, vehicleLoadCapacity, vehicleFuelConsumptionRate, data.customerStartIndex };
+	//data = EVRP_Data{ nodes, vehicleBatteryCapacity, vehicleLoadCapacity, vehicleFuelConsumptionRate, data.customerStartIndex };
 	
 	file.close();
+
+	problem_definition = new ProblemDefinition(nodes, params);
 	_is_good_open = true;
 	cout << "~=~=~=~= Solving problem " << file_name << " now ~=~=~=~=" << endl;
-
-	/*
-	int tot_demand = 0;
-	for (const Node& node : nodes)
-	{
-		tot_demand += node.demand;
-	}
-	cout << "The minimum number of subtours with only constraint of capacity is: " << ceil(static_cast<double>(tot_demand) / vehicleLoadCapacity) << endl;
-	*/
 }
 
 void EVRP_Solver::DebugEVRP() const
 {
 	
-	auto *alg = new NEH_NearestNeighbor(data);
-	vector<int> tour;
-	float distance;
-	alg->Optimize(tour, distance);
+	auto *alg = new GeneticAlgorithmOptimizer(problem_definition);
+	solution s = {};
+	alg->Optimize(s);
 
-	HelperFunctions::PrintTour(tour);
-	cout << "Best tour has a distance of: " << distance << endl;
+	HelperFunctions::PrintTour(HelperFunctions::GetIndexEncodedTour(s.tour));
+	cout << "Best tour has a distance of: " << s.distance << endl;
 	
 	/*
-	auto *vehicle = new Vehicle(data.nodes, data.fuelCapacity, data.loadCapacity, data.fuelConsumptionRate);
-	vector<int> test_route = {7, 8, 4, 5, 6};
-	vehicle->SimulateDrive(test_route);
+	auto *vehicle = new Vehicle(problem_definition);
+	const vector<int> test_route = {7, 8, 4, 5, 6};
+	const float result = vehicle->SimulateDrive(HelperFunctions::GetNodeDecodedTour(problem_definition, test_route), true);
+	cout << "Best tour has a distance of: " << result << endl;
 	*/
 }
 
@@ -156,18 +206,14 @@ void EVRP_Solver::SolveEVRP() const
 	//Create new instances of the algorithm solvers
 	//algorithms.push_back(new GeneticAlgorithmOptimizer(data));
 	//algorithms.push_back(new RandomSearchOptimizer(data));
-	algorithms.push_back(new NEH_NearestNeighbor(data));
+	algorithms.push_back(new NEH_NearestNeighbor(problem_definition));
 	//algorithms.push_back(algorithm(data));
 	
 	for(const auto alg : algorithms)
 	{
 		cout << "Calculating standard solve for " << alg->GetName() << "!" << endl;
 		
-		//Out parameter for the optimal tour
-		vector<int> encoded_tour;
-
-		//Out parameter for the distance of the optimal tour
-		float best_distance;
+		solution best_solution = {};
 		
 		//What time is it before solving the problem
 		//const auto start_time = std::chrono::high_resolution_clock::now();
@@ -176,7 +222,7 @@ void EVRP_Solver::SolveEVRP() const
 
 		//Function call to the GeneticAlgorithmOptimizer class that will return the best tour
 		//from the given data
-		alg->Optimize(encoded_tour, best_distance);
+		alg->Optimize(best_solution);
 
 		//What time is it now that we've solved the problem
 		ULARGE_INTEGER end = get_thread_CPU_time(thread);
@@ -192,10 +238,10 @@ void EVRP_Solver::SolveEVRP() const
 		//cout << "Execution time of algorithm " << alg->GetName() << ": " << static_cast<float>(duration)/1000.0f << " seconds" << endl;
 		//cout << "The best route has a distance of: " << best_distance << endl;
 
-		for (const auto& index : encoded_tour)
+		for (const auto& index : best_solution.tour)
 		{
 			int index_count = 0;
-			for (const auto& i : encoded_tour)
+			for (const auto& i : best_solution.tour)
 			{
 				if (index == i) index_count++;
 			}
@@ -205,8 +251,8 @@ void EVRP_Solver::SolveEVRP() const
 		optimization_result result;
 		result.algorithm_name = alg->GetName();
 		result.execution_time = static_cast<float>(duration) / 1000.0f;
-		result.solution_encoded = encoded_tour;
-		result.distance = best_distance;
+		result.solution_encoded = HelperFunctions::GetIndexEncodedTour(best_solution.tour);
+		result.distance = best_solution.distance;
 		result.hyperparameters = alg->GetHyperParameters();
 
 		unique_lock<mutex> lock(file_write_mutex_);
@@ -222,27 +268,25 @@ void EVRP_Solver::SolveEVRP_Seed(SeedAlgorithm seed) const
 	switch(seed)
 	{
 	case NEH:
-		seed_solver = new NEH_NearestNeighbor(data);
+		seed_solver = new NEH_NearestNeighbor(problem_definition);
 		break;
 	case RNG:
-		seed_solver = new RandomSearchOptimizer(data);
+		seed_solver = new RandomSearchOptimizer(problem_definition);
 		break;
 	}
 	if(seed_solver == nullptr) return;
 
 	cout << "Seed Solver with seed algorithm " << seed_solver->GetName() << endl;
 	
-	vector<int> best_tour;
-	float best_distance;
-	seed_solver->Optimize(best_tour, best_distance);
-	cout << "Best solution has distance of: " << best_distance<<endl;
+	solution s = {};
+	seed_solver->Optimize(s);
+	cout << "Best solution has distance of: " << s.distance <<endl;
 
-	best_tour.clear();
-	best_distance = 0.f;
+	s = {};
 	
-	const auto GA_solver = new GeneticAlgorithmOptimizer(data);
+	const auto GA_solver = new GeneticAlgorithmOptimizer(problem_definition);
 	GA_solver->SetSeedSolutions(seed_solver->GetFoundTours());
-	GA_solver->Optimize(best_tour, best_distance);
+	GA_solver->Optimize(s);
 }
 
 /**

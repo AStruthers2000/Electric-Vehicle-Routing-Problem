@@ -1,5 +1,7 @@
 #include "Vehicle.h"
 
+#include <cassert>
+#include <iostream>
 #include <queue>
 #include <unordered_map>
 
@@ -19,26 +21,23 @@
 * or other math that I could do to make this function less messy and less confusing, but I don't have a better implementation
 * at this time. 
 * 
-* @param desiredRoute The tour through just the customer nodes.
+* @param route The tour through just the customer nodes.
 * @param verbose This is false by default, and will hide a lot of the print outputs. This should not be set to true unless you want to output one specific route. In general, the outputting adds a lot of time to the simulation execution
 * 
 * @return Returns the true distance that the desired route would actually traverse with the fuel and capacity constraints
 */
 
-float Vehicle::SimulateDrive(const vector<int>& desiredRoute, bool verbose)
+float Vehicle::SimulateDrive(const vector<Node> &route, bool verbose)
 {
+	vector<int> encoded_route = HelperFunctions::GetIndexEncodedTour(route);
 	ResetVehicle();
 	if(verbose)
 	{
 		cout << "Simulating drive of ";
-		HelperFunctions::PrintTour(desiredRoute);
+		HelperFunctions::PrintTour(encoded_route);
 	}
 
-	vector<Node> charger_nodes;
-	for(const auto &node : _nodes)
-	{
-		if(node.isCharger) charger_nodes.push_back(node);
-	}
+	const vector<Node> charger_nodes = problem_definition->GetChargingNodes();
 
 	vector<int> padded_tour;
 	//we start the padded tour at the depot (or node 0)
@@ -51,14 +50,14 @@ float Vehicle::SimulateDrive(const vector<int>& desiredRoute, bool verbose)
 	int customer_nodes_serviced = 0;
 
 	//the true desired route should be the desired route plus the depot at the very end
-	vector<int> desired_route = {desiredRoute.begin(), desiredRoute.end()};
+	vector<int> desired_route = {encoded_route.begin(), encoded_route.end()};
 	desired_route.push_back(0);
 	
 	while(customer_nodes_serviced < static_cast<int>(desired_route.size()))
 	{
 		const int desired_route_index = desired_route[customer_nodes_serviced];
-		Node current_node = _nodes[current_node_index];
-		Node next_desired_node = _nodes[desired_route_index];
+		Node current_node = problem_definition->GetNodeFromIndex(current_node_index);
+		Node next_desired_node = problem_definition->GetNodeFromIndex(desired_route_index);
 		
 		const int demand_cost = next_desired_node.demand;
 
@@ -75,7 +74,7 @@ float Vehicle::SimulateDrive(const vector<int>& desiredRoute, bool verbose)
 		}
 		else
 		{
-			safe_route = pathfinding(charger_nodes, current_node, _nodes[0], result);
+			safe_route = pathfinding(charger_nodes, current_node, problem_definition->GetDepotNode(), result);
 			if(verbose) cout << "I need to stop at the depot before I go to customer " << next_desired_node.index << endl;
 		}
 
@@ -153,10 +152,11 @@ vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, 
 
 	Node current_node = start;
 	vector<Node> visited_nodes = {start};
-	
+	//cout << "== Pathfinding ==" << endl;
 	while(!found_route_to_end)
 	{
 		//cout << "My current range is " << current_battery << endl;
+		//cout << "Distance to the next node is " << BatteryCost(current_node, end) << endl;
 		//if we can go from the current node to the end safely, we are done
 		if(CanGetToNextCustomerSafely(current_node, end, current_battery))
 		{
@@ -191,7 +191,7 @@ vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, 
 			//cout << "There are " << nodes_in_range.size() << " nodes within my current battery range" << endl;
 			if(nodes_in_range.empty())
 			{
-				//cout << "Oh... I am stranded. Oops ig" << endl;
+				cout << "Oh... I am stranded. Oops ig" << endl;
 				out_result = ImpossibleRoute;
 				return {};
 			}
@@ -222,6 +222,8 @@ vector<Node> Vehicle::pathfinding(const vector<Node>& graph, const Node& start, 
 		out_result = RouteThroughChargers;
 	}
 
+	//cout << "== Pathfinding ==" << endl;
+
 	return visited_nodes;
 }
 
@@ -237,14 +239,15 @@ int Vehicle::GetClosestChargingStationToNode(const Node &node) const
 	float closest = numeric_limits<float>::max();
 	int closestChargerIndex = -1;
 
-	for (size_t i = 0; i < _nodes.size(); i++)
+	const vector<Node> charging_nodes = problem_definition->GetChargingNodes();
+	for (const auto& charging_node : charging_nodes)
 	{
-		if (_nodes[i].isCharger && _nodes[i].index != node.index)
+		if (charging_node.index != node.index)
 		{
-			const float dist = HelperFunctions::CalculateInterNodeDistance(node, _nodes[i]);
+			const float dist = HelperFunctions::CalculateInterNodeDistance(node, charging_node);
 			if (dist < closest)
 			{
-				closestChargerIndex = static_cast<int>(i);
+				closestChargerIndex = charging_node.index;
 				closest = dist;
 			}
 		}
@@ -279,7 +282,7 @@ bool Vehicle::CanGetToNextCustomerSafely(const Node& from, const Node& to, const
 		return false;
 	}
 
-	const Node closestCharger = _nodes[chargerIndex];
+	const Node closestCharger = problem_definition->GetNodeFromIndex(chargerIndex);
 	if (battery_level > BatteryCost(from, to) + BatteryCost(to, closestCharger))
 	{
 		return true;
@@ -320,8 +323,8 @@ float Vehicle::CalculateFullRouteDistance(const vector<int> &trueRoute, bool ver
 		{
 			cout << "Calculating distance starting at node " << trueRoute[i - 1] << " and going to node " << trueRoute[i] << endl;
 		}
-		Node currentNode = _nodes[trueRoute[i-1]];
-		Node nextNode = _nodes[trueRoute[i]];
+		Node currentNode = problem_definition->GetNodeFromIndex(trueRoute[i-1]);
+		Node nextNode = problem_definition->GetNodeFromIndex(trueRoute[i]);
 
 		dist += HelperFunctions::CalculateInterNodeDistance(currentNode, nextNode);
 	}

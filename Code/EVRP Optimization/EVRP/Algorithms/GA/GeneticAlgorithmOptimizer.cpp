@@ -1,11 +1,14 @@
 #include "GeneticAlgorithmOptimizer.h"
+
+#include <cassert>
 #include <set>
 #include "../../Vehicle.h"
 #include "../../HelperFunctions.h"
+#include "../../SolutionSet.h"
 
-void GeneticAlgorithmOptimizer::SetSeedSolutions(vector<vector<int>> seed)
+void GeneticAlgorithmOptimizer::SetSeedSolutions(const SolutionSet* seed)
 {
-	seed_solutions = {seed.begin(), seed.end()};
+	seed_solutions = new SolutionSet(seed);
 	has_seed_solutions = true;
 }
 
@@ -32,27 +35,23 @@ void GeneticAlgorithmOptimizer::SetSeedSolutions(vector<vector<int>> seed)
 * The fitness of each solution is represented by the true distance of the route as simulated by the Vehicle class.
 * We seek to minimize the true distance through a Genetic Algorithm approach. 
 * 
-* @param bestTour An out parameter that will represent the best tour upon completion of this function
-* @param bestDistance An out parameter for the true distance of the best tour 
+* @param best_solution
 */
-void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDistance)
+void GeneticAlgorithmOptimizer::Optimize(solution &best_solution)
 {
 	//Vehicle class used to calculate the fitness of each route. Initialized with each Node, the vehicle's batter capacity, load capacity, and battery consumption rate
-	
-	vector<vector<int>> population;
-	vector<float> tourDistances;
+	auto *current_generation = new SolutionSet();
 
 	int seed_solution_count = 0;
 	if(has_seed_solutions)
 	{
 		cout << "GA using seed solutions" << endl;
-		seed_solution_count = static_cast<int>(seed_solutions.size());
-		for(const auto &seed : seed_solutions)
+		seed_solution_count = seed_solutions->GetNumberOfSolutions();
+		for(const auto &seed : seed_solutions->GetSolutionSet())
 		{
-			population.push_back(seed);
-			tourDistances.push_back(vehicle->SimulateDrive(seed));
+			current_generation->AddSolutionToSet(seed);
 
-			if(population.size() >= POPULATION_SIZE) break;
+			if(current_generation->GetNumberOfSolutions() >= POPULATION_SIZE) break;
 		}
 	}
 	
@@ -60,19 +59,20 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 	for (int i = 0; i < POPULATION_SIZE - seed_solution_count; i++)
 	{
 		//Generate initial solutions, then calculate the fitnesses using the Vehicle.SimulateDrive()
-		vector<int> initialTour = HelperFunctions::GenerateRandomTour(problem_data.customerStartIndex, (static_cast<int>(problem_data.nodes.size()) - problem_data.customerStartIndex));
-		float tourDistance = vehicle->SimulateDrive(initialTour);
+		vector<Node> initial_tour = problem_data->GenerateRandomTour();
+		solution initial_solution = {initial_tour, vehicle->SimulateDrive(initial_tour)};
 
 		//Add the initial solutions and initial distances (fitness of solution) to respective vectors
-		population.push_back(initialTour);
-		tourDistances.push_back(tourDistance);
+		current_generation->AddSolutionToSet(initial_solution);
 	}
 
-	assert(population.size() == POPULATION_SIZE);
-	assert(population.size() == tourDistances.size());
+	
+	assert(current_generation->GetNumberOfSolutions() == POPULATION_SIZE);
 
-	cout << "Average fitness for first generation: " << CalculateAverageSolution(tourDistances) << endl;
-	cout << "Best fitness for first generation: " << CalculateBestSolution(tourDistances) << endl;
+	
+	cout << "Average fitness for first generation: " << current_generation->GetAverageDistance() << endl;
+	cout << "Best fitness for first generation: " << current_generation->GetBestSolution().distance << endl;
+	/*
 	if(has_seed_solutions)
 	{
 		ofstream file;
@@ -82,45 +82,52 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 		file << "\n";
 		file.close();
 	}
+	*/
 
 	//iterate for #MAX_GENERATIONS generations
 	for (int generation = 0; generation < MAX_GENERATIONS; generation++)
 	{
+		cout << "=================================================" << endl;
 		cout << "Currently calculating generation: " << generation << endl;
 		//PrintIfTheTimeIsRight("Genetic Algorithm", generation, MAX_GENERATIONS);
 		//if (generation % (MAX_GENERATIONS / 100) == 0) 
 		//cout << "Currently calculating generation: " << generation << " which is " << (static_cast<float>(generation) / static_cast<float>(MAX_GENERATIONS)) * 100.f << "% of the way done" << endl;
 
-		vector<vector<int>> newPopulation;
-		vector<float> newDistances;
+		//vector<vector<int>> newPopulation;
+		//vector<float> newDistances;
+
+		auto *next_generation = new SolutionSet();
 
 		for (int i = 0; i < POPULATION_SIZE; i++)
 		{
 			//select parents
 			//perform crossover between parents
 			//mutate child
-			const vector<int> parentTour1 = TournamentSelection(population, tourDistances);
-			const vector<int> parentTour2 = TournamentSelection(population, tourDistances);
-			vector<int> childTour = Crossover(parentTour1, parentTour2);
+			//const vector<int> parentTour1 = TournamentSelection(population, tourDistances);
+			//const vector<int> parentTour2 = TournamentSelection(population, tourDistances);
+			const solution parent_solution_1 = TournamentSelection(current_generation);
+			const solution parent_solution_2 = TournamentSelection(current_generation);
+			
+			solution child = Crossover(parent_solution_1, parent_solution_2);
 			const int r = HelperFunctions::RandomNumberGenerator(0, 100);
 			if (r <= static_cast<int>(MUTATION_RATE * 100.f))
 			{
-				Mutate(childTour);
+				Mutate(child);
 			}
 
 			//add child to new population and calculate new fitness 
-			float tourDistance = vehicle->SimulateDrive(childTour);
+			child.distance = vehicle->SimulateDrive(child.tour);
 
-			newPopulation.push_back(childTour);
-			newDistances.push_back(tourDistance);
+			next_generation->AddSolutionToSet(child);
 		}
-		population = newPopulation;
-		tourDistances = newDistances;
+		current_generation = next_generation;
 
-		assert(population.size() == tourDistances.size());
+		assert(current_generation->GetNumberOfSolutions() == POPULATION_SIZE);
 
-		cout << "Average fitness for generation " << generation << ": " << CalculateAverageSolution(tourDistances) << endl;
-		cout << "Best fitness for generation: " << generation << ": " << CalculateBestSolution(tourDistances) << endl;
+		
+		cout << "Average fitness for generation " << generation << ": " << current_generation->GetAverageDistance() << endl;
+		cout << "Best fitness for generation: " << generation << ": " << current_generation->GetBestSolution().distance << endl;
+		/*
 		if(has_seed_solutions && generation % 25 == 0)
 		{
 			ofstream file;
@@ -130,6 +137,7 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 			file << "\n";
 			file.close();
 		}
+		*/
 		/*
 		//display best fitness each generation
 		float best_gen_distance = numeric_limits<float>::max();
@@ -148,18 +156,7 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 	}
 
 	//select the best tour after #MAX_GENERATIONS generations
-	bestDistance = numeric_limits<float>::max();
-	for (int i = 0; i < POPULATION_SIZE; i++)
-	{
-		const vector<int> tour = population[i];
-
-		const float distance = tourDistances[i];
-		if (distance < bestDistance)
-		{
-			bestTour = tour;
-			bestDistance = distance;
-		}
-	}
+	best_solution = current_generation->GetBestSolution();
 
 	//cout << "Best tour: ";
 	//HelperFunctions::PrintTour(bestTour);
@@ -171,31 +168,22 @@ void GeneticAlgorithmOptimizer::Optimize(vector<int>& bestTour, float& bestDista
 * 
 * Tournament selection selects the best parent out of #TOURNAMENT_SIZE possible parents
 * 
-* @param population The entire population, which consists of a vector of vectors of ints. We are selecting our candidate solution from the list of all solutions
-* @param distances The distances associated with each solution in the population. We want to pass this so that we don't have to recalculate the fitness of each solution on the fly
+* @param current_population The entire population, which consists of a vector of vectors of ints. We are selecting our candidate solution from the list of all solutions
 * 
 * @return Returns the best solution (lowest true distance) out of max(2, #TOURNAMENT_SIZE) solutions
 */
-vector<int> GeneticAlgorithmOptimizer::TournamentSelection(const vector<vector<int>> population, const vector<float> distances) const
+solution GeneticAlgorithmOptimizer::TournamentSelection(const SolutionSet *current_population) const
 {
-	vector<int> bestTour;
-	double bestDistance = numeric_limits<double>::max();
-
+	auto *tournament_solutions = new SolutionSet();
+	
 	for (int i = 0; i < max(2, TOURNAMENT_SIZE); i++)
 	{
-		int index = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(population.size()) - 1);
-
-		vector<int> tour = population[index];
-		float distance = distances[index];
-
-		if (distance < bestDistance)
-		{
-			bestTour = tour;
-			bestDistance = distance;
-		}
+		solution s = current_population->GetRandomSolution();
+		tournament_solutions->AddSolutionToSet(s);
 	}
-	return bestTour;
+	return tournament_solutions->GetBestSolution();
 }
+
 
 /**
 * Critical element of the Genetic Algorithm.
@@ -204,32 +192,36 @@ vector<int> GeneticAlgorithmOptimizer::TournamentSelection(const vector<vector<i
 * elements are selected from the first parent, then the rest of the
 * elements are filled by unique elements of the second parent
 * 
-* @param parentTour1 The first parent solution we will perform crossover on
-* @param parentTour2 The second parent solution for the crossover algorithm
+* @param parent_1 The first parent solution we will perform crossover on
+* @param parent_2 The second parent solution for the crossover algorithm
 * 
 * @return A unique element crossover of parent1 and parent2. This vector should contain an unmodified subset of parent1, with the remaining indices filled with unique elements from parent2
 */
-vector<int> GeneticAlgorithmOptimizer::Crossover(const vector<int> parentTour1, const vector<int> parentTour2) const
+solution GeneticAlgorithmOptimizer::Crossover(const solution &parent_1, const solution &parent_2) const
 {
 	// Create a child vector with the same size as the parents
-	vector<int> child(parentTour1.size());
+	//vector<int> child(parentTour1.size());
+	//solution child = {};
+	vector<Node> child_tour(parent_1.tour.size());
+	//child_tour.reserve(parent_1.tour.size());
 
 	// Copy a random subset of elements from parent1 to the child
 	//int crossoverPoint = rand() % parentTour1.size();
-	const int crossoverPoint = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(parentTour1.size()));
-	copy_n(parentTour1.begin(), crossoverPoint, child.begin());
+	const int crossover_point = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(parent_1.tour.size()));
+	copy_n(parent_1.tour.begin(), crossover_point, child_tour.begin());
 
 	// Fill the remaining elements in the child with unique elements from parent2
-	int childIndex = crossoverPoint;
-	for (const int element : parentTour2)
+	int child_index = crossover_point;
+	for (const Node &element : parent_2.tour)
 	{
 		// Check if the element is already present in the child
-		if (find(child.begin(), child.end(), element) == child.end())
+		if (find(child_tour.begin(), child_tour.end(), element) == child_tour.end())
 		{
-			child[childIndex] = element;
-			++childIndex;
+			child_tour[child_index] = element;
+			++child_index;
 		}
 	}
+	/*
 	//this is to assert that the child doesn't contain any duplicates (i.e. the crossover algorithm didn't preserve uniqueness of the elements)
 	set<int> unique_s(child.begin(), child.end());
 	vector<int> unique_v(unique_s.begin(), unique_s.end());
@@ -242,8 +234,9 @@ vector<int> GeneticAlgorithmOptimizer::Crossover(const vector<int> parentTour1, 
 			HelperFunctions::PrintTour(unique_v);
 			cout << "\n\n\n======================\n\n\n" << endl;
 		}
-	}
+	}*/
 
+	solution child = {child_tour};
 	return child;
 }
 
@@ -254,9 +247,9 @@ vector<int> GeneticAlgorithmOptimizer::Crossover(const vector<int> parentTour1, 
 * 
 * @param child The solution that needs to be mutated
 */
-void GeneticAlgorithmOptimizer::Mutate(vector<int>& child)
+void GeneticAlgorithmOptimizer::Mutate(solution &child)
 {
-	int index1 = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(child.size()) - 1);
-	int index2 = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(child.size()) - 1);
-	swap(child[index1], child[index2]);
+	const int index1 = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(child.tour.size()) - 1);
+	const int index2 = HelperFunctions::RandomNumberGenerator(0, static_cast<int>(child.tour.size()) - 1);
+	swap(child.tour[index1], child.tour[index2]);
 }

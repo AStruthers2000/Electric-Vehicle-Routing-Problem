@@ -1,18 +1,16 @@
 #pragma once
 #include "../AlgorithmBase.h"
-#include "../../GraphStructure.h"
-#include <numeric>
-#include <vector>
+class SolutionSet;
 
 constexpr int POPULATION_SIZE = 200; /*!< Size of the population, aka how many solutions should each successive generation have*/
-constexpr int MAX_GENERATIONS = 1000; /*!< Number of generations the evolution will take place over.*/
+constexpr int MAX_GENERATIONS = 500; /*!< Number of generations the evolution will take place over.*/
 constexpr int TOURNAMENT_SIZE = 20; /*!< The number of candidate solutions chosen at random from the current population when doing tournament selection*/
 constexpr float MUTATION_RATE = 0.2f; /*!< The percent chance that each child will get mutated*/
 
 class GeneticAlgorithmOptimizer : public AlgorithmBase
 {
 public:
-	GeneticAlgorithmOptimizer(const EVRP_Data &data) :
+	GeneticAlgorithmOptimizer(const ProblemDefinition *data) :
 		AlgorithmBase("Genetic Algorithm", data)
 	{
 		vector<string> hyper_parameters;
@@ -25,17 +23,18 @@ public:
 		SetHyperParameters(hyper_parameters);
 	}
 
-	void SetSeedSolutions(vector<vector<int>> seed);
-	void Optimize(vector<int>& bestTour, float& bestDistance) override;
+	void SetSeedSolutions(const SolutionSet* seed);
+	void Optimize(solution &best_solution) override;
 
 private:
-	vector<int> TournamentSelection(const vector<vector<int>> population, const vector<float> distances) const;
-	vector<int> Crossover(const vector<int> parentTour1, const vector<int> parentTour2) const;
-	void Mutate(vector<int>& child);
+	solution TournamentSelection(const SolutionSet *current_population) const;
+	solution Crossover(const solution &parent_1, const solution &parent_2) const;
+	void Mutate(solution &child);
 
-	vector<vector<int>> seed_solutions;
+	SolutionSet* seed_solutions;
 	bool has_seed_solutions = false;
 
+	/*
 	float CalculateAverageSolution(vector<float> distances) const
 	{
 		if(distances.empty()) return 0;
@@ -51,5 +50,6 @@ private:
 		const float result = *min_element(begin(distances), end(distances));
 		return result;
 	}
+	*/
 };
 

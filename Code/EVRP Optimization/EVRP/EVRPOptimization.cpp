@@ -1,5 +1,3 @@
-// Honor code: I pledge that I have neither given nor received help from anyone other than the instructor or the TAs for all work components included here. -- Andrew
-
 /*! \mainpage EVRP Home Page
 * \section proj_description Project Description
 * Electric vehicles (EVs) have gained significant attention in recent years 
@@ -35,10 +33,11 @@
 * EVRP_Solver object, which has the method SolveEVRP()
 */
 
-#include "EVRP_Solver.h"
+#include <iostream>
 #include <thread>
+#include "EVRP_Solver.h"
 
-#include "Algorithms/NEH/NEH_NearestNeighbor.h"
+using namespace std;
 
 /*
 //ALL FILES IN ASCENDING ORDER
@@ -138,7 +137,7 @@ void SeedSolve(const vector<string> &files, int num_threads, EVRP_Solver::SeedAl
 {
     for(const auto &file : files)
     {
-        EVRP_Solver* solver = new EVRP_Solver(file);
+        const auto* solver = new EVRP_Solver(file);
         solver->SolveEVRP_Seed(alg);
     }
 }
@@ -157,7 +156,7 @@ void SeedSolve(const vector<string> &files, int num_threads, EVRP_Solver::SeedAl
 int main()
 {
     //list of files to run our tests on
-    const vector<string> test_files = { "rc101_21.txt" };
+    const vector<string> test_files = { "rc103c15.txt" };
 
     //ALL NON-TIME-WINDOW-SPECIFIC-PROBLEMS IN ASCENDING ORDER
     const vector<string> full_files = {
@@ -178,7 +177,7 @@ int main()
     {
     case Debug:
         {
-            const auto *solver = new EVRP_Solver("c101c5.txt");
+            const auto *solver = new EVRP_Solver("r101_21.txt");
             if(solver->IsGoodOpen()) solver->DebugEVRP();
             break;
         }
