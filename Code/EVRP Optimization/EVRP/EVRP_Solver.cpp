@@ -51,120 +51,86 @@ EVRP_Solver::EVRP_Solver(const string &file_name)
 		return;
 	}
 	_current_filename = file_name;
-
-	/*
+	
 	vector<Node> nodes;
 	VehicleParameters params;
-	int node_index = 0;
 
+	int node_index = 0;
 	string line;
+
+	//ignore the header
+	getline(file, line);
+
+	//read all nodes
 	while(getline(file, line))
 	{
 		istringstream iss(line);
-		Node node;
+		Node node = {};
 		string StringID;
 		char type;
-		if(!(iss >> StringID >> type >> node.x >> node.y >> node.demand >> node.ready_time >> node.due_data >> node.service_time))
+		float demand;
+		if(iss >> StringID >> type >> node.x >> node.y >> demand >>node.ready_time >> node.due_date >> node.service_time)
 		{
-			cerr<<"Error reading nodes from file" << endl;
-		}
-		switch(type)
-		{
-		case 'f':
-			node.node_type = Charger;
-			node.isCharger = true;
-			break;
-		case 'c':
-			node.node_type = Customer;
-			break;
-		case 'd':
-			node.node_type = Depot;
-			break;
-		default: break;
-		}
-		node.index = node_index;
-		node_index++;
-		nodes.push_back(node);
-	}
-
-	getline(file, line);
-	istringstream params_stream(line);
-	if(!(params_stream >> params.battery_capacity >> params.load_capacity >> params.battery_consumption_rate >> params.inverse_recharging_rate >> params.average_velocity))
-	{
-		cerr << "Error reading vehicle parameters from file" << endl;
-	}
-	*/
-	
-	string ID;
-	char nodeType;
-	string line;
-	double x, y;
-	int demand;
-	int index = 0;
-	vector<Node> nodes;
-	VehicleParameters params;
-	int customerStartIndex = -1;
-	while (getline(file, line))
-	{
-		istringstream iss(line);
-		if (!(iss >> ID >> nodeType >> x >> y >> demand))
-		{
-			char type = line[0];
-			size_t pos = 0;
-			string token;
-			while ((pos = line.find('/')) != string::npos)
-			{
-				token = line.substr(0, pos);
-				line.erase(0, pos + 1);
-			}
-			if (!token.empty())
-			{
-				float num = stof(token);
-				switch (type)
-				{
-				case 'Q':
-					//vehicleBatteryCapacity = num;
-					params.battery_capacity = num;
-					break;
-				case 'C':
-					//vehicleLoadCapacity = static_cast<int>(num);
-					params.load_capacity = static_cast<int>(num);
-					break;
-				case 'r':
-					//vehicleFuelConsumptionRate = num;
-					params.battery_consumption_rate = num;
-					break;
-				default:
-					break;
-				}
-			}
-		}
-		else
-		{
-			Node n;
-			n.x = x; n.y = y;
-			n.demand = demand;
-			switch(nodeType)
+			node.demand = static_cast<int>(demand);
+			switch(type)
 			{
 			case 'f':
-				n.node_type = Charger;
-				n.isCharger = true;
+				node.node_type = Charger;
+				node.isCharger = true;
 				break;
 			case 'c':
-				n.node_type = Customer;
+				node.node_type = Customer;
 				break;
 			case 'd':
-				n.node_type = Depot;
+				node.node_type = Depot;
 				break;
 			default: break;
 			}
-			n.index = index;
-			nodes.push_back(n);
-			index++;
+			node.index = node_index;
+			node_index++;
+			nodes.push_back(node);
+		}
+		else
+		{
+			break;
 		}
 	}
-	//data = EVRP_Data{ nodes, vehicleBatteryCapacity, vehicleLoadCapacity, vehicleFuelConsumptionRate, data.customerStartIndex };
-	
+
+	//read the vehicle parameters
+	while(getline(file, line))
+	{
+		istringstream params_stream(line);
+		char identifier = line[0];
+
+		float value = 0;
+		string segment;
+		vector<string> seglist;
+		while(getline(params_stream, segment, '/'))
+		{
+			seglist.push_back(segment);
+		}
+		value = stof(seglist[1]);
+		
+		switch(identifier)
+		{
+		case 'Q':
+			params.battery_capacity = value;
+			break;
+		case 'C':
+			params.load_capacity = static_cast<int>(value);
+			break;
+		case 'r':
+			params.battery_consumption_rate = value;
+			break;
+		case 'g':
+			params.inverse_recharging_rate = value;
+			break;
+		case 'v':
+			params.average_velocity = value;
+			break;
+		default: cout << "Unidentified vehicle parameter" << endl; break;
+		}
+	}
 	file.close();
 
 	problem_definition = new ProblemDefinition(nodes, params);

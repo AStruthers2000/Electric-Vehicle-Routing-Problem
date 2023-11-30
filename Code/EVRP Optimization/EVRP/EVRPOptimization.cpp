@@ -80,7 +80,7 @@ enum RunState
     Seeded_Test,
     Seeded_Full
 };
-constexpr RunState State = Seeded_Test;
+constexpr RunState State = Debug;
 
 
 /**
@@ -177,7 +177,7 @@ int main()
     {
     case Debug:
         {
-            const auto *solver = new EVRP_Solver("r101_21.txt");
+            const auto *solver = new EVRP_Solver("c103c5.txt");
             if(solver->IsGoodOpen()) solver->DebugEVRP();
             break;
         }

@@ -3,7 +3,6 @@
 #include <cassert>
 #include <iostream>
 #include <queue>
-#include <unordered_map>
 
 #include "HelperFunctions.h"
 
@@ -45,6 +44,7 @@ float Vehicle::SimulateDrive(const vector<Node> &route, bool verbose)
 
 	//we will track the full distance of the route in case there's any early returns
 	float full_distance = 0.f;
+	float route_time = 0.f;
 	
 	int current_node_index = 0;
 	int customer_nodes_serviced = 0;
@@ -60,6 +60,10 @@ float Vehicle::SimulateDrive(const vector<Node> &route, bool verbose)
 		Node next_desired_node = problem_definition->GetNodeFromIndex(desired_route_index);
 		
 		const int demand_cost = next_desired_node.demand;
+		const float time_cost = next_desired_node.service_time;
+
+		const float ready_time = next_desired_node.ready_time;
+		const float due_time = next_desired_node.due_date;
 
 		if(verbose) cout << "I am currently at node " << current_node.index << " and my goal is to go to node " << next_desired_node.index << endl;
 		if(verbose) cout << "The next node has a demand cost of " << demand_cost << " and I have " << currentInventoryCapacity << " inventory" << endl;
@@ -90,18 +94,29 @@ float Vehicle::SimulateDrive(const vector<Node> &route, bool verbose)
 			if(verbose) cout << "\tMy route has me going from node " << safe_route[i-1].index << " to node " << safe_route[i].index << endl;
 			padded_tour.push_back(safe_route[i].index);
 			currentBatteryCapacity -= BatteryCost(safe_route[i-1], safe_route[i]);
+			route_time += TimeCost(safe_route[i-1], safe_route[i]);
 			full_distance += HelperFunctions::CalculateInterNodeDistance(safe_route[i-1], safe_route[i]);
 			if(safe_route[i].isCharger)
 			{
 				if(verbose) cout << "\t\tNode " << safe_route[i].index << " is a charging station, so I need to fuel up" << endl;
+				route_time += RefuelingTime(currentBatteryCapacity);
 				currentBatteryCapacity = maxBatteryCapacity;
 			}
 		}
 
 		if(route_type == RouteToCustomer)
 		{
+			//outside time window, bad
+			if(route_time < ready_time || route_time > due_time)
+			{
+				//add some route punishment
+				//full_distance += 10000;
+			}
+
+			route_time += time_cost;
 			current_node_index = desired_route_index;
 			currentInventoryCapacity -= demand_cost;
+			
 			customer_nodes_serviced++;
 			if(verbose) cout << "I am now at node " << current_node_index << " and have serviced this customer" << endl;
 			assert(currentInventoryCapacity >= 0);
@@ -109,7 +124,10 @@ float Vehicle::SimulateDrive(const vector<Node> &route, bool verbose)
 		else if(route_type == RouteToDepot)
 		{
 			current_node_index = 0;
+			//reset the route time, aka new vehicle leaving the depot at t = 0
+			route_time = 0;
 			currentInventoryCapacity = maxInventoryCapacity;
+			route_time += RefuelingTime(currentBatteryCapacity);
 			currentBatteryCapacity = maxBatteryCapacity;
 			if(verbose) cout << "I made it to the depot, and have refilled my inventory and my battery capacity" << endl;
 		}
@@ -119,14 +137,14 @@ float Vehicle::SimulateDrive(const vector<Node> &route, bool verbose)
 		if(verbose) cout << "-------------------------------------------------------" << endl;
 	}
 
-	const float true_distance = CalculateFullRouteDistance(padded_tour);
+	//const float true_distance = CalculateFullRouteDistance(padded_tour);
 	//cout << "True distance: " << true_distance << ", and \"simulated\" full distance: " << full_distance << endl;
-	assert(fabs(true_distance - full_distance) < 1);
+	//assert(fabs(true_distance - full_distance) < 1);
 
 	if(verbose)
 	{
 		cout << "----------------------------------------" << endl;
-		cout << "True route with distance " << true_distance << ": ";
+		cout << "True route with distance " << full_distance << ": ";
 		for (const auto i : padded_tour)
 		{
 			cout << i << " ";
@@ -134,7 +152,7 @@ float Vehicle::SimulateDrive(const vector<Node> &route, bool verbose)
 		cout << endl;
 		cout << "----------------------------------------" << endl;
 	}
-	return true_distance;
+	return full_distance;
 }
 
 /**
@@ -302,6 +320,28 @@ bool Vehicle::CanGetToNextCustomerSafely(const Node& from, const Node& to, const
 float Vehicle::BatteryCost(const Node &node1, const Node &node2) const
 {
 	return HelperFunctions::CalculateInterNodeDistance(node1, node2) * batteryConsumptionRate;
+}
+
+/**
+ * \brief 
+ * \param node1 
+ * \param node2 
+ * \return 
+ */
+float Vehicle::TimeCost(const Node& node1, const Node& node2) const
+{
+	return HelperFunctions::CalculateInterNodeDistance(node1, node2) * _averageVelocity;
+}
+
+/**
+ * \brief 
+ * \param battery_level 
+ * \return 
+ */
+float Vehicle::RefuelingTime(const float battery_level)
+{
+	const float difference = maxBatteryCapacity - battery_level;
+	return difference / _inverseRefuelingRate;
 }
 
 /** 

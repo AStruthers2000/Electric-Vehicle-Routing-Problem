@@ -34,7 +34,7 @@ struct Node
 	int demand;
 	NodeType node_type;
 	float ready_time;
-	float due_data;
+	float due_date;
 	float service_time;
 	int index;
 	bool isCharger = false;

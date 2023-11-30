@@ -18,6 +18,8 @@ public:
 		_battery = problem->GetVehicleParameters().battery_capacity;
 		_inventory = problem->GetVehicleParameters().load_capacity;
 		_batteryRate = problem->GetVehicleParameters().battery_consumption_rate;
+		_inverseRefuelingRate = problem_definition->GetVehicleParameters().inverse_recharging_rate;
+		_averageVelocity = problem_definition->GetVehicleParameters().average_velocity;
 		ResetVehicle();
 	}
 
@@ -51,6 +53,8 @@ private:
 	bool CanGetToNextCustomerSafely(const Node &from, const Node &to) const;
 	bool CanGetToNextCustomerSafely(const Node &from, const Node &to, const float battery_level) const;
 	float BatteryCost(const Node &node1, const Node &node2) const;
+	float TimeCost(const Node &node1, const Node &node2) const;
+	float RefuelingTime(const float battery_level);
 	float CalculateFullRouteDistance(const vector<int> &trueRoute, bool verbose=false) const;
 	vector<Node> GetAllNodesWithinRange(const vector<Node> &graph, const Node &node, float battery) const;
 	Node GetClosestNodeFromRange(const vector<Node> &graph, const Node &node) const;
@@ -61,6 +65,8 @@ private:
 	float _battery; /*!< An internal variable that holds the state of the maximum battery capacity*/
 	int _inventory; /*!< An internal variable that holds the state of the maximum vehicle inventory capacity*/
 	float _batteryRate; /*!< An internal variable that holds the state of the rate in which the battery discharges over distance */
+	float _inverseRefuelingRate;
+	float _averageVelocity;
 	const ProblemDefinition *problem_definition;
 
 	float currentBatteryCapacity;/*!< The current battery capacity, updated during the simulation of the driving*/
